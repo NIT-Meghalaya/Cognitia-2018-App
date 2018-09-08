@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class WelcomeActivity extends Activity {
 
-    private ViewPager viewPager;
+   /* private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
     private TextView[] dots;
@@ -56,5 +56,5 @@ public class WelcomeActivity extends Activity {
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerpageChangeListener);
 
-    }
+    }*/
 }
