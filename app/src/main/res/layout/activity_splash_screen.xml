@@ -4,15 +4,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark">
+    android:background="@android:color/black">
 
-    <ImageView
+
+
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/splashImageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/logo"
+        android:src="@drawable/preloader"
         />
 
     <TextView
@@ -21,8 +23,10 @@
         android:layout_below="@id/splashImageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:text="Cognitia '18"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="40dp"/>
+        android:fontFamily="@font/orbitron_medium"
+        android:text="@string/cognitia_18"
+        android:textColor="#ededed"
+        android:textSize="40dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
