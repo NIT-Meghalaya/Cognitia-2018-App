@@ -18,15 +18,22 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import fr.castorflex.android.verticalviewpager.VerticalViewPager;
+
+//Commented out code is mainly used when we are displaying a normal ViewPager
+
 public class WelcomeActivity extends Activity {
 
-    private ViewPager viewPager;
+    private VerticalViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
     private PreferenceManager preferenceManager;
+
+    private static final float MIN_SCALE = 0.75f;
+    private static final float MIN_ALPHA = 0.75f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +54,9 @@ public class WelcomeActivity extends Activity {
         setContentView(R.layout.activity_welcome);
 
         viewPager = findViewById(R.id.view_pager);
-        dotsLayout = findViewById(R.id.layoutDots);
+        /*dotsLayout = findViewById(R.id.layoutDots);
         btnSkip = findViewById(R.id.btn_skip);
-        btnNext = findViewById(R.id.btn_next);
+        btnNext = findViewById(R.id.btn_next);*/
 
         //Layout for all welcome sliders
         layouts = new int[] {
@@ -59,14 +66,14 @@ public class WelcomeActivity extends Activity {
                 R.layout.welcome_slide4 };
 
         //Adding bottom dots
-        addBottomDots(0);
+        //addBottomDots(0);
 
         //Making notification bar transparent
         changeStatusBarColor();
 
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerpageChangeListener);
+        /*viewPager.addOnPageChangeListener(viewPagerpageChangeListener);
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +93,44 @@ public class WelcomeActivity extends Activity {
                     viewPager.setCurrentItem(current);
                 } else {
                     launchHomeScreen();
+                }
+            }
+        });*/
+
+        //View scales down before becoming invisible
+        viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(View view, float position) {
+                int pageWidth = view.getWidth();
+                int pageHeight = view.getHeight();
+
+                if (position < -1) { // [-Infinity,-1)
+                    // This page is way off-screen to the left.
+                    view.setAlpha(0);
+
+                } else if (position <= 1) { // [-1,1]
+                    // Modify the default slide transition to shrink the page as well
+                    float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
+                    float vertMargin = pageHeight * (1 - scaleFactor) / 2;
+                    float horzMargin = pageWidth * (1 - scaleFactor) / 2;
+                    if (position < 0) {
+                        view.setTranslationY(vertMargin - horzMargin / 2);
+                    } else {
+                        view.setTranslationY(-vertMargin + horzMargin / 2);
+                    }
+
+                    // Scale the page down (between MIN_SCALE and 1)
+                    view.setScaleX(scaleFactor);
+                    view.setScaleY(scaleFactor);
+
+                    // Fade the page relative to its size.
+                    view.setAlpha(MIN_ALPHA +
+                            (scaleFactor - MIN_SCALE) /
+                                    (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+
+                } else { // (1,+Infinity]
+                    // This page is way off-screen to the right.
+                    view.setAlpha(0);
                 }
             }
         });
@@ -173,14 +218,23 @@ public class WelcomeActivity extends Activity {
             layoutInflater = (LayoutInflater) getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
 
-            View view = layoutInflater.inflate(layouts[position], container, false);
-            container.addView(view);
+            View view;
+            if (position == layouts.length) {
+                //If all welcome slides have been covered, then show the MainActivity
+                view = layoutInflater.inflate(R.layout.activity_main, container, false);
+                launchHomeScreen();
+                finish();
+            } else {
+                view = layoutInflater.inflate(layouts[position], container, false);
+                container.addView(view);
+            }
             return view;
         }
 
         @Override
         public int getCount() {
-            return layouts.length;
+            //+1 because we need to show the layout of MainActivity also as a view
+            return layouts.length + 1;
         }
 
         @Override
