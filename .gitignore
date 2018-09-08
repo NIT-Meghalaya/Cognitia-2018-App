@@ -1,14 +1,14 @@
 *.iml
 .gradle
-/local.properties
+local.properties
 /.idea/workspace.xml
 /.idea/libraries
+.idea
 .DS_Store
 /build
 /captures
 .externalNativeBuild
-||||||| merged common ancestors
-=======
+
 # Built application files
 *.apk
 *.ap_
