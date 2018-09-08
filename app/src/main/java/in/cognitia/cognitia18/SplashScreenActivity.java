@@ -19,7 +19,7 @@ public class SplashScreenActivity extends Activity {
             //This method will be executed once the wait is over
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
                 startActivity(intent);
 
                 //Close this activity

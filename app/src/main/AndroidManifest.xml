@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name="in.cognitia.cognitia18.WelcomeActivity">
+        </activity>
     </application>
 
 </manifest>
