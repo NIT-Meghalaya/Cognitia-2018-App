@@ -7,10 +7,10 @@ package in.cognitia.cognitia18;
 public class EventCategory {
 
     private String name;
-    private long imageResId;
-    private long colorResId;
+    private int imageResId;
+    private int colorResId;
 
-    public EventCategory(String name, long imageResId, long colorResId) {
+    public EventCategory(String name, int imageResId, int colorResId) {
         this.name = name;
         this.imageResId = imageResId;
         this.colorResId = colorResId;
@@ -20,11 +20,11 @@ public class EventCategory {
         this.name = name;
     }
 
-    public void setImageResId(long imageResId) {
+    public void setImageResId(int imageResId) {
         this.imageResId = imageResId;
     }
 
-    public void setColorResId(long colorResId) {
+    public void setColorResId(int colorResId) {
         this.colorResId = colorResId;
     }
 
@@ -32,11 +32,11 @@ public class EventCategory {
         return name;
     }
 
-    public long getImageResId() {
+    public int getImageResId() {
         return imageResId;
     }
 
-    public long getColorResId() {
+    public int getColorResId() {
         return colorResId;
     }
 }
