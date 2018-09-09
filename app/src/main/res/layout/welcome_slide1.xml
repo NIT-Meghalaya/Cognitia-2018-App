@@ -35,5 +35,17 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
+
+
     </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/splashImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/scrolldown"
+        />
 </RelativeLayout>
