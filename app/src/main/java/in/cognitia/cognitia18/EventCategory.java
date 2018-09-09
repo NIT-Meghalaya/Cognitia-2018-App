@@ -10,6 +10,12 @@ public class EventCategory {
     private long imageResId;
     private long colorResId;
 
+    public EventCategory(String name, long imageResId, long colorResId) {
+        this.name = name;
+        this.imageResId = imageResId;
+        this.colorResId = colorResId;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
