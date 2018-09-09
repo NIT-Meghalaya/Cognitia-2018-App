@@ -36,13 +36,16 @@
             android:textSize="@dimen/slide_desc" />
 
     </LinearLayout>
-    <pl.droidsonroids.gif.GifImageView
+    <TextView
         android:layout_alignParentBottom="true"
-        android:id="@+id/splashImageView"
+        android:id="@+id/enterAppButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/scrolldown"
+        android:textColor="@android:color/white"
+        android:textAllCaps="true"
+        android:textSize="@dimen/slide_desc"
+        android:text="Enter"
         />
 </RelativeLayout>

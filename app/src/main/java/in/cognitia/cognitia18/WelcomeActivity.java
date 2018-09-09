@@ -215,26 +215,29 @@ public class WelcomeActivity extends Activity {
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            layoutInflater = (LayoutInflater) getSystemService(
-                    Context.LAYOUT_INFLATER_SERVICE);
+            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View view;
-            if (position == layouts.length) {
-                //If all welcome slides have been covered, then show the MainActivity
-                view = layoutInflater.inflate(R.layout.activity_main, container, false);
-                launchHomeScreen();
-                finish();
-            } else {
-                view = layoutInflater.inflate(layouts[position], container, false);
-                container.addView(view);
+            view = layoutInflater.inflate(layouts[position], container, false);
+            container.addView(view);
+
+            //If last slide, replace down indicator with an enter button to enter in app
+            if (position == layouts.length - 1) {
+                TextView enterAppButton = view.findViewById(R.id.enterAppButton);
+                enterAppButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        preferenceManager.setIsFirstTimeLaunch(false);
+                        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                    }
+                });
             }
             return view;
         }
 
         @Override
         public int getCount() {
-            //+1 because we need to show the layout of MainActivity also as a view
-            return layouts.length + 1;
+            return layouts.length;
         }
 
         @Override

@@ -26,6 +26,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.github.castorflex.verticalviewpager:library:19.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.0'
 
 }
