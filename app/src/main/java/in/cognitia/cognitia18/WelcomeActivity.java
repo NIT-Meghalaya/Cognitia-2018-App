@@ -98,7 +98,7 @@ public class WelcomeActivity extends Activity {
         });*/
 
         //View scales down before becoming invisible
-        viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+        /*viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View view, float position) {
                 int pageWidth = view.getWidth();
@@ -133,7 +133,7 @@ public class WelcomeActivity extends Activity {
                     view.setAlpha(0);
                 }
             }
-        });
+        });*/
     }
 
     private void addBottomDots(int currentPage) {
