@@ -24,4 +24,9 @@
     <string name="robotics">Robotics</string>
     <string name="departmental">Departmental</string>
     <string name="others">Others</string>
+
+    <string name="action_share">Share</string>
+    <string name="action_explore">Explore</string>
+    <string name="card_title">Card title</string>
+    <string name="card_content">Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </string>
 </resources>
