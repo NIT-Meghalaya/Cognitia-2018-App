@@ -3,6 +3,7 @@ package in.cognitia.cognitia18;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -52,6 +53,12 @@ public class EventsCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.events_category_fragment_layout, container, false);
 
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //super.onViewCreated(view, savedInstanceState);
         prepareEvents();
 
         recyclerView = view.findViewById(R.id.recycler_view);
@@ -63,7 +70,6 @@ public class EventsCategoryFragment extends Fragment {
         adapter = new EventsAdapter(getContext(), events);
         recyclerView.setAdapter(adapter);
 
-        return view;
     }
 
     //Create a list with dummy events
