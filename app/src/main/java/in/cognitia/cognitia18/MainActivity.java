@@ -2,9 +2,14 @@ package in.cognitia.cognitia18;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -19,12 +24,21 @@ public class MainActivity extends AppCompatActivity {
     private int[] colorArray;
     private ArrayList<EventCategory> eventCategories;
     private ArrayList<Fragment> fragments;
-
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+
         eventCategories = new ArrayList<>();
         eventCategories.add(new EventCategory(getString(R.string.robotics), R.drawable.ic_food, android.R.color.holo_blue_bright));
         eventCategories.add(new EventCategory(getString(R.string.departmental), R.drawable.ic_discount, android.R.color.holo_purple));
@@ -40,9 +54,18 @@ public class MainActivity extends AppCompatActivity {
         coordinatorTabLayout = findViewById(R.id.coordinatortablayout);
         coordinatorTabLayout.setTranslucentStatusBar(this)
                 .setTitle(getString(R.string.app_name))
-                .setBackEnable(true)
                 .setImageArray(imageArray, colorArray)
                 .setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initFragments() {
