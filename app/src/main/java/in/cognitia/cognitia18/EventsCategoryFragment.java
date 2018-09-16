@@ -63,9 +63,8 @@ public class EventsCategoryFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        //recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        //recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         adapter = new EventsAdapter(getContext(), events);
         recyclerView.setAdapter(adapter);

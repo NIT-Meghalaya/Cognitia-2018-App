@@ -1,6 +1,9 @@
 package in.cognitia.cognitia18;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -15,7 +18,8 @@ import java.util.ArrayList;
 
 import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+                            implements NavigationView.OnNavigationItemSelectedListener{
 
     private CoordinatorTabLayout coordinatorTabLayout;
     private ViewPager viewPager;
@@ -56,6 +60,25 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(getString(R.string.app_name))
                 .setImageArray(imageArray, colorArray)
                 .setupWithViewPager(viewPager);
+
+        TabLayout tabLayout = coordinatorTabLayout.getTabLayout();
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -66,6 +89,42 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    //Attempt to make view pager items respond to clicks in navigation drawer
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_robotics:
+                setViewPagerPage(0);
+                break;
+            case R.id.nav_departmental:
+                setViewPagerPage(1);
+                break;
+            case R.id.nav_others:
+                setViewPagerPage(2);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void setViewPagerPage(final int position) {
+        viewPager.post(new Runnable() {
+            @Override
+            public void run() {
+                viewPager.setCurrentItem(position, true);
+            }
+        });
     }
 
     private void initFragments() {
