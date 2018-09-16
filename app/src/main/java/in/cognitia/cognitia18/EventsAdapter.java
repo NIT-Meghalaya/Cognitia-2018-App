@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
     public class EventViewHolder extends RecyclerView.ViewHolder {
         public TextView name, description;
         public ImageView image;
+        public Context mContext;
 
         public EventViewHolder(View view) {
             super(view);
+
+            mContext = view.getContext();
+
             name = view.findViewById(R.id.card_name);
             description = view.findViewById(R.id.card_description);
             image = view.findViewById(R.id.card_image);
@@ -37,17 +42,21 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
+                    Intent intent = new Intent(mContext, EventDetailActivity.class);
                     intent.putExtra(EventDetailActivity.IMAGE_ID_EXTRA, getDrawableId(image));
+                    intent.putExtra(EventDetailActivity.EVENT_NAME_EXTRA, name.getText());
+
+                    //Implementing multiple transitions
+                    Pair<View, String> p1 = Pair.create((View)image, mContext.getString(R.string.event_image_trans));
 
                     ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation((Activity) view.getContext(), image,
-                                    "event_image_trans");
+                            makeSceneTransitionAnimation((Activity) mContext, p1);
                     view.getContext().startActivity(intent, options.toBundle());
                 }
             });
         }
 
+        //Implementing this because it is not possible to get image ID from an ImageView
         private int getDrawableId(ImageView imageView) {
             return (Integer) imageView.getTag(R.string.image_tag);
         }

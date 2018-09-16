@@ -1,6 +1,7 @@
 package in.cognitia.cognitia18;
 
 import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 public class EventDetailActivity extends AppCompatActivity {
 
     public static final String IMAGE_ID_EXTRA = "image_id_extra";
+    public static final String EVENT_NAME_EXTRA = "event_name_extra";
 
     ImageView imageView;
 
@@ -28,6 +30,10 @@ public class EventDetailActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
+
+        CharSequence eventName = intent.getStringExtra(EVENT_NAME_EXTRA);
+        CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle(eventName);
 
         int imageResId = intent.getIntExtra(IMAGE_ID_EXTRA, 0);
         imageView = findViewById(R.id.description_image);

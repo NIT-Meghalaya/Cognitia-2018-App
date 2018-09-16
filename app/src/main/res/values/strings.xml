@@ -39,4 +39,6 @@
     <string name="nav_feedback">Giv us feedback</string>
 
     <string name="image_tag">Image tag</string>
+    <string name="event_image_trans">Event image transition</string>
+    <string name="event_name_trans">Event name transition</string>
 </resources>

@@ -17,7 +17,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_food"
                 android:background="@color/bg_screen1"
-                android:transitionName="event_image_trans"
+                android:transitionName="@string/event_image_trans"
                 android:id="@+id/card_image"/>
             <LinearLayout
                 android:layout_width="match_parent"
