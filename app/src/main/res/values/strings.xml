@@ -37,4 +37,6 @@
     <string name="nav_support">Support</string>
     <string name="nav_help">Halp</string>
     <string name="nav_feedback">Giv us feedback</string>
+
+    <string name="image_tag">Image tag</string>
 </resources>

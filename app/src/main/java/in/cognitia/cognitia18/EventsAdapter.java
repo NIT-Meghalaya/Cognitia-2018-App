@@ -1,6 +1,9 @@
 package in.cognitia.cognitia18;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +33,23 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             name = view.findViewById(R.id.card_name);
             description = view.findViewById(R.id.card_description);
             image = view.findViewById(R.id.card_image);
+
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
+                    intent.putExtra(EventDetailActivity.IMAGE_ID_EXTRA, getDrawableId(image));
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation((Activity) view.getContext(), image,
+                                    "event_image_trans");
+                    view.getContext().startActivity(intent, options.toBundle());
+                }
+            });
+        }
+
+        private int getDrawableId(ImageView imageView) {
+            return (Integer) imageView.getTag(R.string.image_tag);
         }
     }
 
@@ -55,6 +75,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
 
         //Loading event image using Glide library
         Glide.with(context).load(event.getImageResId()).into(holder.image);
+        //Doing this to get the id of the drawable later
+        holder.image.setTag(R.string.image_tag, event.getImageResId());
     }
 
     @Override
