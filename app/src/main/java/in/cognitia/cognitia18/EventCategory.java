@@ -10,6 +10,10 @@ public class EventCategory {
     private int imageResId;
     private int colorResId;
 
+    //Defined so that data from Firebase can be serialized into a CognitiaEvent class
+    public EventCategory() {
+    }
+
     public EventCategory(String name, int imageResId, int colorResId) {
         this.name = name;
         this.imageResId = imageResId;

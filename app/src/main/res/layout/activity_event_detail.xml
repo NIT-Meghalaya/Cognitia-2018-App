@@ -45,12 +45,10 @@
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <LinearLayout
-                    xmlns:android="http://schemas.android.com/apk/res/android"
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/event_viewpager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                </LinearLayout>
+                    android:layout_height="match_parent"/>
 
             </android.support.v4.widget.NestedScrollView>
 
