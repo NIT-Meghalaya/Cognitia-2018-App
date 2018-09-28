@@ -55,7 +55,6 @@ public class EventsCategoryFragment extends Fragment {
         //Calling it here because setPersistenceEnabled() needs to be called before any other use of DB
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
