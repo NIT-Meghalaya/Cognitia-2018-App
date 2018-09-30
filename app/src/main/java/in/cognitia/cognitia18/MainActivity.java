@@ -18,8 +18,7 @@ import java.util.ArrayList;
 
 import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
 
-public class MainActivity extends AppCompatActivity
-                            implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
 
     private CoordinatorTabLayout coordinatorTabLayout;
     private ViewPager viewPager;
@@ -98,24 +97,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    //Attempt to make view pager items respond to clicks in navigation drawer
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_robotics:
-                setViewPagerPage(0);
-                break;
-            case R.id.nav_departmental:
-                setViewPagerPage(1);
-                break;
-            case R.id.nav_others:
-                setViewPagerPage(2);
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     private void setViewPagerPage(final int position) {

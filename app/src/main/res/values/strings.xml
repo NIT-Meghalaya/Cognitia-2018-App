@@ -21,6 +21,7 @@
     <string name="play_again">Play Again</string>
     <string name="cognitia_18">Cognitia \'18</string>
 
+    <string name="events">Events</string>
     <string name="robotics">Robotics</string>
     <string name="departmental">Departmental</string>
     <string name="others">Others</string>
@@ -30,13 +31,9 @@
     <string name="card_title">Card title</string>
     <string name="card_content">Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </string>
 
-    <string name="nav_inbox">Mesagez</string>
-    <string name="nav_drafts">Draftz</string>
-    <string name="nav_sent">Sent mesagez</string>
-    <string name="nav_trash">In da trash</string>
-    <string name="nav_support">Support</string>
-    <string name="nav_help">Halp</string>
-    <string name="nav_feedback">Giv us feedback</string>
+    <string name="nav_connect">Connect with us</string>
+    <string name="nav_team">Our team</string>
+    <string name="nav_feedback">Feedback</string>
 
     <string name="image_tag">Image tag</string>
     <string name="event_image_trans">Event image transition</string>
