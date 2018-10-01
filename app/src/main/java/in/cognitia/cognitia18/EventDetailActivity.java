@@ -1,35 +1,36 @@
 package in.cognitia.cognitia18;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
-
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class EventDetailActivity extends AppCompatActivity {
 
-    public static final String IMAGE_ID_EXTRA = "image_id_extra";
-    public static final String EVENT_NAME_EXTRA = "event_name_extra";
+    public static final String IMAGE_ID = "image_id_extra";
+    public static final String EVENT_NAME = "event_name_extra";
+    public static final String DESCRIPTION = "event_description";
+    public static final String AIM = "aim";
+    public static final String OBJECTIVE = "objective";
+    public static final String RULES = "rules";
 
-    ImageView imageView;
-    FirebaseDatabase database;
-    DatabaseReference eventDBReference;
-    ChildEventListener childEventListener;
-    CognitiaEvent cognitiaEvent;
+    private ImageView imageView;
+    private Bundle eventBundle;
+    private ViewPager viewPager;
+    private CognitiaEventPagerAdapter adapter;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,47 +46,24 @@ public class EventDetailActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
+        eventBundle = intent.getExtras();
 
-        CharSequence eventName = intent.getStringExtra(EVENT_NAME_EXTRA);
-        CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(eventName);
+        CharSequence eventName = eventBundle.getString(EVENT_NAME);
+        collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(eventName);
 
-        int imageResId = intent.getIntExtra(IMAGE_ID_EXTRA, 0);
+        setAccentColors();
+
+        //int imageResId = intent.getIntExtra(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
-        imageView.setImageResource(imageResId);
+        imageView.setImageResource(R.drawable.ic_travel);
 
-        database = FirebaseDatabase.getInstance();
-        //eventDBReference = database.getReference().child("events");
+        viewPager = findViewById(R.id.event_viewpager);
+        adapter = new CognitiaEventPagerAdapter(this, eventBundle);
+        viewPager.setAdapter(adapter);
 
-        childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //cognitiaEvent = dataSnapshot.getValue(CognitiaEvent.class);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        };
-
-        //eventDBReference.addChildEventListener(childEventListener);
-
+        TabLayout tabLayout = findViewById(R.id.event_tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -97,5 +75,32 @@ public class EventDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //Using palette API to extract colors from the image
+    private void setAccentColors() {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_travel);
+            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                @SuppressWarnings("ResourceType")
+                @Override
+                public void onGenerated(Palette palette) {
+
+                    int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
+                    int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimary);
+                    collapsingToolbarLayout.setContentScrimColor(vibrantColor);
+                    collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
+                }
+            });
+
+        } catch (Exception e) {
+            // if Bitmap fetch fails, fallback to primary colors
+            collapsingToolbarLayout.setContentScrimColor(
+                    ContextCompat.getColor(this, R.color.colorPrimary)
+            );
+            collapsingToolbarLayout.setStatusBarScrimColor(
+                    ContextCompat.getColor(this, R.color.colorPrimary)
+            );
+        }
     }
 }

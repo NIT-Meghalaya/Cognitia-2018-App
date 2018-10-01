@@ -8,7 +8,7 @@ public class CognitiaEvent extends EventCategory{
     private String shortDescription;
     private String name;
     private String description;
-    private String about;
+    private String aim;
     private String rules;
     private String robotSpecs;
     private String teamGuidelines;
@@ -55,12 +55,12 @@ public class CognitiaEvent extends EventCategory{
         return description;
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public void setAim(String aim) {
+        this.aim = aim;
     }
 
-    public String getAbout() {
-        return about;
+    public String getAim() {
+        return aim;
     }
 
     public void setRules(String rules) {

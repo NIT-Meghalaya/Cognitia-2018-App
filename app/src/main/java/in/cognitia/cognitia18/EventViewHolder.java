@@ -3,6 +3,7 @@ package in.cognitia.cognitia18;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
@@ -33,8 +34,18 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
-                intent.putExtra(EventDetailActivity.IMAGE_ID_EXTRA, getDrawableId(image));
-                intent.putExtra(EventDetailActivity.EVENT_NAME_EXTRA, name.getText());
+
+                CognitiaEvent event = EventsCategoryFragment.getEventsMap().get(name.getText());
+
+                Bundle eventBundle = new Bundle();
+                eventBundle.putString(EventDetailActivity.EVENT_NAME, event.getName());
+                eventBundle.putString(EventDetailActivity.DESCRIPTION, event.getDescription());
+                eventBundle.putString(EventDetailActivity.OBJECTIVE, event.getShortDescription());
+                eventBundle.putString(EventDetailActivity.RULES, event.getRules());
+                eventBundle.putString(EventDetailActivity.AIM, event.getAim());
+                eventBundle.putInt(EventDetailActivity.IMAGE_ID, getDrawableId(image));
+
+                intent.putExtras(eventBundle);
 
                 //Implementing multiple transitions
                 Pair<View, String> p1 = Pair.create((View)image, mContext.getString(R.string.event_image_trans));

@@ -149,6 +149,7 @@
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-base-15.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:palette-v7-26.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-core-3.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-iid-16.0.0" level="project" />

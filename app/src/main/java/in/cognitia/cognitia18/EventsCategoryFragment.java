@@ -21,7 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by devansh on 9/9/18.
@@ -31,9 +32,10 @@ public class EventsCategoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private FirebaseRecyclerAdapter adapter;
-    private List<CognitiaEvent> events;
     private static final String ARG_TITLE = "title";
     private String title;
+
+    private static Map<String, CognitiaEvent> eventMap = new HashMap<>();
 
     private FirebaseDatabase database;
     private DatabaseReference eventsDBReference;
@@ -55,6 +57,7 @@ public class EventsCategoryFragment extends Fragment {
         //Calling it here because setPersistenceEnabled() needs to be called before any other use of DB
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -81,12 +84,14 @@ public class EventsCategoryFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull EventViewHolder holder,
                                             int position, @NonNull CognitiaEvent event) {
+                eventMap.put(event.getName(), event);
+
                 holder.name.setText(event.getName());
                 holder.description.setText(event.getShortDescription());
-                holder.image.setImageResource(event.getImageResId());
+                holder.image.setImageResource(R.drawable.ic_travel);
 
                 //Loading event image using Glide library
-                Glide.with(getContext()).load(event.getImageResId()).into(holder.image);
+                //Glide.with(getContext()).load(event.getImageResId()).into(holder.image);
                 //Doing this to get the id of the drawable later
                 holder.image.setTag(R.string.image_tag, event.getImageResId());
             }
@@ -120,6 +125,10 @@ public class EventsCategoryFragment extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    public static Map<String, CognitiaEvent> getEventsMap() {
+        return eventMap;
     }
 
     /**
