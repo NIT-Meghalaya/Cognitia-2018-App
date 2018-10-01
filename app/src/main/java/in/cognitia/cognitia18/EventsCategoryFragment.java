@@ -74,6 +74,7 @@ public class EventsCategoryFragment extends Fragment {
 
 
         Query query = database.getReference().child("events").child("robotics");
+        query.keepSynced(true);
 
         FirebaseRecyclerOptions<CognitiaEvent> options =
                 new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
@@ -87,13 +88,13 @@ public class EventsCategoryFragment extends Fragment {
                 eventMap.put(event.getName(), event);
 
                 holder.name.setText(event.getName());
-                holder.description.setText(event.getShortDescription());
+                holder.description.setText(event.getDescription());
                 holder.image.setImageResource(R.drawable.ic_travel);
 
                 //Loading event image using Glide library
                 //Glide.with(getContext()).load(event.getImageResId()).into(holder.image);
                 //Doing this to get the id of the drawable later
-                holder.image.setTag(R.string.image_tag, event.getImageResId());
+                holder.image.setTag(R.string.image_tag, R.drawable.ic_travel);
             }
 
             @NonNull

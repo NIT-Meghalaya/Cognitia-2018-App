@@ -29,6 +29,7 @@ public class EventDetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private Bundle eventBundle;
     private ViewPager viewPager;
+    private int imageResId;
     private CognitiaEventPagerAdapter adapter;
     private CollapsingToolbarLayout collapsingToolbarLayout;
 
@@ -54,9 +55,9 @@ public class EventDetailActivity extends AppCompatActivity {
 
         setAccentColors();
 
-        //int imageResId = intent.getIntExtra(IMAGE_ID, 0);
+        imageResId = eventBundle.getInt(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
-        imageView.setImageResource(R.drawable.ic_travel);
+        imageView.setImageResource(imageResId);
 
         viewPager = findViewById(R.id.event_viewpager);
         adapter = new CognitiaEventPagerAdapter(this, eventBundle);
@@ -80,7 +81,7 @@ public class EventDetailActivity extends AppCompatActivity {
     //Using palette API to extract colors from the image
     private void setAccentColors() {
         try {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_travel);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imageResId);
             Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
                 @SuppressWarnings("ResourceType")
                 @Override

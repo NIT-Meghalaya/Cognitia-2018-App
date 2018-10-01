@@ -34,6 +34,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
+                intent.putExtra(EventDetailActivity.IMAGE_ID, getDrawableId(image));
 
                 CognitiaEvent event = EventsCategoryFragment.getEventsMap().get(name.getText());
 
