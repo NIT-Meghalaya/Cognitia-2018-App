@@ -119,6 +119,7 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android.arch.core:runtime-1.1.1" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-messaging-17.3.2" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-database-16.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:design-27.1.1" level="project" />
@@ -152,7 +153,6 @@
     <orderEntry type="library" name="com.android.support:palette-v7-26.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-core-3.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-iid-16.0.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-measurement-api-16.0.1" level="project" />
     <orderEntry type="library" name="android.arch.core:common:1.1.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-27.1.1" level="project" />
@@ -172,6 +172,7 @@
     <orderEntry type="library" name="com.google.android.gms:play-services-ads-identifier-15.0.1" level="project" />
     <orderEntry type="library" name="com.android.support:support-fragment-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-16.2.1" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-iid-17.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:support-media-compat-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-measurement-base-16.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:cardview-v7-26.1.0" level="project" />
