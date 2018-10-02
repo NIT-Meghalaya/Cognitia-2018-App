@@ -1,11 +1,22 @@
 package in.cognitia.cognitia18;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,19 +28,55 @@ import java.util.Random;
 
 public class TeamGalleryActivity extends AppCompatActivity {
 
+    private DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_gallery);
 
+        Toolbar toolbar = findViewById(R.id.team_gallery_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
+
+        drawerLayout = findViewById(R.id.team_drawer_layout);
+
         RecyclerView recyclerView = findViewById(R.id.rv_team_images);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration());
 
         ArrayList<CognitiaTeamMember> teamMembers = TeamMembersArrayInitializer.getTeamMembers();
 
         TeamGalleryRecyclerViewAdapter adapter = new TeamGalleryRecyclerViewAdapter(teamMembers);
         recyclerView.setAdapter(adapter);
+
+        NavigationView navigationView = findViewById(R.id.team_nav_view);
+        navigationView.setCheckedItem(R.id.nav_team);
+
+        NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.TEAM_GALLERY_ACTIVITY,
+                this, navigationView, drawerLayout);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public class TeamGalleryRecyclerViewAdapter extends RecyclerView.Adapter<
@@ -87,6 +134,17 @@ public class TeamGalleryActivity extends AppCompatActivity {
             randomPositionChecker[position] = true;
 
             return position;
+        }
+    }
+
+    //Removing margins between recycler view items
+    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            outRect.left = 0;
+            outRect.top = 0;
+            outRect.right = 0;
+            outRect.bottom = 0;
         }
     }
 }

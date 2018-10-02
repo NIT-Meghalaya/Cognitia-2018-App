@@ -54,8 +54,6 @@ public class EventsCategoryFragment extends Fragment {
         Bundle bundle = getArguments();
         title = bundle.getString(ARG_TITLE);
 
-        //Calling it here because setPersistenceEnabled() needs to be called before any other use of DB
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
     @Nullable

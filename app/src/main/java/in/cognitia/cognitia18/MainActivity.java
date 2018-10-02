@@ -15,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
@@ -30,10 +32,19 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> fragments;
     private DrawerLayout drawerLayout;
 
+    //This will help to prevent the call to setPersistenceEnabled more than once
+    private static boolean initialCall = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (initialCall) {
+            //setPersistenceEnabled() needs to be called before any other use of DB
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            initialCall = false;
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,21 +97,10 @@ public class MainActivity extends AppCompatActivity {
         TeamMembersArrayInitializer.addTeamMembers();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.nav_team:
-                                Intent teamIntent = new Intent(MainActivity.this, TeamGalleryActivity.class);
-                                startActivity(teamIntent);
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                }
-        );
+        navigationView.setCheckedItem(R.id.nav_events);
+
+        NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
+                this, navigationView, drawerLayout);
     }
 
     @Override
