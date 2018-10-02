@@ -24,15 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".EventDetailActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        <activity
+            android:name=".EventDetailActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".TeamGalleryActivity"></activity>
     </application>
 
 </manifest>

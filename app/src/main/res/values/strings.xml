@@ -38,4 +38,13 @@
     <string name="image_tag">Image tag</string>
     <string name="event_image_trans">Event image transition</string>
     <string name="event_name_trans">Event name transition</string>
+
+    <string name="post_head">Head</string>
+    <string name="post_coordinator">Coordinator</string>
+    <string name="post_coocoordinator">Co-coordinator</string>
+
+    <string name="team_app_development">App Development</string>
+
+    <string name="laribok">Laribok</string>
+    <string name="devansh">Devansh Maurya</string>
 </resources>

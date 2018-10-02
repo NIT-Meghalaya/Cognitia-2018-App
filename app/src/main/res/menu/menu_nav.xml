@@ -11,7 +11,7 @@
     <item android:title="@string/nav_connect" >
         <menu>
             <item
-                android:id="@+id/nav_help"
+                android:id="@+id/nav_team"
                 android:icon="@drawable/ic_team"
                 android:title="@string/nav_team" />
             <item

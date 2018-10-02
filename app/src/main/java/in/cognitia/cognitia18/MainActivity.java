@@ -1,5 +1,6 @@
 package in.cognitia.cognitia18;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
 
         eventCategories = new ArrayList<>();
-        eventCategories.add(new EventCategory(getString(R.string.robotics), R.drawable.ic_food, android.R.color.holo_blue_bright));
-        eventCategories.add(new EventCategory(getString(R.string.departmental), R.drawable.ic_discount, android.R.color.holo_purple));
+        eventCategories.add(new EventCategory(getString(R.string.robotics), R.drawable.robotics, android.R.color.holo_blue_bright));
+        eventCategories.add(new EventCategory(getString(R.string.departmental), R.drawable.departmental, android.R.color.holo_purple));
         eventCategories.add(new EventCategory(getString(R.string.others), R.drawable.ic_movie, android.R.color.holo_red_light));
 
         nameArray = createNameArray(eventCategories);
@@ -78,6 +79,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        CognitiaTeamMember.context = this;
+
+        TeamMembersArrayInitializer.addTeamMembers();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.nav_team:
+                                Intent teamIntent = new Intent(MainActivity.this, TeamGalleryActivity.class);
+                                startActivity(teamIntent);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                }
+        );
     }
 
     @Override
