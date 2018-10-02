@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -64,7 +66,8 @@ public class TeamGalleryActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull MyTeamMemberImageHolder holder, int position) {
 
             int imageResId = teamMembers.get(getRandomPosition()).getImageId();
-            holder.imageView.setImageResource(imageResId);
+            //Loading images using glide
+            Glide.with(TeamGalleryActivity.this).load(imageResId).into(holder.imageView);
         }
 
         @Override
