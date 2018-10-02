@@ -11,17 +11,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TeamGalleryActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_gallery);
 
-        recyclerView = findViewById(R.id.rv_team_images);
+        RecyclerView recyclerView = findViewById(R.id.rv_team_images);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setHasFixedSize(true);
 
@@ -35,19 +34,21 @@ public class TeamGalleryActivity extends AppCompatActivity {
             TeamGalleryRecyclerViewAdapter.MyTeamMemberImageHolder> {
 
         private ArrayList<CognitiaTeamMember> teamMembers;
+        private boolean[] randomPositionChecker;
 
-        public class MyTeamMemberImageHolder extends RecyclerView.ViewHolder{
+        class MyTeamMemberImageHolder extends RecyclerView.ViewHolder{
 
-            public ImageView imageView;
+            ImageView imageView;
 
-            public MyTeamMemberImageHolder(View view) {
+            MyTeamMemberImageHolder(View view) {
                 super(view);
                 imageView = view.findViewById(R.id.team_photo);
             }
         }
 
-        public TeamGalleryRecyclerViewAdapter(ArrayList<CognitiaTeamMember> teamMembers) {
+        TeamGalleryRecyclerViewAdapter(ArrayList<CognitiaTeamMember> teamMembers) {
             this.teamMembers = teamMembers;
+            randomPositionChecker = new boolean[teamMembers.size()];
         }
 
         @NonNull
@@ -62,13 +63,27 @@ public class TeamGalleryActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull MyTeamMemberImageHolder holder, int position) {
 
-            int imageResId = teamMembers.get(position).getImageId();
+            int imageResId = teamMembers.get(getRandomPosition()).getImageId();
             holder.imageView.setImageResource(imageResId);
         }
 
         @Override
         public int getItemCount() {
             return teamMembers == null ? 0 : teamMembers.size();
+        }
+
+        private int getRandomPosition() {
+            Random random = new Random();
+            //Returns an integer between 0 to arrayLength - 1
+
+            int position;
+            //Check that a unique number is obtained every time
+            do {
+                position = random.nextInt(randomPositionChecker.length);
+            } while (randomPositionChecker[position]);
+            randomPositionChecker[position] = true;
+
+            return position;
         }
     }
 }
