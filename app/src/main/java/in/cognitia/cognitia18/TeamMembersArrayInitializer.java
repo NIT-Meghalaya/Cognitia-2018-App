@@ -14,14 +14,14 @@ import static in.cognitia.cognitia18.R.*;
 public class TeamMembersArrayInitializer {
 
     //HashMap is needed to get the object corresponding to a particular name
-    private static HashMap<Integer, CognitiaTeamMember> teamMembers = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers = new HashMap<>();
     //An array of teamMembers is needed to show the images in random order
     private static ArrayList<CognitiaTeamMember> teamMembersArrayList;
 
     public static void addTeamMembers() {
 
-        addMember(laribok, team_app_development, post_coordinator, drawable.laribok);
-        addMember(devansh, team_app_development, post_coordinator, drawable.robotics);
+        addMember(laribok, team_app_development, post_coordinator, drawable.laribok, email_laribok);
+        addMember(devansh, team_app_development, post_coordinator, drawable.robotics, email_devansh);
 
         mapToArrayList();
     }
@@ -30,8 +30,17 @@ public class TeamMembersArrayInitializer {
         return teamMembersArrayList;
     }
 
-    private static void addMember(int nameId, int teamId, int postId, int imageId) {
-        teamMembers.put(nameId, new CognitiaTeamMember(nameId, teamId, postId, imageId));
+    public static HashMap<String , CognitiaTeamMember> getMembersMap() {
+        return teamMembers;
+    }
+
+    public static CognitiaTeamMember getMemberByName(String name) {
+        return teamMembers.get(name);
+    }
+
+    private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
+        CognitiaTeamMember member = new CognitiaTeamMember(nameId, teamId, postId, imageId, emailIdRes);
+        teamMembers.put(member.getName(), member);
     }
 
     private static void mapToArrayList() {

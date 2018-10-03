@@ -12,10 +12,11 @@ public class CognitiaTeamMember {
      private String team;
      private String post;
      private int imageId;
+     private String email;
 
      public static Context context;
 
-     public CognitiaTeamMember(int nameRes, int teamRes, int postRes, int imageRes) {
+     public CognitiaTeamMember(int nameRes, int teamRes, int postRes, int imageRes, int emailRes) {
 
          Resources res = context.getResources();
 
@@ -23,6 +24,8 @@ public class CognitiaTeamMember {
          setTeam(res.getString(teamRes));
          setPost(res.getString(postRes));
          setImageId(imageRes);
+         setEmail(res.getString(emailRes));
+
      }
 
      public void setName(String name) {
@@ -41,6 +44,10 @@ public class CognitiaTeamMember {
          this.imageId = imageId;
      }
 
+     public void setEmail(String email) {
+         this.email = email;
+     }
+
      public String getName() {
          return name;
      }
@@ -55,5 +62,9 @@ public class CognitiaTeamMember {
 
      public int getImageId() {
          return imageId;
+     }
+
+     public String getEmail() {
+         return email;
      }
 }

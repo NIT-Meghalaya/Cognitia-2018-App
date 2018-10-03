@@ -46,5 +46,8 @@
     <string name="team_app_development">App Development</string>
 
     <string name="laribok">Laribok</string>
+    <string name="email_laribok">ichimichilaribok@gmail.com</string>
+
     <string name="devansh">Devansh Maurya</string>
+    <string name="email_devansh">devansh233@gmail.com</string>
 </resources>
