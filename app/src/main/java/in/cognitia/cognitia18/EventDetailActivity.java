@@ -53,11 +53,12 @@ public class EventDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(eventName);
 
-        setAccentColors();
-
-        imageResId = eventBundle.getInt(IMAGE_ID, 0);
+        //imageResId = eventBundle.getInt(IMAGE_ID, 0);
+        imageResId = intent.getIntExtra(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
         imageView.setImageResource(imageResId);
+
+        setAccentColors();
 
         viewPager = findViewById(R.id.event_viewpager);
         adapter = new CognitiaEventPagerAdapter(this, eventBundle);

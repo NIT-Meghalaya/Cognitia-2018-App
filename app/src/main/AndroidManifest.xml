@@ -32,8 +32,13 @@
 
         <activity
             android:name=".EventDetailActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".TeamGalleryActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".TeamGalleryActivity" />
+        <activity
+            android:name=".MemberProfileActivity"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:theme="@style/AppTheme.MemberProfile"/>
     </application>
 
 </manifest>

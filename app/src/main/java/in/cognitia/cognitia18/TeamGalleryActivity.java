@@ -1,17 +1,15 @@
 package in.cognitia.cognitia18;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +23,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import developer.shivam.crescento.CrescentoImageView;
 
 public class TeamGalleryActivity extends AppCompatActivity {
 
@@ -110,11 +110,26 @@ public class TeamGalleryActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyTeamMemberImageHolder holder, int position) {
+        public void onBindViewHolder(@NonNull final MyTeamMemberImageHolder holder, int position) {
 
-            int imageResId = teamMembers.get(getRandomPosition()).getImageId();
+            final CognitiaTeamMember member = teamMembers.get(getRandomPosition());
+            int imageResId = member.getImageId();
+            //Adding to get member details later in the profile activity
+            holder.imageView.setContentDescription(member.getName());
             //Loading images using glide
             Glide.with(TeamGalleryActivity.this).load(imageResId).into(holder.imageView);
+
+            holder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(TeamGalleryActivity.this, MemberProfileActivity.class);
+                    intent.putExtra(MemberProfileActivity.MEMBER_NAME, member.getName());
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            TeamGalleryActivity.this);
+                    startActivity(intent, options.toBundle());
+                }
+            });
         }
 
         @Override

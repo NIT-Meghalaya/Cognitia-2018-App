@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //Context is needed to convert from resource id to string
         CognitiaTeamMember.context = this;
-
         TeamMembersArrayInitializer.addTeamMembers();
 
         NavigationView navigationView = findViewById(R.id.nav_view);

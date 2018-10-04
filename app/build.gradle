@@ -48,7 +48,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.2'
     //Used to set toolbar and tab color according to image color
     implementation 'com.android.support:palette-v7:26.1.0'
+    //Used to display curved image view in member profile
+    implementation 'com.github.developer-shivam:Crescento:1.2.1'
+    implementation 'com.klinkerapps:sliding-activity:1.5.2'
 }
+
 
 
 apply plugin: 'com.google.gms.google-services'
