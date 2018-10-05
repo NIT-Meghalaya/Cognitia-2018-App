@@ -41,13 +41,516 @@
 
     <string name="post_head">Head</string>
     <string name="post_coordinator">Coordinator</string>
-    <string name="post_coocoordinator">Co-coordinator</string>
+    <string name="post_co_coordinator">Co-coordinator</string>
+    <string name="general_secretary">General Secretary Science and Technology</string>
+    <string name="general_secretary_member">Member of General Secretary Science and Technology</string>
 
-    <string name="team_app_development">App Development</string>
+    <string name="secretary_and_members">Secretary and Members</string>
+    <string name="team_event_management">Event Management</string>
+    <string name="team_cse_departmental">CSE Departmental</string>
+    <string name="team_civil_departmental">Civil Departmental</string>
+    <string name="team_ece_departmental">ECE Departmental</string>
+    <string name="team_ee_departmental">EE Departmental</string>
+    <string name="team_me_departmental">ME Departmental</string>
+    <string name="team_race_against_time">Race Against Time</string>
+    <string name="team_goal_against_time">Goal Against Time</string>
+    <string name="team_robodiction">Robodiction</string>
+    <string name="team_prison_breakout">Prison Breakout</string>
+    <string name="team_line_follower_robot">Line Follower Robot</string>
+    <string name="team_robo_rumble">ROBO Rumble</string>
+    <string name="team_robo_bridge">ROBO Bridge</string>
+    <string name="team_e_cell">E-Cell</string>
+    <string name="team_arppegio_and_shimmer">Arppegio and Shimmer</string>
+    <string name="team_publicity">Publicity</string>
+    <string name="team_designing">Designing</string>
+    <string name="team_web_and_app_development">Web and App Development</string>
+    <string name="team_hospitality_and_t_shirt_management">Hospitality and T-Shirt Management</string>
+    <string name="team_designing">Designing</string>
+    <string name="team_gaming">Gaming</string>
+    <string name="team_photo_walk">Photo Walk</string>
+    <string name="team_disciplinary">Disciplinary</string>
+    <string name="team_stage_management_and_printing">Stage Management and Printing</string>
+    <string name="team_general_quiz_debate">General Quiz and Debate</string>
+    <string name="team_fun_events">Fun Events</string>
 
-    <string name="laribok">Laribok</string>
-    <string name="email_laribok">ichimichilaribok@gmail.com</string>
+    <string name="karan">S S Sri Karan</string>
+    <string name="email_karan">sskaran27@gmail.com</string>
+
+    <string name="gnaneshwar">Gnaneshwar Chiluveru</string>
+    <string name="email_gnaneshwar">b16ec024@nitm.ac.in</string>
+
+    <string name="kethiri">Kethiri Narshimha Reddy</string>
+    <string name="email_kethri">k3simha@gmail.com</string>
+
+    <string name="shubham_kumar_singh">Shubham Kumar Singh</string>
+    <string name="email_shubham_kumar_singh">shubhamsinghpd1997@gmail.com</string>
+
+    <string name="rafad">Mohommed Yousuf Zuhar Mohommed Rafad</string>
+    <string name="email_rafad">rafad_zuhar@gmail.com</string>
+
+    <string name="saurabh_singh">Saurabh Singh</string>
+    <string name="email_saurabh_singh">saurabhsinghooo79@gmail.com</string>
+
+    <string name="koustubh_kishore">Koustubh Kishore</string>
+    <string name="email_koustubh_kishore">kotzee.kishor@gmail.com</string>
+
+    <string name="shivam_prasad">Shivam Prasad</string>
+    <string name="email_shivam_prasad">prasadshivam2296@gmail.com</string>
+
+    <string name="ketan">Ketan Anand</string>
+    <string name="email_ketan">ketananand897@gmail.com</string>
+
+    <string name="ashutosh">Ashutosh Kumar</string>
+    <string name="email_ashutosh">ashutosh2700@gmail.com</string>
+
+    <string name="alphin">Alphin Roy</string>
+    <string name="email_alphin">alphinroy88@gmail.com</string>
+
+    <string name="allu">Allu V Babu</string>
+    <string name="email_allu">alluvbabu@gmail.com</string>
+
+    <string name="chandan">Chandan</string>
+    <string name="email_chandan">battlefield00765@gmail.com</string>
+
+    <string name="shivam_kumar">Shivam Kumar</string>
+    <string name="email_shivam_kumar">shivamsam200@gmail.com</string>
+
+    <string name="sunil">Sunil Pandit</string>
+    <string name="email_sunil">sunilkumarprajapati51@gmail.com</string>
+
+    <string name="lalit">Lalit Kumar Verma</string>
+    <string name="email_lalit">lalitverma231996@gmail.com</string>
+
+    <string name="jakish">Jakish Sheikh</string>
+    <string name="email_jakish">jakishsheikh@gmail.com</string>
+
+    <string name="shashank">Shashank Chaudhary</string>
+    <string name="email_shashank">shashankchaudhary0106@gmail.com</string>
+
+    <string name="sudarsan">Sudarsan Kilania</string>
+    <string name="email_sudarsan">sudarsankilania2@gmail.com</string>
+
+    <string name="sweeta">Sweeta Devi</string>
+    <string name="email_sweeta">cliffgilbert7890@gmail.com</string>
+
+    <string name="parakhee">Parakhee Chaudhary</string>
+    <string name="email_parakhee">pimichaudhary@gmail.com</string>
+
+    <string name="rohit_kumar">Rohit Kumar</string>
+    <string name="email_rohit_kumar">imrk1600@gmail.com</string>
+
+    <string name="rajoo">Rajoo Kumar Gautam</string>
+    <string name="email_rajoo">rajoogautam10@gmail.com</string>
+
+	<string name="rohit_raj">Rohit Raj</string>
+    <string name="email_rohit_raj">rohitraja1510@gmail.com</string>
+
+    <string name="sourav_paul">Sourav Paul</string>
+    <string name="email_sourav_paul">souravpaul1998@gmail.com</string>
+
+    <string name="wanchi">Wanchi Dora M Sangma</string>
+    <string name="email_wanchi">wanchi20061997@gmail.com</string>
+
+    <string name="nitin">Nitin Chauhan</string>
+    <string name="email_nitin">nitinnitm2015@gmail.com</string>
+
+    <string name="pankaj">Pankaj Kumar</string>
+    <string name="email_pankaj">pankunitee01@gmail.com</string>
+
+    <string name="manish_kumar">Manish Kumar</string>
+    <string name="email_manish_kumar">jnvmanishkumar@gmail.com</string>
+
+    <string name="teiboklang">Teiboklang Nongrum</string>
+    <string name="email_teiboklang">teiboklangnongrum@gmail.com</string>
+
+    <string name="naman">Naman Satyavana</string>
+    <string name="email_naman">nsatyavana786@gmail.com</string>
+
+    <string name="nirosha">Nirosha Darshani Weerarathna</string>
+    <string name="email_nirosha">nirsha907@gmail.com</string>
+
+    <string name="rishabh">Rishabh Jaiswal</string>
+    <string name="email_rishabh">jaiswalr741@gmail.com</string>
+
+    <string name="teiborlin">Teiborlin Marngar</string>
+    <string name="email_teiborlin">teibor.marngar@gmail.com</string>
+
+    <string name="kishan_das">Kishan Das</string>
+    <string name="email_kishan_das">kishan.das.0298@gmail.com</string>
+
+    <string name="baiateilang">Baiateilang Marwein</string>
+    <string name="email_baiateilang">baiabihbih@gmail.com</string>
+
+    <string name="kapil">Kapil Kumar Meena</string>
+    <string name="email_kapil">kapilmeena495@gmail.com</string>
+
+    <string name="shivam_sharma">Shivam Sharma</string>
+    <string name="email_shivam_sharma">sharmashivam3099@gmail.com</string>
+
+    <string name="vivek">Vivek Singh Chauhan</string>
+    <string name="email_vivek">viveksinghchauhan2020@gmail.com</string>
+
+    <string name="sushant">Sushant Kumar</string>
+    <string name="email_sushant">sushantkumar2216@gmail.com</string>
+
+    <string name="manikanta">Manikanta</string>
+    <string name="email_manikanta">manikanta8444@gmail.com</string>
+
+    <string name="amit_kumar_lal">Amit Kumar Lal</string>
+    <string name="email_amit_kumar_lal">amitlal1115@gmail.com</string>
+
+    <string name="kamarapu">Kamarapu Shiva Chandra</string>
+    <string name="email_kamarapu">shiva7995346730@gmail.com</string>
+
+    <string name="divyesh">Divyesh Srivastava</string>
+    <string name="email_divyesh">srivastavadivyesh4@gmail.com</string>
+
+    <string name="sidharth">Sidharth Agarwal</string>
+    <string name="email_sidharth">sidagarwal320@gmail.com</string>
+
+    <string name="ajoy">Ajoy Majhong</string>
+    <string name="email_ajoy">majhongajoy@gmail.com</string>
+
+    <string name="mukesh">Mukesh Kumar</string>
+    <string name="email_mukesh">mukeshkumar261198@gmail.com</string>
+
+    <string name="priya">Priya Bharti</string>
+    <string name="email_priya">bhatipriya373@gmail.com</string>
+
+    <string name="sakshay">Sakshay Kedia</string>
+    <string name="email_sakshay">kedia.sakhsay@gmail.com</string>
+
+    <string name="heplang">Heplang Ronghang</string>
+    <string name="email_heplang">heplangronghang1212@gmail.com</string>
+
+    <string name="m_raj_kumar">M Raj Kumar</string>
+    <string name="email_m_raj_kumar">rajkumarmandari778@gmail.com</string>
+
+    <string name="nitish">Andra Nitish Raju</string>
+    <string name="email_nitish">nitishraju4@gmail.com</string>
+
+    <string name="viswa_teja">E Viswa Teja</string>
+    <string name="email_viswa_teja">vtejaeta@gmail.com</string>
+
+    <string name="harish">P V Harish Babu</string>
+    <string name="email_harish">harishbabu7756@gmail.com</string>
+
+    <string name="sai_lohit">Anandam L N S B Sai Lohit</string>
+    <string name="email_sai_lohit">suryalohit21@gmail.com</string>
+
+    <string name="mummidi">Mummidi Bharadwaj</string>
+    <string name="email_mummidi">bharadwajmummidi@gmail.com</string>
+
+    <string name="emmanuel">Emmanuel Vemuri</string>
+    <string name="email_emmanuel">vemuriimmanuel29@gmail.com</string>
+
+    <string name="satyaveer">Satyaveer</string>
+    <string name="email_satyaveer">nayaksatyaveer@gmail.com</string>
+
+    <string name="anant_kumar">Anant Kumar John</string>
+    <string name="email_anant_kumar">-</string>
+
+    <string name="manish">Manish</string>
+    <string name="email_manish">manishsingh27feb@gmail.com</string>
+
+    <string name="abhushan">Abhushan</string>
+    <string name="email_abhushan">abhushanadhikarijoshi@gmail.com</string>
+
+    <string name="uchit">Uchit Mahapatra</string>
+    <string name="email_uchit">uchit_mahapatra54@gmail.com</string>
+
+    <string name="anurag">Anurag Singh Sakya</string>
+    <string name="email_anurag">anuragsingh23198@gmail.com</string>
+
+    <string name="aniruddha">Aniruddha Agarwal</string>
+    <string name="email_aniruddha">agarwalaniruddha2@gmail.com</string>
+
+    <string name="mohan">Mohan Lal Kilwaniya</string>
+    <string name="email_mohan">mohan.10799@gmail.com</string>
+
+    <string name="ujjwal">Ujjwal Kumar</string>
+    <string name="email_ujjwal">ujjwalus01@gmail.com</string>
+
+    <string name="kishan_lal">Kishan Lal</string>
+    <string name="email_kishan_lal">kishangarg9410@gmail.com</string>
+
+    <string name="skhemboklang">Skhemboklang Kshiar</string>
+    <string name="email_skhemboklang">kshiar24@gmail.com</string>
+
+    <string name="dennybert">Dennybert Shangdiar</string>
+    <string name="email_dennybert">dennybertshangdiar@gmail.com</string>
+
+    <string name="abhay">Abhay Shekhar Yadav</string>
+    <string name="email_abhay">abhayshekhar.jh@gmail.com</string>
+
+	<string name="kishan_chaurasia">Kishan Chaurasia</string>
+    <string name="email_kishan_chaurasia">kishancool9596@gmail.com</string>
+
+    <string name="shubham_chang">Shubham Chang</string>
+    <string name="email_shubham_chang">shubhamchang398@gmail.com</string>
+
+    <string name="saurav_dayal">Saurav Dayal</string>
+    <string name="email_saurav_dayal">dayalsaurav88@gmail.com</string>
+
+    <string name="ranjan_kumar">Ranjan Kumar</string>
+    <string name="email_ranjan_kumar">harikantranjan123@gmail.com</string>
+
+    <string name="raman">Raman Gupta</string>
+    <string name="email_raman">raman.gupta4444@gmail.com</string>
+
+    <string name="deepak_kumar_sah">Deepak Kumar Sah</string>
+    <string name="email_deepak_kumar_sah">b16me023@nitm.ac.in</string>
+
+    <string name="devashish">Devashish Dubey</string>
+    <string name="email_devashish">b16me023@nitm.ac.in</string>
+
+    <string name="sanjay_kumar_kol">Sanjay Kumar Kol</string>
+    <string name="email_sanjay_kumar_kol"></string>
+
+    <string name="astha">Astha Awasthi</string>
+    <string name="email_astha">awasthiastha121@gmail.com</string>
+
+    <string name="mithun">Mithun Kumar</string>
+    <string name="email_mithun">mithunkrr789@gmail.com</string>
+
+    <string name="gyanishwar">Gyanishwar Hajong</string>
+    <string name="email_gyanishwar">hazgyan@gmail.com</string>
+
+    <string name="jeny_welkin">Jeny Welkin N Sangma</string>
+    <string name="email_jeny_welkin">jenywelkinsangma@gmail.com</string>
+
+    <string name="balmhashwa">Balmhashwa Sangma</string>
+    <string name="email_balmhashwa">syiemliehhashwasg8@gmail.com</string>
+
+    <string name="hamewot">Hamewot Suchiang</string>
+    <string name="email_hamewot">hamewoth@gmail.com</string>
+
+    <string name="jeush">Jeush D Sangma</string>
+    <string name="email_jeush">jeushsangma@gmail.com</string>
+
+    <string name="jayanth_reddy">Sheri Jayant Reddy</string>
+    <string name="email_jayanth_reddy">123jayanth123@gmail.com</string>
+
+    <string name="annamaiah">Annamaiah Martha</string>
+    <string name="email_annamaiah">annamaiah160@gmail.com</string>
+
+    <string name="debapratim">Debapratim Dey</string>
+    <string name="email_debapratim">debapratimdey79@gmil.com</string>
+
+    <string name="jugami">Jugami Khakhlary</string>
+    <string name="email_jugami">jugamikhakhlary@gmail.com</string>
+
+    <string name="khushi">Khushi Mishra</string>
+    <string name="email_khushi">khushimishra1104@gmail.com</string>
+
+    <string name="charan_reddy">S N Charan Reddy</string>
+    <string name="email_charan_reddy">crcharanreddy425@gmail.com</string>
+
+    <string name="ananya_giri">Ananya Giri</string>
+    <string name="email_ananya_giri">ananyagiri1098@gmail.com</string>
+
+    <string name="imdad">MD Imdadul Islam</string>
+    <string name="email_imdad">imdadsemail@gmail.com</string>
+
+    <string name="hemant_sabbavarapu">Hemant Kumar Sabbavarapu</string>
+    <string name="email_hemant_sabbavarapu"></string>
+
+    <string name="anamika">Anamika Chaudhary</string>
+    <string name="email_anamika">anami1532k@gmail.com</string>
+
+    <string name="pynsuklang">Pynsuklang Mawlong</string>
+    <string name="email_pynsuklang">pynmaw@gmail.com</string>
+
+    <string name="evanstarfield">Evanstarfield War</string>
+    <string name="email_evanstarfield">cheldridwar@gmail.com</string>
+
+    <string name="randolph">Randolph Dohtdong</string>
+    <string name="email_randolph">randolphdohtdong@gmail.com</string>
+
+    <string name="rafaela">Rafaela G Nongrum</string>
+    <string name="email_rafaela">rafunongrum@gmail.com</string>
+
+    <string name="rasalinda">Rasalinda Diengdoh</string>
+    <string name="email_rasalinda">rasalinda246@gmail.com</string>
+
+    <string name="ellyn">Ellyn Nongrum</string>
+    <string name="email_ellyn">nongrum.ellyn@gmail.com</string>
+
+    <string name="hanna">Hanna D Dkhar</string>
+    <string name="email_hanna">hannahdkhar@gmail.com</string>
+
+    <string name="barishisha">Barishisha Kharminthon</string>
+    <string name="email_barishisha">barilamara77@gmail.com</string>
+
+    <string name="leonard">Leonard Sun</string>
+    <string name="email_leonard">sunleonard9@gmail.com</string>
+
+    <string name="lakyntiew">L Lakyntiew Dohtdong</string>
+    <string name="email_lakyntiew">lakyntiewdreams@gmail.com</string>
+
+    <string name="eugynea">Eugynea Shylla</string>
+    <string name="email_eugynea">eugyneashylla@yahoo.com</string>
+
+    <string name="josekielnezer">Josekielnezer Kharkongor</string>
+    <string name="email_josekielnezer">kharkongorjosekielnezer@gmail.com</string>
+
+    <string name="ananya_bhattacharya">Ananya Bhattacharya</string>
+    <string name="email_ananya_bhattacharya">ananyabh17@gmail.com</string>
+
+    <string name="shiva_teja">Shiva Teja</string>
+    <string name="email_shiva_teja">shiva000teja@gmail.com</string>
+
+    <string name="sonalika">Sonalika Prasad</string>
+    <string name="email_sonalika">sonalikap.82@gmail.com</string>
+
+    <string name="satya_abhinay">Bollampallli Satya Abhinay</string>
+    <string name="email_satya_abhinay">9491578030d@gmail.com</string>
+
+    <string name="tirupathi_rao">Kummari Tirupathi Rao</string>
+    <string name="email_tirupathi_rao">tirupathi9436@gmail.com</string>
+
+    <string name="kishore_chary">V Sai Kishore Chary</string>
+    <string name="email_kishore_chary">nikhilskchary@gmail.com</string>
+
+    <string name="chinmoy">Chinmoy Deka</string>
+    <string name="email_chinmoy">d.chinmoy.nt@gmail.com</string>
+
+    <string name="sagar_das">Sagar Das</string>
+    <string name="email_sagar_das">sagarcoc2000@gmail.com</string>
+
+    <string name="sanapala_rajesh">Sanapala Rajesh</string>
+    <string name="email_sanapala_rajesh">sanapalarajesh04@gmail.com</string>
+
+    <string name="shubangi">Shubangi Barua</string>
+    <string name="email_shubangi">kiara.shubb@gmail.com</string>
+
+    <string name="jibesh">Jibesh Bhattacharjee</string>
+    <string name="email_jibesh">jibesh.nitm@gmail.com</string>
 
     <string name="devansh">Devansh Maurya</string>
     <string name="email_devansh">devansh233@gmail.com</string>
+
+    <string name="laribok">Laribok Syiemlieh</string>
+    <string name="email_laribok">ichimichilaribok@gmail.com</string>
+
+    <string name="wiwat">Wiwatdaka Lakai</string>
+    <string name="email_wiwat">wiwatdakalakai@gmail.com</string>
+
+    <string name="amrit">Amrit Raj</string>
+    <string name="email_amrit">akraj94@gmail.com</string>
+
+    <string name="tanuj">Tanuj Chakraborty</string>
+    <string name="email_tanuj">tans.c2@gmail.com</string>
+
+    <string name="mahfooz">Mahfooz Ahmad</string>
+    <string name="email_mahfooz">mahfooz.ahmad2@gmail.com</string>
+
+    <string name="devian">Davien Mangdiel Syiemlieh</string>
+    <string name="email_devian"></string>
+
+    <string name="prince">Prince Kumar Singh</string>
+    <string name="email_prince">pk805140@gmail.com</string>
+
+    <string name="akash">Akash Kuamar Panda</string>
+    <string name="email_akash">akpanda734@gmail.com</string>
+
+    <string name="mrityunjay">Mrityunjay Tripathi</string>
+    <string name="email_mrityunjay">mrityunjay2668@gmail.com</string>
+
+    <string name="chiron">Chiron Jyoti Hajong</string>
+    <string name="email_chiron">hajongchiron@gmail.com</string>
+
+    <string name="jubabmilekini">Jubabmilekini Shadap</string>
+    <string name="email_jubabmilekini">jubabmilekinishadap@gmail.com</string>
+
+    <string name="elvarie">Elvarie Nongspung</string>
+    <string name="email_elvarie">enongspung@gmail.com</string>
+
+    <string name="dianglinshisha">Dianglinshisha</string>
+    <string name="email_dianglinshisha">dianglin12@gmail.com</string>
+
+    <string name="donna">Donnagratia Syndor</string>
+    <string name="email_donna">donnagrstia@gmail.com</string>
+
+    <string name="michelle">Michelle Mukhim</string>
+    <string name="email_michelle">Michelle Mukhim</string>
+
+    <string name="winnie">Winnie Dkhar</string>
+    <string name="email_winnie">winniedkhar2000@gmail.com</string>
+
+    <string name="tapsri">Tapsri B Marak</string>
+    <string name="email_tapsri">tapsribmarak@gmail.com</string>
+
+    <string name="priyanchi">Priyanchi A Sangma</string>
+    <string name="email_priyanchi">priyanchisg.tura@gmail.com</string>
+
+    <string name="ilasukri">Ilasukri Kharshandi</string>
+    <string name="email_ilasukri">ilasuk54@gmail.com</string>
+
+    <string name="nehemiah">Nehemiah Dkhar</string>
+    <string name="email_nehemiah">willysanra10@gmail.com</string>
+
+    <string name="kynmawlang">Kynmawlang Khonglah</string>
+    <string name="email_kynmawlang">willysanra10@gmail.com</string>
+
+    <string name="damanbha">Damanbha Marwein</string>
+    <string name="email_damanbha">marweindaman11@gmail.com</string>
+
+    <string name="deeksha">Deeksha Das</string>
+    <string name="email_deeksha">dasdeeksha17@gmail.com</string>
+
+    <string name="nathaneal">Nathaneal Kharlukhi</string>
+    <string name="email_nathaneal">nkharlukhi1@gmail.com</string>
+
+    <string name="surabhi">Surabhi Roy</string>
+    <string name="email_surabhi">roysurabhi5397@gmail.com</string>
+
+    <string name="koustubh_deshpande">Koustubh Deshpande</string>
+    <string name="email_koustubh_deshpande">koustubhdesh@gmail.com</string>
+
+    <string name="jaswant">Jaswant Arya</string>
+    <string name="email_jaswant">jaswantarya442@gmail.com</string>
+
+    <string name="pardip">Pardip Dowrah</string>
+    <string name="email_pardip">pardipdowrah1998@gmail.com</string>
+
+    <string name="serene">Serene Eden Lisam Pariat</string>
+    <string name="email_serene">sereneedenlisampariat@gmail.com</string>
+
+    <string name="arwatki">Arwatki Chen Lyngdoh</string>
+    <string name="email_arwatki">arwatkichen@gmail.com</string>
+
+    <string name="francis">Francis Kurbah</string>
+    <string name="email_francis">franciskurbah7@gmail.com</string>
+
+    <string name="karasaphi">Karasaphi Shabong</string>
+    <string name="email_karasaphi">karasaphi997000000@gmail.com</string>
+
+    <string name="johnyborn">Johnyborn Roy Shylla</string>
+    <string name="email_johnyborn">johnshylla@gmail.com</string>
+
+    <string name="pynbhalang">Pynbhalang Lyngdoh</string>
+    <string name="email_pynbhalang">pynbhalang.lyng@gmail.com</string>
+
+    <string name="pynkitbor">Pynkitbor Kharbni</string>
+    <string name="email_pynkitbor">pynkitbor02@gmail.com</string>
+
+    <string name="diswel">Diswel Khriam</string>
+    <string name="email_diswel">b15ec011@nitm.ac.in</string>
+
+    <string name="arminias">Arminias Surong</string>
+    <string name="email_arminias">arminias555@gmail.com</string>
+
+    <string name="shilling">Shilling Langstang</string>
+    <string name="email_shilling">shillinglangstang@gmail.com</string>
+
+    <string name="shemphang">Shemphang Marwein</string>
+    <string name="email_shemphang">shem.inniv001@gmail.com</string>
+
+    <string name="leon">Leon Patrick Mawlong</string>
+    <string name="email_leon">b16cs004@nitm.ac.in</string>
+
+    <string name="khrawboklang">Khrawboklang Kharsyiemiong</string>
+    <string name="email_khrawboklang">klangkharsyiemiong@gmail.com</string>	
+
 </resources>
