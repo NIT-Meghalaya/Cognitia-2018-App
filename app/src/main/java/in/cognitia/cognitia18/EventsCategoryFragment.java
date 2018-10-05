@@ -38,7 +38,6 @@ public class EventsCategoryFragment extends Fragment {
     private static Map<String, CognitiaEvent> eventMap = new HashMap<>();
 
     private FirebaseDatabase database;
-    private DatabaseReference eventsDBReference;
 
     public static EventsCategoryFragment getInstance(String title) {
         EventsCategoryFragment fragment = new EventsCategoryFragment();
@@ -66,8 +65,6 @@ public class EventsCategoryFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        //super.onViewCreated(view, savedInstanceState);
-
         database = FirebaseDatabase.getInstance();
 
 
@@ -87,12 +84,11 @@ public class EventsCategoryFragment extends Fragment {
 
                 holder.name.setText(event.getName());
                 holder.description.setText(event.getDescription());
-                holder.image.setImageResource(R.drawable.ic_travel);
 
                 //Loading event image using Glide library
-                //Glide.with(getContext()).load(event.getImageResId()).into(holder.image);
+                Glide.with(getContext()).load(R.drawable.robotics).into(holder.image);
                 //Doing this to get the id of the drawable later
-                holder.image.setTag(R.string.image_tag, R.drawable.ic_travel);
+                holder.image.setTag(R.string.image_tag, R.drawable.robotics);
             }
 
             @NonNull
@@ -151,16 +147,16 @@ public class EventsCategoryFragment extends Fragment {
             int column = position % spanCount; // item column
 
             if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+                outRect.left = spacing - column * spacing / spanCount;
+                outRect.right = (column + 1) * spacing / spanCount;
 
                 if (position < spanCount) { // top edge
                     outRect.top = spacing;
                 }
                 outRect.bottom = spacing; // item bottom
             } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
+                outRect.left = column * spacing / spanCount;
+                outRect.right = spacing - (column + 1) * spacing / spanCount;
                 if (position >= spanCount) {
                     outRect.top = spacing; // item top
                 }

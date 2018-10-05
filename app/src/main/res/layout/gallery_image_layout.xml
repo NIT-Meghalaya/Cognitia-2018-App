@@ -8,6 +8,7 @@
         android:adjustViewBounds="true"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:transitionName="@string/event_image_trans"/>
 
 </LinearLayout>
