@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 public class EventDetailActivity extends AppCompatActivity {
 
     public static final String IMAGE_ID = "image_id_extra";
@@ -56,7 +58,7 @@ public class EventDetailActivity extends AppCompatActivity {
         //imageResId = eventBundle.getInt(IMAGE_ID, 0);
         imageResId = intent.getIntExtra(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
-        imageView.setImageResource(imageResId);
+        Glide.with(this).load(imageResId).into(imageView);
 
         setAccentColors();
 

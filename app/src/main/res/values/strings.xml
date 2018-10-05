@@ -47,25 +47,30 @@
 
     <string name="secretary_and_members">Secretary and Members</string>
     <string name="team_event_management">Event Management</string>
-    <string name="team_cse_departmental">CSE Departmental</string>
-    <string name="team_civil_departmental">Civil Departmental</string>
-    <string name="team_ece_departmental">ECE Departmental</string>
-    <string name="team_ee_departmental">EE Departmental</string>
-    <string name="team_me_departmental">ME Departmental</string>
+
+    <string name="team_departmental">Departmental</string>
+    <string name="team_cse_departmental">CSE Departmental Events</string>
+    <string name="team_civil_departmental">Civil Departmental Events</string>
+    <string name="team_ece_departmental">ECE Departmental Events</string>
+    <string name="team_ee_departmental">EE Departmental Events</string>
+    <string name="team_me_departmental">ME Departmental Events</string>
+
+    <string name="team_technical">Technical</string>
     <string name="team_race_against_time">Race Against Time</string>
     <string name="team_goal_against_time">Goal Against Time</string>
     <string name="team_robodiction">Robodiction</string>
     <string name="team_prison_breakout">Prison Breakout</string>
     <string name="team_line_follower_robot">Line Follower Robot</string>
-    <string name="team_robo_rumble">ROBO Rumble</string>
-    <string name="team_robo_bridge">ROBO Bridge</string>
+    <string name="team_robo_rumble">Robo Rumble</string>
+    <string name="team_robo_bridge">Robo Bridge</string>
+
     <string name="team_e_cell">E-Cell</string>
     <string name="team_arppegio_and_shimmer">Arppegio and Shimmer</string>
     <string name="team_publicity">Publicity</string>
     <string name="team_designing">Designing</string>
-    <string name="team_web_and_app_development">Web and App Development</string>
-    <string name="team_hospitality_and_t_shirt_management">Hospitality and T-Shirt Management</string>
-    <string name="team_designing">Designing</string>
+    <string name="team_web_development">Web Development</string>
+    <string name="team_app_development">App Development</string>
+    <string name="team_hospitality">Hospitality</string>
     <string name="team_gaming">Gaming</string>
     <string name="team_photo_walk">Photo Walk</string>
     <string name="team_disciplinary">Disciplinary</string>

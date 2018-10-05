@@ -18,13 +18,136 @@ public class TeamMembersArrayInitializer {
     //An array of teamMembers is needed to show the images in random order
     private static ArrayList<CognitiaTeamMember> teamMembersArrayList;
 
+    private static HashMap<String, HashMap<String, CognitiaTeamMember>> teamMembersByCategories = new HashMap<>();
+
+    private static HashMap<String , CognitiaTeamMember> teamMembers_departmental = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_designing = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_disciplinary = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_ecell = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_event_management = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_fun_events = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_gaming = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_hospitality = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_photowalk = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_publicity = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_quiz_debate = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_secretaries = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_shimmer = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_stage_management = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_technical = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_web_development = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_app_development = new HashMap<>();
+
+    public static ArrayList<CognitiaTeamMember> getTeamMembers() {
+        return teamMembersArrayList;
+    }
+
+    public static HashMap<String , CognitiaTeamMember> getMembersMap() {
+        return teamMembers;
+    }
+
+    public static CognitiaTeamMember getMemberByName(String name) {
+        return teamMembers.get(name);
+    }
+
+    private static void mapToArrayList() {
+        //Getting collection of values from HashMap
+        Collection<CognitiaTeamMember> values = teamMembers.values();
+        //Creating an ArrayList of values
+        teamMembersArrayList = new ArrayList<>(values);
+    }
+
+    private static void addTeamCategoriesToMap() {
+        teamMembersByCategories.put(TeamGalleryActivity.DEPARTMENTAL, teamMembers_departmental);
+        teamMembersByCategories.put(TeamGalleryActivity.DESIGNING, teamMembers_designing);
+        teamMembersByCategories.put(TeamGalleryActivity.ECELL, teamMembers_ecell);
+        teamMembersByCategories.put(TeamGalleryActivity.EVENT_MAMANGEMET, teamMembers_event_management);
+        teamMembersByCategories.put(TeamGalleryActivity.FUN_EVENTS, teamMembers_fun_events);
+        teamMembersByCategories.put(TeamGalleryActivity.GAMING, teamMembers_gaming);
+        teamMembersByCategories.put(TeamGalleryActivity.HOSPITALITY, teamMembers_hospitality);
+        teamMembersByCategories.put(TeamGalleryActivity.PUBLICITY, teamMembers_publicity);
+        teamMembersByCategories.put(TeamGalleryActivity.QUIZ_DEBATE, teamMembers_quiz_debate);
+        teamMembersByCategories.put(TeamGalleryActivity.SECRETARIES_MEMBERS, teamMembers_secretaries);
+        teamMembersByCategories.put(TeamGalleryActivity.SHIMMER_ARPEGGIO, teamMembers_shimmer);
+        teamMembersByCategories.put(TeamGalleryActivity.STAGE_MANAGEMENT, teamMembers_stage_management);
+        teamMembersByCategories.put(TeamGalleryActivity.TECHNICAL, teamMembers_technical);
+        teamMembersByCategories.put(TeamGalleryActivity.WEB_DEVELOPMENT, teamMembers_web_development);
+        teamMembersByCategories.put(TeamGalleryActivity.APP_DEVELOPMENT, teamMembers_app_development);
+    }
+
+    private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
+        CognitiaTeamMember member = new CognitiaTeamMember(nameId, teamId, postId, imageId, emailIdRes);
+        teamMembers.put(member.getName(), member);
+
+        switch (teamId) {
+            case team_civil_departmental:
+            case team_cse_departmental:
+            case team_ece_departmental:
+            case team_ee_departmental:
+            case team_me_departmental:
+                teamMembers_departmental.put(member.getName(), member);
+                break;
+            case team_designing:
+                teamMembers_designing.put(member.getName(), member);
+                break;
+            case team_disciplinary:
+                teamMembers_disciplinary.put(member.getName(), member);
+                break;
+            case team_e_cell:
+                teamMembers_ecell.put(member.getName(), member);
+                break;
+            case team_event_management:
+                teamMembers_event_management.put(member.getName(), member);
+                break;
+            case team_fun_events:
+                teamMembers_fun_events.put(member.getName(), member);
+                break;
+            case team_gaming:
+                teamMembers_gaming.put(member.getName(), member);
+                break;
+            case team_hospitality:
+                teamMembers_hospitality.put(member.getName(), member);
+                break;
+            case team_photo_walk:
+                teamMembers_photowalk.put(member.getName(), member);
+                break;
+            case team_publicity:
+                teamMembers_publicity.put(member.getName(), member);
+                break;
+            case team_general_quiz_debate:
+                teamMembers_quiz_debate.put(member.getName(), member);
+                break;
+            case secretary_and_members:
+                teamMembers_secretaries.put(member.getName(), member);
+                break;
+            case team_arppegio_and_shimmer:
+                teamMembers_shimmer.put(member.getName(), member);
+                break;
+            case team_stage_management_and_printing:
+                teamMembers_stage_management.put(member.getName(), member);
+                break;
+            case team_technical:
+                teamMembers_technical.put(member.getName(), member);
+                break;
+            case team_web_development:
+                teamMembers_web_development.put(member.getName(), member);
+                break;
+            case team_app_development:
+                teamMembers_app_development.put(member.getName(), member);
+                break;
+        }
+    }
+
     public static void addTeamMembers() {
+
+        addTeamCategoriesToMap();
+
         addMember(karan, team_event_management, post_head, drawable.s_s_sri_karan, email_karan);
         addMember(gnaneshwar, team_event_management, post_coordinator, drawable.gnaneshwar, email_gnaneshwar);
-        addMember(kethiri, team_event_management, post_coordinator, drawable.narshimha, email_kethiri);
+        addMember(kethiri, team_event_management, post_coordinator, drawable.narshimha, email_kethri);
         addMember(shubham_kumar_singh, team_event_management, post_coordinator, drawable.shubham_kumar_singh, email_shubham_kumar_singh);
         addMember(rafad, team_event_management, post_co_coordinator, drawable.rafad, email_rafad);
-        addMember(saurabh_singh, team_event_management, post_co_coordinator, drawable.saurabh_singh, email_saurabh_singh);
+        addMember(saurabh_singh, team_event_management, post_co_coordinator, drawable.sourabh, email_saurabh_singh);
         addMember(koustubh_kishore, team_event_management, post_co_coordinator, drawable.koustubh_kishore, email_koustubh_kishore);
 
         addMember(shivam_prasad, team_cse_departmental, post_head, drawable.shivam_prasad, email_shivam_prasad);
@@ -113,9 +236,9 @@ public class TeamMembersArrayInitializer {
         addMember(astha, team_robo_bridge, post_co_coordinator, drawable.astha_awasthi, email_astha);
         addMember(mithun, team_robo_bridge, post_co_coordinator, drawable.mithun_kumar, email_mithun);
 
-        addMember(gyanishwar, team_gaming, post_head, drawable.gyanishwar, email_gyanishwar);
+        addMember(gyanishwar, team_gaming, post_head, drawable.gyaniswar, email_gyanishwar);
         addMember(jeny_welkin, team_gaming, post_head, drawable.jeny, email_jeny_welkin);
-        addMember(balmhashwa, team_gaming, post_coordinator, drawable.balmhashwa, email_balmhashwa);
+        addMember(balmhashwa, team_gaming, post_coordinator, drawable.balamhashwa, email_balmhashwa);
         addMember(hamewot, team_gaming, post_coordinator, drawable.hamewot, email_hamewot);
         addMember(jeush, team_gaming, post_co_coordinator, drawable.jeush, email_jeush);
 
@@ -123,7 +246,7 @@ public class TeamMembersArrayInitializer {
         addMember(annamaiah, team_arppegio_and_shimmer, post_head, drawable.annamaiah, email_annamaiah);
         addMember(debapratim, team_arppegio_and_shimmer, post_head, drawable.debapratim, email_debapratim);
         addMember(jugami, team_arppegio_and_shimmer, post_coordinator, drawable.jugami, email_jugami);
-        addMember(khushi, team_arppegio_and_shimmer, post_coordinator, drawable.khusi_mishra, email_khushi);
+        addMember(khushi, team_arppegio_and_shimmer, post_coordinator, drawable.khushi_mishra, email_khushi);
         addMember(charan_reddy, team_arppegio_and_shimmer, post_coordinator, drawable.charan_reddy, email_charan_reddy);
         addMember(ananya_giri, team_arppegio_and_shimmer, post_coordinator, drawable.ananya_giri, email_ananya_giri);
         addMember(imdad, team_arppegio_and_shimmer, post_co_coordinator, drawable.imdadul, email_imdad);
@@ -154,28 +277,29 @@ public class TeamMembersArrayInitializer {
         addMember(sanapala_rajesh, team_designing, post_co_coordinator, drawable.sanapala_rajesh, email_sanapala_rajesh);
         addMember(shubangi, team_designing, post_co_coordinator, drawable.shubangi_barua, email_shubangi);
 
-        addMember(jibesh, team_web_and_app_development, post_head, drawable.jibesh, email_jibesh);
-        addMember(devansh, team_web_and_app_development, post_coordinator, drawable.devansh, email_devansh);
-        addMember(laribok, team_web_and_app_development, post_coordinator, drawable.laribok, email_laribok);
-        addMember(amrit, team_web_and_app_development, post_coordinator, drawable.amrit, email_amrit);
-        addMember(wiwat, team_web_and_app_development,post_coordinator,drawable.wiwatdaka, email_wiwat);
-        addMember(tanuj, team_web_and_app_development, post_coordinator, drawable.tanuj, email_tanuj);
-        addMember(mahfooz, team_web_and_app_development, post_coordinator, drawable.mahfooz, email_mahfooz);
-        addMember(devian, team_web_and_app_development, post_co_cordinator, drawable.devian, email_devian);
-        addMember(prince, team_web_and_app_development, post_co_coordinator, drawable.prince, email_prince);
-        addMember(akash, team_web_and_app_development, post_co_coordinator, drawable.akash, email_akash);
-        addMember(mrityunjay, team_web_and_app_development, post_co_coordinator, drawable.mrityunjay, email_mrityunjay);
+        addMember(jibesh, team_web_development, post_head, drawable.jibesh, email_jibesh);
+        addMember(wiwat, team_web_development,post_coordinator,drawable.wiwatdaka, email_wiwat);
+        addMember(tanuj, team_web_development, post_coordinator, drawable.tanuj, email_tanuj);
+        addMember(mahfooz, team_web_development, post_coordinator, drawable.mahfooz, email_mahfooz);
+        addMember(devian, team_web_development, post_co_coordinator, drawable.devian, email_devian);
+        addMember(prince, team_web_development, post_co_coordinator, drawable.prince, email_prince);
 
-        addMember(chiron, team_hospitality_and_t_shirt_management, post_head, drawable.chiron, email_chiron);
-        addMember(jubabmilekini, team_hospitality_and_t_shirt_management, post_head, drawable.jubab, email_jubabmilekini);
-        addMember(elvarie, team_hospitality_and_t_shirt_management, post_coordinator, drawable.elva, email_elvarie);
-        addMember(dianglinshisha, team_hospitality_and_t_shirt_management, post_coordinator, drawable.diang, email_dianglinshisha);
-        addMember(donna,team_hospitality_and_t_shirt_management, post_coordinator,drawable.donna, email_donna)
-        addMember(michelle, team_hospitality_and_t_shirt_management, post_co_coordinator, drawable.michelle, email_michelle);
-        addMember(winnie, team_hospitality_and_t_shirt_management, post_co_coordinator, drawable.winnie, email_winnie);
-        addMember(tapsri, team_hospitality_and_t_shirt_management, post_co_coordinator, drawable.tapsri, email_tapsri);
-        addMember(priyanchi, team_hospitality_and_t_shirt_management, post_co_coordinator, drawable.priyanchi, email_priyanchi);
-        addMember(ilasukri, team_hospitality_and_t_shirt_management, post_co_coordinator, drawable.ilasukri, email_ilasukri);
+        addMember(devansh, team_app_development, post_coordinator, drawable.devansh, email_devansh);
+        addMember(laribok, team_app_development, post_coordinator, drawable.laribok, email_laribok);
+        addMember(amrit, team_app_development, post_coordinator, drawable.amrit, email_amrit);
+        addMember(akash, team_app_development, post_co_coordinator, drawable.akash, email_akash);
+        addMember(mrityunjay, team_app_development, post_co_coordinator, drawable.mritunjay, email_mrityunjay);
+
+        addMember(chiron, team_hospitality, post_head, drawable.chiron, email_chiron);
+        addMember(jubabmilekini, team_hospitality, post_head, drawable.jubab, email_jubabmilekini);
+        addMember(elvarie, team_hospitality, post_coordinator, drawable.elva, email_elvarie);
+        addMember(dianglinshisha, team_hospitality, post_coordinator, drawable.diang, email_dianglinshisha);
+        addMember(donna, team_hospitality, post_coordinator,drawable.donna, email_donna);
+        addMember(michelle, team_hospitality, post_co_coordinator, drawable.michelle, email_michelle);
+        addMember(winnie, team_hospitality, post_co_coordinator, drawable.winnie, email_winnie);
+        addMember(tapsri, team_hospitality, post_co_coordinator, drawable.tapsri, email_tapsri);
+        addMember(priyanchi, team_hospitality, post_co_coordinator, drawable.priyanchi, email_priyanchi);
+        addMember(ilasukri, team_hospitality, post_co_coordinator, drawable.ilasukri, email_ilasukri);
 
         addMember(nehemiah, team_photo_walk, post_head, drawable.nehemiah, email_nehemiah);
         addMember(kynmawlang, team_photo_walk, post_head, drawable.kynmawlang, email_kynmawlang);
@@ -206,29 +330,5 @@ public class TeamMembersArrayInitializer {
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
 
         mapToArrayList();
-    }
-
-    public static ArrayList<CognitiaTeamMember> getTeamMembers() {
-        return teamMembersArrayList;
-    }
-
-    public static HashMap<String , CognitiaTeamMember> getMembersMap() {
-        return teamMembers;
-    }
-
-    public static CognitiaTeamMember getMemberByName(String name) {
-        return teamMembers.get(name);
-    }
-
-    private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
-        CognitiaTeamMember member = new CognitiaTeamMember(nameId, teamId, postId, imageId, emailIdRes);
-        teamMembers.put(member.getName(), member);
-    }
-
-    private static void mapToArrayList() {
-        //Getting collection of values from HashMap
-        Collection<CognitiaTeamMember> values = teamMembers.values();
-        //Creating an ArrayList of values
-        teamMembersArrayList = new ArrayList<>(values);
     }
 }
