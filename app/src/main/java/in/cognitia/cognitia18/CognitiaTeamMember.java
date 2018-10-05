@@ -3,11 +3,14 @@ package in.cognitia.cognitia18;
 import android.content.Context;
 import android.content.res.Resources;
 
+import java.io.Serializable;
+
 /**
  * Created by devansh on 2/10/18.
  */
 
-public class CognitiaTeamMember {
+//Making it serializable so that it can be passed between activities
+public class CognitiaTeamMember implements Serializable {
      private String name;
      private String team;
      private String post;
