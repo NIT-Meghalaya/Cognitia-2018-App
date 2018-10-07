@@ -26,8 +26,7 @@ public class MemberProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_member_profile);
 
         intent = getIntent();
-        String memberKey = intent.getExtras().getString(MEMBER_NAME);
-        CognitiaTeamMember member = TeamMembersArrayInitializer.getMemberByName(memberKey);
+        CognitiaTeamMember member = (CognitiaTeamMember) intent.getExtras().getSerializable(MEMBER_NAME);
 
         imageView = findViewById(R.id.member_image);
         Glide.with(this).load(member.getImageId()).into(imageView);

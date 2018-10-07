@@ -52,6 +52,7 @@ dependencies {
     //Used to display curved image view in member profile
     implementation 'com.github.developer-shivam:Crescento:1.2.1'
     implementation 'com.klinkerapps:sliding-activity:1.5.2'
+    compile 'org.jetbrains:annotations-java5:15.0'
 }
 
 

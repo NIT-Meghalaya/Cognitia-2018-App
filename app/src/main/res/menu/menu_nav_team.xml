@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_events"
+            android:title="@string/events"/>
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/ic_team"
+            android:title="@string/nav_team" >
+                <menu>
+                    <group android:checkableBehavior="single" >
+                        <item
+                            android:id="@+id/team_technical"
+                            android:title="@string/team_technical" />
+                        <item
+                            android:id="@+id/team_departmental"
+                            android:title="@string/team_departmental"/>
+                        <item
+                            android:id="@+id/team_designing"
+                            android:title="@string/team_designing" />
+                        <item
+                            android:id="@+id/team_ecell"
+                            android:title="@string/team_e_cell" />
+                        <item
+                            android:id="@+id/team_event_management"
+                            android:title="@string/team_event_management" />
+                        <item
+                            android:id="@+id/team_fun_events"
+                            android:title="@string/team_fun_events" />
+                        <item
+                            android:id="@+id/team_gaming"
+                            android:title="@string/team_gaming" />
+                        <item
+                            android:id="@+id/team_hospitality"
+                            android:title="@string/team_hospitality" />
+                        <item
+                            android:id="@+id/team_photowalk"
+                            android:title="@string/team_photo_walk" />
+                        <item
+                            android:id="@+id/team_publicity"
+                            android:title="@string/team_publicity" />
+                        <item
+                            android:id="@+id/team_quiz_debate"
+                            android:title="@string/team_general_quiz_debate" />
+                        <item
+                            android:id="@+id/team_shimmer"
+                            android:title="@string/team_arppegio_and_shimmer" />
+                        <item
+                            android:id="@+id/team_stage_management"
+                            android:title="@string/team_stage_management_and_printing" />
+                        <item
+                            android:id="@+id/team_web_development"
+                            android:title="@string/team_web_development" />
+                        <item
+                            android:id="@+id/team_app_development"
+                            android:title="@string/team_app_development" />
+                        <item
+                            android:id="@+id/team_secretaries"
+                            android:title="@string/secretary_and_members" />
+                    </group>
+                </menu>
+        </item>
+    </group>
+
+    <item android:title="@string/nav_connect" >
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback"
+                android:title="@string/nav_feedback" />
+        </menu>
+    </item>
+</menu>

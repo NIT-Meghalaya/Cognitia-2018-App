@@ -2,6 +2,7 @@ package in.cognitia.cognitia18;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -94,7 +95,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Context is needed to convert from resource id to string
         CognitiaTeamMember.context = this;
-        TeamMembersArrayInitializer.addTeamMembers();
+        CognitiaTeamMember.initializeTeamNameStrings();
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                TeamMembersArrayInitializer.addTeamMembers();
+            }
+        });
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setCheckedItem(R.id.nav_events);

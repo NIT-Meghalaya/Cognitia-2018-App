@@ -1,5 +1,8 @@
 package in.cognitia.cognitia18;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,15 +17,11 @@ import static in.cognitia.cognitia18.R.*;
 public class TeamMembersArrayInitializer {
 
     //HashMap is needed to get the object corresponding to a particular name
-    private static HashMap<String , CognitiaTeamMember> teamMembers = new HashMap<>();
-    //An array of teamMembers is needed to show the images in random order
-    private static ArrayList<CognitiaTeamMember> teamMembersArrayList;
 
-    private static HashMap<String, HashMap<String, CognitiaTeamMember>> teamMembersByCategories = new HashMap<>();
+    private static HashMap<String, ArrayList<CognitiaTeamMember>> teamMembersByCategories = new HashMap<>();
 
     private static HashMap<String , CognitiaTeamMember> teamMembers_departmental = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_designing = new HashMap<>();
-    private static HashMap<String , CognitiaTeamMember> teamMembers_disciplinary = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_ecell = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_event_management = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_fun_events = new HashMap<>();
@@ -38,46 +37,87 @@ public class TeamMembersArrayInitializer {
     private static HashMap<String , CognitiaTeamMember> teamMembers_web_development = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_app_development = new HashMap<>();
 
-    public static ArrayList<CognitiaTeamMember> getTeamMembers() {
-        return teamMembersArrayList;
+    //An array of teamMembers is needed to show the images in random order
+
+    private static ArrayList<CognitiaTeamMember> arrayList_departmental = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_designing = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_ecell = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_event_management = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_fun_events = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_gaming = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_hospitality = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_photowalk = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_publicity = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_quiz_debate = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_secretaries = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_shimmer = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_stage_management = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_technical = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_web_development = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_app_development = new ArrayList<>();
+
+
+    static ArrayList<CognitiaTeamMember> getTeamMembers(String teamName) {
+        return teamMembersByCategories.get(teamName);
     }
 
-    public static HashMap<String , CognitiaTeamMember> getMembersMap() {
-        return teamMembers;
-    }
-
-    public static CognitiaTeamMember getMemberByName(String name) {
-        return teamMembers.get(name);
-    }
-
-    private static void mapToArrayList() {
+    @NonNull
+    private static ArrayList<CognitiaTeamMember> mapToArrayList(HashMap<String, CognitiaTeamMember> teamMembers) {
         //Getting collection of values from HashMap
         Collection<CognitiaTeamMember> values = teamMembers.values();
         //Creating an ArrayList of values
-        teamMembersArrayList = new ArrayList<>(values);
+        ArrayList<CognitiaTeamMember> arrayList = new ArrayList<>(values);
+        Log.v("Returned array size", arrayList.size() + "");
+        return arrayList;
     }
 
-    private static void addTeamCategoriesToMap() {
-        teamMembersByCategories.put(TeamGalleryActivity.DEPARTMENTAL, teamMembers_departmental);
-        teamMembersByCategories.put(TeamGalleryActivity.DESIGNING, teamMembers_designing);
-        teamMembersByCategories.put(TeamGalleryActivity.ECELL, teamMembers_ecell);
-        teamMembersByCategories.put(TeamGalleryActivity.EVENT_MAMANGEMET, teamMembers_event_management);
-        teamMembersByCategories.put(TeamGalleryActivity.FUN_EVENTS, teamMembers_fun_events);
-        teamMembersByCategories.put(TeamGalleryActivity.GAMING, teamMembers_gaming);
-        teamMembersByCategories.put(TeamGalleryActivity.HOSPITALITY, teamMembers_hospitality);
-        teamMembersByCategories.put(TeamGalleryActivity.PUBLICITY, teamMembers_publicity);
-        teamMembersByCategories.put(TeamGalleryActivity.QUIZ_DEBATE, teamMembers_quiz_debate);
-        teamMembersByCategories.put(TeamGalleryActivity.SECRETARIES_MEMBERS, teamMembers_secretaries);
-        teamMembersByCategories.put(TeamGalleryActivity.SHIMMER_ARPEGGIO, teamMembers_shimmer);
-        teamMembersByCategories.put(TeamGalleryActivity.STAGE_MANAGEMENT, teamMembers_stage_management);
-        teamMembersByCategories.put(TeamGalleryActivity.TECHNICAL, teamMembers_technical);
-        teamMembersByCategories.put(TeamGalleryActivity.WEB_DEVELOPMENT, teamMembers_web_development);
-        teamMembersByCategories.put(TeamGalleryActivity.APP_DEVELOPMENT, teamMembers_app_development);
+    static CognitiaTeamMember getMemberByName(String name, HashMap<String, CognitiaTeamMember> teamMembers) {
+        return teamMembers.get(name);
+    }
+
+    private static void createTeamsArrayLists() {
+        arrayList_departmental = mapToArrayList(teamMembers_departmental);
+        arrayList_designing = mapToArrayList(teamMembers_designing);
+        Log.v("Designing hash map", ""+ teamMembers_designing);
+        Log.v("Designing array", "" + arrayList_designing.size());
+        Log.v("Designing array size", arrayList_designing.size() + "");
+        arrayList_ecell = mapToArrayList(teamMembers_ecell);
+        arrayList_event_management = mapToArrayList(teamMembers_event_management);
+        arrayList_fun_events = mapToArrayList(teamMembers_fun_events);
+        arrayList_gaming = mapToArrayList(teamMembers_gaming);
+        arrayList_hospitality = mapToArrayList(teamMembers_hospitality);
+        arrayList_photowalk = mapToArrayList(teamMembers_photowalk);
+        arrayList_publicity = mapToArrayList(teamMembers_publicity);
+        arrayList_quiz_debate = mapToArrayList(teamMembers_quiz_debate);
+        arrayList_secretaries = mapToArrayList(teamMembers_secretaries);
+        arrayList_shimmer = mapToArrayList(teamMembers_shimmer);
+        arrayList_stage_management = mapToArrayList(teamMembers_stage_management);
+        arrayList_technical = mapToArrayList(teamMembers_technical);
+        arrayList_web_development = mapToArrayList(teamMembers_web_development);
+        arrayList_app_development = mapToArrayList(teamMembers_app_development);
+    }
+
+    private static void addTeamCategoriesArraysToMap() {
+        teamMembersByCategories.put(CognitiaTeamMember.DEPARTMENTAL, arrayList_departmental);
+        teamMembersByCategories.put(CognitiaTeamMember.DESIGNING, arrayList_designing);
+        teamMembersByCategories.put(CognitiaTeamMember.ECELL, arrayList_ecell);
+        teamMembersByCategories.put(CognitiaTeamMember.EVENT_MAMANGEMET, arrayList_event_management);
+        teamMembersByCategories.put(CognitiaTeamMember.FUN_EVENTS, arrayList_fun_events);
+        teamMembersByCategories.put(CognitiaTeamMember.GAMING, arrayList_gaming);
+        teamMembersByCategories.put(CognitiaTeamMember.HOSPITALITY, arrayList_hospitality);
+        teamMembersByCategories.put(CognitiaTeamMember.PHOTOWALK, arrayList_photowalk);
+        teamMembersByCategories.put(CognitiaTeamMember.PUBLICITY, arrayList_publicity);
+        teamMembersByCategories.put(CognitiaTeamMember.QUIZ_DEBATE, arrayList_quiz_debate);
+        teamMembersByCategories.put(CognitiaTeamMember.SECRETARIES_MEMBERS, arrayList_secretaries);
+        teamMembersByCategories.put(CognitiaTeamMember.SHIMMER_ARPEGGIO, arrayList_shimmer);
+        teamMembersByCategories.put(CognitiaTeamMember.STAGE_MANAGEMENT, arrayList_stage_management);
+        teamMembersByCategories.put(CognitiaTeamMember.TECHNICAL, arrayList_technical);
+        teamMembersByCategories.put(CognitiaTeamMember.WEB_DEVELOPMENT, arrayList_web_development);
+        teamMembersByCategories.put(CognitiaTeamMember.APP_DEVELOPMENT, arrayList_app_development);
     }
 
     private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
         CognitiaTeamMember member = new CognitiaTeamMember(nameId, teamId, postId, imageId, emailIdRes);
-        teamMembers.put(member.getName(), member);
 
         switch (teamId) {
             case team_civil_departmental:
@@ -89,9 +129,6 @@ public class TeamMembersArrayInitializer {
                 break;
             case team_designing:
                 teamMembers_designing.put(member.getName(), member);
-                break;
-            case team_disciplinary:
-                teamMembers_disciplinary.put(member.getName(), member);
                 break;
             case team_e_cell:
                 teamMembers_ecell.put(member.getName(), member);
@@ -126,7 +163,13 @@ public class TeamMembersArrayInitializer {
             case team_stage_management_and_printing:
                 teamMembers_stage_management.put(member.getName(), member);
                 break;
-            case team_technical:
+            case team_goal_against_time:
+            case team_race_against_time:
+            case team_line_follower_robot:
+            case team_robo_bridge:
+            case team_robodiction:
+            case team_robo_rumble:
+            case team_prison_breakout:
                 teamMembers_technical.put(member.getName(), member);
                 break;
             case team_web_development:
@@ -139,8 +182,6 @@ public class TeamMembersArrayInitializer {
     }
 
     public static void addTeamMembers() {
-
-        addTeamCategoriesToMap();
 
         addMember(karan, team_event_management, post_head, drawable.s_s_sri_karan, email_karan);
         addMember(gnaneshwar, team_event_management, post_coordinator, drawable.gnaneshwar, email_gnaneshwar);
@@ -329,6 +370,8 @@ public class TeamMembersArrayInitializer {
         addMember(leon, secretary_and_members, general_secretary, drawable.leon, email_leon);
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
 
-        mapToArrayList();
+        createTeamsArrayLists();
+        addTeamCategoriesArraysToMap();
+
     }
 }
