@@ -26,6 +26,7 @@ public class TeamGalleryActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
+        actionBar.setTitle(CognitiaTeamMember.TECHNICAL);
 
         drawerLayout = findViewById(R.id.team_drawer_layout);
 

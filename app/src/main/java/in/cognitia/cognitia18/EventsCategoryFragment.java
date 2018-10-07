@@ -24,6 +24,8 @@ import com.google.firebase.database.Query;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.cognitia.cognitia18.Util.EventsImagesAssociator;
+
 /**
  * Created by devansh on 9/9/18.
  */
@@ -84,10 +86,12 @@ public class EventsCategoryFragment extends Fragment {
                 holder.name.setText(event.getName());
                 holder.description.setText(event.getDescription());
 
+                int imageResId = EventsImagesAssociator.getEventImageId(event.getName());
+
                 //Loading event image using Glide library
-                Glide.with(getContext()).load(R.drawable.robotics).into(holder.image);
+                Glide.with(getContext()).load(imageResId).into(holder.image);
                 //Doing this to get the id of the drawable later
-                holder.image.setTag(R.string.image_tag, R.drawable.robotics);
+                holder.image.setTag(R.string.image_tag, imageResId);
             }
 
             @NonNull

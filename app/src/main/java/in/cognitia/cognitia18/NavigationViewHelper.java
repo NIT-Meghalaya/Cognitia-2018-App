@@ -57,7 +57,7 @@ public class NavigationViewHelper {
                         break;
                     case R.id.nav_team:
                         if (activity != TEAM_GALLERY_ACTIVITY)
-                                intent = new Intent(context, TeamGalleryActivity.class);
+                            intent = new Intent(context, TeamGalleryActivity.class);
                         break;
                     case team_departmental:
                         teamName = DEPARTMENTAL;
@@ -114,10 +114,10 @@ public class NavigationViewHelper {
 
                 actionBar.setTitle(teamName);
 
-                if (intent == null) {
+                if (intent == null && (activity == TEAM_GALLERY_ACTIVITY)) {
                     recyclerView.setAdapter(new TeamGalleryRecyclerViewAdapter(
                             TeamMembersArrayInitializer.getTeamMembers(teamName), context));
-                } else {
+                } else if (intent != null) {
                     context.startActivity(intent);
                 }
 
@@ -125,5 +125,4 @@ public class NavigationViewHelper {
             }
         });
     }
-
 }
