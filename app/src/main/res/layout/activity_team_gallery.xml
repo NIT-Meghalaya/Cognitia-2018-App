@@ -13,14 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".activity.MainActivity">
+        tools:context=".activity.MainActivity"
+        android:id="@+id/team_coordinator_layout">
 
         <!--The toolbar MUST be contained within an app bar layout in order for it to scroll.
             The app bar layout and coordinator layout work together to enable the toolbar to scroll.-->
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:id="@+id/team_app_bar_layout">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/team_gallery_toolbar"

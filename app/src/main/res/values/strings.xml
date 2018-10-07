@@ -48,14 +48,14 @@
     <string name="secretary_and_members">Secretary and Members</string>
     <string name="team_event_management">Event Management</string>
 
-    <string name="team_departmental">Departmental</string>
+    <string name="team_departmental">Departmental Events</string>
     <string name="team_cse_departmental">CSE Departmental Events</string>
     <string name="team_civil_departmental">Civil Departmental Events</string>
     <string name="team_ece_departmental">ECE Departmental Events</string>
     <string name="team_ee_departmental">EE Departmental Events</string>
     <string name="team_me_departmental">ME Departmental Events</string>
 
-    <string name="team_technical">Technical</string>
+    <string name="team_technical">Technical Events</string>
     <string name="team_race_against_time">Race Against Time</string>
     <string name="team_goal_against_time">Goal Against Time</string>
     <string name="team_robodiction">Robodiction</string>

@@ -42,7 +42,7 @@ public class TeamGalleryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         NavigationViewHelper navViewHelper = new NavigationViewHelper(NavigationViewHelper.TEAM_GALLERY_ACTIVITY,
-                this, navigationView, drawerLayout, recyclerView);
+                this, navigationView, drawerLayout, actionBar, recyclerView);
     }
 
     @Override

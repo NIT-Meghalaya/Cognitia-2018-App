@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -27,14 +28,17 @@ public class NavigationViewHelper {
     private DrawerLayout drawerLayout;
     private int activity;
     private RecyclerView recyclerView;
+    private ActionBar actionBar;
 
-    NavigationViewHelper(int activityId, Context context, NavigationView navigationView, DrawerLayout drawerLayout, RecyclerView... rv) {
+    NavigationViewHelper(int activityId, Context context, NavigationView navigationView, DrawerLayout drawerLayout,
+                         ActionBar actionBar, RecyclerView... rv) {
         this.context = context;
         this.navigationView = navigationView;
         this.drawerLayout = drawerLayout;
         this.activity = activityId;
         if (rv.length > 0)
             this.recyclerView = rv[0];
+        this.actionBar = actionBar;
 
         selectNavigationOptions();
     }
@@ -107,6 +111,8 @@ public class NavigationViewHelper {
 
                 navigationView.setCheckedItem(item.getItemId());
                 drawerLayout.closeDrawer(Gravity.START);
+
+                actionBar.setTitle(teamName);
 
                 if (intent == null) {
                     recyclerView.setAdapter(new TeamGalleryRecyclerViewAdapter(

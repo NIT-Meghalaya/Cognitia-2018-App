@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setCheckedItem(R.id.nav_events);
 
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
-                this, navigationView, drawerLayout);
+                this, navigationView, drawerLayout, actionBar);
     }
 
     @Override
