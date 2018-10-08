@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 
 import static in.cognitia.cognitia18.R.id.*;
 import static in.cognitia.cognitia18.CognitiaTeamMember.*;
@@ -27,7 +28,7 @@ public class NavigationViewHelper {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private int activity;
-    private RecyclerView recyclerView;
+    private RecyclerView[] recyclerViewArray;
     private ActionBar actionBar;
 
     NavigationViewHelper(int activityId, Context context, NavigationView navigationView, DrawerLayout drawerLayout,
@@ -36,9 +37,10 @@ public class NavigationViewHelper {
         this.navigationView = navigationView;
         this.drawerLayout = drawerLayout;
         this.activity = activityId;
-        if (rv.length > 0)
-            this.recyclerView = rv[0];
         this.actionBar = actionBar;
+        if (rv.length > 0) {
+            recyclerViewArray = rv;
+        }
 
         selectNavigationOptions();
     }
@@ -48,16 +50,37 @@ public class NavigationViewHelper {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 String teamName = null;
+                String eventName = null;
                 Intent intent = null;
 
                 switch (item.getItemId()) {
                     case R.id.nav_events:
                         if (activity != MAIN_ACTIVITY)
                             intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
                         break;
                     case R.id.nav_team:
                         if (activity != TEAM_GALLERY_ACTIVITY)
                             intent = new Intent(context, TeamGalleryActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case R.id.events_technical:
+                        actionBar.setTitle(TECHNICAL);
+                        recyclerViewArray[0].setVisibility(View.VISIBLE);
+                        recyclerViewArray[1].setVisibility(View.GONE);
+                        recyclerViewArray[2].setVisibility(View.GONE);
+                        break;
+                    case R.id.events_departmental:
+                        actionBar.setTitle(DEPARTMENTAL);
+                        recyclerViewArray[0].setVisibility(View.GONE);
+                        recyclerViewArray[1].setVisibility(View.VISIBLE);
+                        recyclerViewArray[2].setVisibility(View.GONE);
+                        break;
+                    case R.id.events_others:
+                        actionBar.setTitle(OTHERS);
+                        recyclerViewArray[0].setVisibility(View.GONE);
+                        recyclerViewArray[1].setVisibility(View.GONE);
+                        recyclerViewArray[2].setVisibility(View.VISIBLE);
                         break;
                     case team_departmental:
                         teamName = DEPARTMENTAL;
@@ -112,13 +135,10 @@ public class NavigationViewHelper {
                 navigationView.setCheckedItem(item.getItemId());
                 drawerLayout.closeDrawer(Gravity.START);
 
-                actionBar.setTitle(teamName);
-
-                if (intent == null && (activity == TEAM_GALLERY_ACTIVITY)) {
-                    recyclerView.setAdapter(new TeamGalleryRecyclerViewAdapter(
+                if (teamName != null) {
+                    actionBar.setTitle(teamName);
+                    recyclerViewArray[0].setAdapter(new TeamGalleryRecyclerViewAdapter(
                             TeamMembersArrayInitializer.getTeamMembers(teamName), context));
-                } else if (intent != null) {
-                    context.startActivity(intent);
                 }
 
                 return true;

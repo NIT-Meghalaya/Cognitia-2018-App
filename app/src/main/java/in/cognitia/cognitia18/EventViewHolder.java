@@ -36,7 +36,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
                 intent.putExtra(EventDetailActivity.IMAGE_ID, getDrawableId(image));
 
-                CognitiaEvent event = EventsCategoryFragment.getEventsMap().get(name.getText());
+                CognitiaEvent event = EventsCategoryRecyclerViewAdapter.getEventsMap().get(name.getText());
 
                 Bundle eventBundle = new Bundle();
                 eventBundle.putString(EventDetailActivity.EVENT_NAME, event.getName());

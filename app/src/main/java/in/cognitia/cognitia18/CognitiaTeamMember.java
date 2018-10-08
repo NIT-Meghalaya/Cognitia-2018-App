@@ -28,6 +28,7 @@ public class CognitiaTeamMember implements Serializable {
     public static String TECHNICAL;
     public static String APP_DEVELOPMENT;
     public static String WEB_DEVELOPMENT;
+    public static String OTHERS;
 
      private String name;
      private String team;
@@ -106,5 +107,6 @@ public class CognitiaTeamMember implements Serializable {
         TECHNICAL = context.getResources().getString(R.string.team_technical);
         WEB_DEVELOPMENT = context.getResources().getString(R.string.team_web_development);
         APP_DEVELOPMENT = context.getResources().getString(R.string.team_app_development);
+        OTHERS = context.getResources().getString(R.string.event_others);
     }
 }

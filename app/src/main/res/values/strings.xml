@@ -39,6 +39,8 @@
     <string name="event_image_trans">Event image transition</string>
     <string name="event_name_trans">Event name transition</string>
 
+    <string name="event_others">Other events</string>
+
     <string name="post_head">Head</string>
     <string name="post_coordinator">Coordinator</string>
     <string name="post_co_coordinator">Co-coordinator</string>

@@ -68,7 +68,6 @@ public class EventsCategoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         database = FirebaseDatabase.getInstance();
 
-
         Query query = database.getReference().child("events").child("robotics");
         query.keepSynced(true);
 

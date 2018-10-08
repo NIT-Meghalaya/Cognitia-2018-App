@@ -3,8 +3,8 @@
 
     <group android:checkableBehavior="single" >
         <item
-            android:id="@+id/nav_events"
-            android:title="@string/events"/>
+            android:title="@string/events"
+            android:id="@+id/nav_events"/>
     </group>
 
     <group>

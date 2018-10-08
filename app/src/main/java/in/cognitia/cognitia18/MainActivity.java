@@ -1,38 +1,40 @@
 package in.cognitia.cognitia18;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
-
-import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
 import in.cognitia.cognitia18.Util.EventsImagesAssociator;
+import in.cognitia.cognitia18.EventsCategoryRecyclerViewAdapter.GridSpacingItemDecoration;
+
+import static in.cognitia.cognitia18.CognitiaTeamMember.TECHNICAL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CoordinatorTabLayout coordinatorTabLayout;
-    private ViewPager viewPager;
-    private String[] nameArray;
-    private int[] imageArray;
-    private int[] colorArray;
-    private ArrayList<EventCategory> eventCategories;
-    private ArrayList<Fragment> fragments;
     private DrawerLayout drawerLayout;
 
     //This will help to prevent the call to setPersistenceEnabled more than once
     private static boolean initialCall = true;
+
+    private FirebaseDatabase database;
+
+    //Different names for adapters is required, otherwise there is a problem in fetching data
+    private EventsCategoryRecyclerViewAdapter adapterTechnical, adapterDepartmental, adapterOthers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,58 +47,20 @@ public class MainActivity extends AppCompatActivity {
             initialCall = false;
         }
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        database = FirebaseDatabase.getInstance();
+
+        Toolbar toolbar = findViewById(R.id.event_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
 
-        EventsImagesAssociator.context = this;
-        EventsImagesAssociator.initializeImageMap();
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-
-        eventCategories = new ArrayList<>();
-        eventCategories.add(new EventCategory(getString(R.string.robotics), R.drawable.robotics, android.R.color.holo_blue_bright));
-        eventCategories.add(new EventCategory(getString(R.string.departmental), R.drawable.departmental, android.R.color.holo_purple));
-        eventCategories.add(new EventCategory(getString(R.string.others), R.drawable.ic_movie, android.R.color.holo_red_light));
-
-        nameArray = createNameArray(eventCategories);
-        imageArray = createImageArray(eventCategories);
-        colorArray = createColorArray(eventCategories);
-
-        initFragments();
-        initViewPager();
-
-        coordinatorTabLayout = findViewById(R.id.coordinatortablayout);
-        coordinatorTabLayout.setTranslucentStatusBar(this)
-                .setTitle(getString(R.string.app_name))
-                .setImageArray(imageArray, colorArray)
-                .setupWithViewPager(viewPager);
-
-        TabLayout tabLayout = coordinatorTabLayout.getTabLayout();
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-
         //Context is needed to convert from resource id to string
         CognitiaTeamMember.context = this;
         CognitiaTeamMember.initializeTeamNameStrings();
+
+        EventsImagesAssociator.context = this;
+        EventsImagesAssociator.initializeImageMap();
 
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -106,11 +70,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.event_nav_view);
         navigationView.setCheckedItem(R.id.nav_events);
 
+        //The recycler views are displayed and hidden on the basis of the option selected
+        RecyclerView technicalEventsRV = findViewById(R.id.event_technical_rv);
+        adapterTechnical = new EventsCategoryRecyclerViewAdapter(getTechnicalEventsData(), this);
+        setUpRecyclerView(technicalEventsRV, adapterTechnical);
+
+        RecyclerView departmentalEventsRV = findViewById(R.id.event_departmental_rv);
+        adapterDepartmental = new EventsCategoryRecyclerViewAdapter(getDepartmentalEventsData(), this);
+        setUpRecyclerView(departmentalEventsRV, adapterDepartmental);
+
+        RecyclerView otherEventsRV = findViewById(R.id.event_others_rv);
+        adapterOthers = new EventsCategoryRecyclerViewAdapter(getOtherEventsData(), this);
+        setUpRecyclerView(otherEventsRV, adapterOthers);
+
+
+        drawerLayout = findViewById(R.id.event_drawer_layout);
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
-                this, navigationView, drawerLayout, actionBar);
+                this, navigationView, drawerLayout, actionBar, technicalEventsRV, departmentalEventsRV, otherEventsRV);
     }
 
     @Override
@@ -132,55 +111,61 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setViewPagerPage(final int position) {
-        viewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                viewPager.setCurrentItem(position, true);
-            }
-        });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapterTechnical.startListening();
+        adapterDepartmental.startListening();
+        adapterOthers.startListening();
     }
 
-    private void initFragments() {
-        fragments = new ArrayList<>();
-        for (String title : nameArray) {
-            fragments.add(EventsCategoryFragment.getInstance(title));
-        }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapterTechnical.stopListening();
+        adapterDepartmental.stopListening();
+        adapterOthers.stopListening();
     }
 
-    private void initViewPager() {
-        viewPager = findViewById(R.id.vp);
-        viewPager.setOffscreenPageLimit(3);
-        viewPager.setAdapter(new EventsViewPagerAdapter(getSupportFragmentManager(), fragments, nameArray));
+    private void setUpRecyclerView(RecyclerView recyclerView, EventsCategoryRecyclerViewAdapter adapter) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 
-    private String[] createNameArray(ArrayList<EventCategory> eventCategories) {
-        String[] nameArray = new String[eventCategories.size()];
+    private FirebaseRecyclerOptions<CognitiaEvent> getTechnicalEventsData() {
+        Query query = database.getReference().child("events").child("robotics");
+        query.keepSynced(true);
 
-        for (int i = 0; i < eventCategories.size(); i++) {
-            nameArray[i] = eventCategories.get(i).getName();
-        }
-
-        return nameArray;
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                        setQuery(query, CognitiaEvent.class).
+                        build();
     }
 
-    private int[] createImageArray(ArrayList<EventCategory> eventCategories) {
-        int[] imageArray = new int[eventCategories.size()];
+    private FirebaseRecyclerOptions<CognitiaEvent> getDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("departmental");
+        query.keepSynced(true);
 
-        for (int i = 0; i < eventCategories.size(); i++) {
-            imageArray[i] = eventCategories.get(i).getImageResId();
-        }
-
-        return imageArray;
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                        setQuery(query, CognitiaEvent.class).
+                        build();
     }
 
-    private int[] createColorArray(ArrayList<EventCategory> eventCategories) {
-        int[] colorArray = new int[eventCategories.size()];
+    private FirebaseRecyclerOptions<CognitiaEvent> getOtherEventsData() {
+        Query query = database.getReference().child("events").child("others");
+        query.keepSynced(true);
 
-        for (int i = 0; i < eventCategories.size(); i++) {
-            colorArray[i] = eventCategories.get(i).getColorResId();
-        }
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                        setQuery(query, CognitiaEvent.class).
+                        build();
+    }
 
-        return colorArray;
+    /**
+     * Converting dp to pixel
+     */
+    private int dpToPx(int dp) {
+        Resources r = getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 }

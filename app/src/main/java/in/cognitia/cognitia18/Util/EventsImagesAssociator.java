@@ -33,7 +33,9 @@ public class EventsImagesAssociator {
     }
 
     public static int getEventImageId(String eventName) {
-        return imageMap.get(eventName);
+        if (imageMap.get(eventName) != null)
+            return imageMap.get(eventName);
+        return 0;
     }
 
     private static void initializeEventNames() {
