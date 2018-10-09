@@ -19,7 +19,7 @@ public class CognitiaEvent extends EventCategory{
     public static String SPECIFICATIONS = "Specifications";
     public static String ROBOT_SPECIFICATIONS = "Robot Specifications";
     public static String RULES = "Rules";
-    public static String COORDINATORS = "Coordinators";
+    public static String TEAM = "Team";
 
 
     //Defined so that data from Firebase can be serialized into a CognitiaEvent class

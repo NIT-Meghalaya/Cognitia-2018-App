@@ -45,7 +45,7 @@
             tools:text="@string/laribok"
             android:textColor="@android:color/black"
             android:textSize="30sp"
-            android:fontFamily="@font/worksans_regular"
+            android:fontFamily="@font/worksans_reg"
             android:paddingStart="@dimen/fab_margin"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -57,7 +57,7 @@
             tools:text="@string/laribok"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:fontFamily="@font/worksans_regular"
+            android:fontFamily="@font/worksans_reg"
             android:paddingStart="@dimen/fab_margin"
 
             android:id="@+id/member_post"/>
@@ -68,7 +68,7 @@
             tools:text="@string/laribok"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:fontFamily="@font/worksans_regular"
+            android:fontFamily="@font/worksans_reg"
             android:paddingStart="@dimen/fab_margin"
             android:id="@+id/member_team"/>
 
@@ -78,7 +78,7 @@
             tools:text="@string/laribok"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:fontFamily="@font/worksans_regular"
+            android:fontFamily="@font/worksans_reg"
             android:paddingStart="@dimen/fab_margin"
             android:paddingTop="10dp"
             android:id="@+id/member_email"/>

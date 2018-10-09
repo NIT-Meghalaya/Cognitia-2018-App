@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,10 +41,13 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
                 Bundle eventBundle = new Bundle();
                 eventBundle.putString(EventDetailActivity.EVENT_NAME, event.getName());
+                Log.v("Event name", event.getName());
                 eventBundle.putString(EventDetailActivity.DESCRIPTION, event.getDescription());
                 eventBundle.putString(EventDetailActivity.OBJECTIVE, event.getShortDescription());
                 eventBundle.putString(EventDetailActivity.RULES, event.getRules());
                 eventBundle.putString(EventDetailActivity.AIM, event.getAim());
+                if (event.getRobotSpecs() != null)
+                    eventBundle.putString(EventDetailActivity.ROBOT_SPECS, event.getRobotSpecs());
                 eventBundle.putInt(EventDetailActivity.IMAGE_ID, getDrawableId(image));
 
                 intent.putExtras(eventBundle);

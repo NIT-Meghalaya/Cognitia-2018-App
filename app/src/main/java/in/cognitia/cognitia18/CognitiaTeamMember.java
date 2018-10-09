@@ -30,6 +30,18 @@ public class CognitiaTeamMember implements Serializable {
     public static String WEB_DEVELOPMENT;
     public static String OTHERS;
 
+    public static String RACE_AGAINST_TIME;
+    public static String GOAL_AGAINST_TIME;
+    public static String ROBORUMBLE;
+    public static String ROBO_BRIDGE;
+    public static String ROBODICTION;
+    public static String LINE_FOLLOWER_ROBOT;
+    public static String PRISON_BREAKOUT;
+
+    static String POST_COORDINATOR;
+    static String POST_COCOORDINATOR;
+    static String POST_HEAD;
+
      private String name;
      private String team;
      private String post;
@@ -108,5 +120,17 @@ public class CognitiaTeamMember implements Serializable {
         WEB_DEVELOPMENT = context.getResources().getString(R.string.team_web_development);
         APP_DEVELOPMENT = context.getResources().getString(R.string.team_app_development);
         OTHERS = context.getResources().getString(R.string.event_others);
+
+        PRISON_BREAKOUT = context.getResources().getString(R.string.team_prison_breakout);
+        LINE_FOLLOWER_ROBOT = context.getResources().getString(R.string.team_line_follower_robot);
+        ROBO_BRIDGE = context.getResources().getString(R.string.team_robo_bridge);
+        ROBORUMBLE = context.getResources().getString(R.string.team_robo_rumble);
+        ROBODICTION = context.getResources().getString(R.string.team_robodiction);
+        RACE_AGAINST_TIME = context.getResources().getString(R.string.team_race_against_time);
+        GOAL_AGAINST_TIME = context.getResources().getString(R.string.team_goal_against_time);
+
+        POST_COORDINATOR = context.getResources().getString(R.string.post_coordinator);
+        POST_COCOORDINATOR = context.getResources().getString(R.string.post_co_coordinator);
+        POST_HEAD = context.getResources().getString(R.string.post_head);
     }
 }

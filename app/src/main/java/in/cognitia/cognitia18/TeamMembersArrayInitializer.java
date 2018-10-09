@@ -10,6 +10,8 @@ import java.util.HashMap;
 import static in.cognitia.cognitia18.R.string.*;
 import static in.cognitia.cognitia18.R.*;
 
+import static in.cognitia.cognitia18.CognitiaTeamMember.*;
+
 /**
  * Created by devansh on 2/10/18.
  */
@@ -36,6 +38,13 @@ public class TeamMembersArrayInitializer {
     private static HashMap<String , CognitiaTeamMember> teamMembers_technical = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_web_development = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_app_development = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_line_follower_robot = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_goal_against_time = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_race_against_time = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_robo_rumble = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_robo_bridge = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_robo_diction = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_prison_breakout = new HashMap<>();
 
     //An array of teamMembers is needed to show the images in random order
 
@@ -55,10 +64,44 @@ public class TeamMembersArrayInitializer {
     private static ArrayList<CognitiaTeamMember> arrayList_technical = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_web_development = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_app_development = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_line_follower_robot = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_goal_against_time = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_race_against_time = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_robo_rumble = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_robo_bridge = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_robodiction = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_prison_breakout = new ArrayList<>();
 
 
     static ArrayList<CognitiaTeamMember> getTeamMembers(String teamName) {
         return teamMembersByCategories.get(teamName);
+    }
+
+    static CognitiaTeamMember[] getTeamMembersSortedArray(String teamName) {
+
+        ArrayList<CognitiaTeamMember> membersList = getTeamMembers(teamName);
+        Log.v("Team name", teamName);
+        Log.v("Members list", membersList + "");
+
+        CognitiaTeamMember[] members = new CognitiaTeamMember[membersList.size()];
+
+        int beg = 0, end = membersList.size()-1;
+
+        //Sort the array, with heads first followed by coordinators
+        for (CognitiaTeamMember member: membersList) {
+            if (member.getTeam().equals(teamName)) {
+                if (member.getPost().equals(CognitiaTeamMember.POST_HEAD)) {
+                    members[beg++] = member;
+                } else {
+                    members[end--] = member;
+                }
+            }
+        }
+
+        Log.v("Members array len", members.length + "");
+        Log.v("member array", members[0].getName() + " " + members[1].getName() + " " + members[2].getName() + " "+ "");
+
+        return members;
     }
 
     @NonNull
@@ -95,6 +138,14 @@ public class TeamMembersArrayInitializer {
         arrayList_technical = mapToArrayList(teamMembers_technical);
         arrayList_web_development = mapToArrayList(teamMembers_web_development);
         arrayList_app_development = mapToArrayList(teamMembers_app_development);
+
+        arrayList_line_follower_robot = mapToArrayList(teamMembers_line_follower_robot);
+        arrayList_goal_against_time = mapToArrayList(teamMembers_goal_against_time);
+        arrayList_race_against_time = mapToArrayList(teamMembers_race_against_time);
+        arrayList_robo_bridge = mapToArrayList(teamMembers_robo_bridge);
+        arrayList_robodiction = mapToArrayList(teamMembers_robo_diction);
+        arrayList_robo_rumble = mapToArrayList(teamMembers_robo_rumble);
+        arrayList_prison_breakout = mapToArrayList(teamMembers_prison_breakout);
     }
 
     private static void addTeamCategoriesArraysToMap() {
@@ -114,6 +165,14 @@ public class TeamMembersArrayInitializer {
         teamMembersByCategories.put(CognitiaTeamMember.TECHNICAL, arrayList_technical);
         teamMembersByCategories.put(CognitiaTeamMember.WEB_DEVELOPMENT, arrayList_web_development);
         teamMembersByCategories.put(CognitiaTeamMember.APP_DEVELOPMENT, arrayList_app_development);
+
+        teamMembersByCategories.put(LINE_FOLLOWER_ROBOT, arrayList_line_follower_robot);
+        teamMembersByCategories.put(RACE_AGAINST_TIME, arrayList_race_against_time);
+        teamMembersByCategories.put(GOAL_AGAINST_TIME, arrayList_goal_against_time);
+        teamMembersByCategories.put(ROBO_BRIDGE, arrayList_robo_bridge);
+        teamMembersByCategories.put(ROBORUMBLE, arrayList_robo_rumble);
+        teamMembersByCategories.put(ROBODICTION, arrayList_robodiction);
+        teamMembersByCategories.put(PRISON_BREAKOUT, arrayList_prison_breakout);
     }
 
     private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
@@ -164,12 +223,31 @@ public class TeamMembersArrayInitializer {
                 teamMembers_stage_management.put(member.getName(), member);
                 break;
             case team_goal_against_time:
+                teamMembers_goal_against_time.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_race_against_time:
+                teamMembers_race_against_time.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_line_follower_robot:
+                teamMembers_line_follower_robot.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_robo_bridge:
+                teamMembers_robo_bridge.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_robodiction:
+                teamMembers_robo_diction.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_robo_rumble:
+                teamMembers_robo_rumble.put(member.getName(), member);
+                teamMembers_technical.put(member.getName(), member);
+                break;
             case team_prison_breakout:
+                teamMembers_prison_breakout.put(member.getName(), member);
                 teamMembers_technical.put(member.getName(), member);
                 break;
             case team_web_development:

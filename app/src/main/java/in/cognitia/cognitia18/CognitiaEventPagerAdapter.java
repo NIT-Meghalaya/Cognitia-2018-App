@@ -1,18 +1,24 @@
 package in.cognitia.cognitia18;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 /**
  * Created by devansh on 18/9/18.
@@ -20,12 +26,17 @@ import android.widget.TextView;
 
 public class CognitiaEventPagerAdapter extends PagerAdapter {
 
+    public static int EVENT_TECHNICAL = 4;
+    public static int EVENT_NON_TECHNICAL = 3;
+
     private Context context;
     private Bundle eventBundle;
+    private int lastCount;
 
-    public CognitiaEventPagerAdapter(Context context, Bundle eventBundle) {
+    public CognitiaEventPagerAdapter(Context context, Bundle eventBundle, int eventCategory) {
         this.context = context;
         this.eventBundle = eventBundle;
+        this.lastCount = eventCategory;
     }
 
     @NonNull
@@ -34,9 +45,17 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.content_event_detail, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) layout.findViewById(R.id.cognitia_event_recycler_view);
+        RecyclerView recyclerView = layout.findViewById(R.id.cognitia_event_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        recyclerView.setAdapter(new CognitiaEventDetailsAdapter(eventBundle, position));
+
+        Log.v("Position", position + "");
+        if ((lastCount == EVENT_TECHNICAL && position == EVENT_TECHNICAL - 1) ||
+                (lastCount == EVENT_NON_TECHNICAL && position == EVENT_NON_TECHNICAL - 1)) {
+            recyclerView.setAdapter(new CognitiaEventDetailsTeamAdapter(eventBundle));
+            recyclerView.addItemDecoration(new EventsCategoryRecyclerViewAdapter.GridSpacingItemDecoration(1, dpToPx(20), true));
+            Log.v("Ppsition", position + "");
+        } else
+            recyclerView.setAdapter(new CognitiaEventDetailsAdapter(eventBundle, position));
 
         container.addView(layout);
 
@@ -50,7 +69,7 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return lastCount;
     }
 
     @Override
@@ -66,9 +85,17 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
                 return CognitiaEvent.DESCRIPTION;
             case 1:
                 return CognitiaEvent.RULES;
-            }
+            case 2:
+                if (lastCount == EVENT_TECHNICAL) {
+                    return CognitiaEvent.ROBOT_SPECIFICATIONS;
+                } else
+                    return CognitiaEvent.TEAM;
+            case 3:
+                return CognitiaEvent.TEAM;
+        }
         return super.getPageTitle(position);
     }
+
 
     //RecyclerView adapter
     private class CognitiaEventDetailsAdapter extends RecyclerView.Adapter<
@@ -77,7 +104,7 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
         private Bundle eventBundle;
         private int position;
 
-        public class MyEventDetailsHolder extends RecyclerView.ViewHolder{
+        public class MyEventDetailsHolder extends RecyclerView.ViewHolder {
 
             public TextView heading, body;
 
@@ -120,5 +147,67 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
         public int getItemCount() {
             return 1;
         }
+    }
+
+
+    private class CognitiaEventDetailsTeamAdapter extends RecyclerView.Adapter<
+            CognitiaEventDetailsTeamAdapter.MyEventDetailsTeamHolder> {
+
+        private Bundle eventBundle;
+        private CognitiaTeamMember[] members;
+
+        class MyEventDetailsTeamHolder extends RecyclerView.ViewHolder {
+
+            TextView memberName, memberPost;
+            ImageView memberImage;
+
+            MyEventDetailsTeamHolder(View view) {
+                super(view);
+                memberName = view.findViewById(R.id.member_name);
+                memberPost = view.findViewById(R.id.member_post);
+                memberImage = view.findViewById(R.id.member_image);
+            }
+        }
+
+        public CognitiaEventDetailsTeamAdapter(Bundle cognitiaEventBundle) {
+            eventBundle = cognitiaEventBundle;
+
+            String eventname = eventBundle.getString(EventDetailActivity.EVENT_NAME);
+            members = TeamMembersArrayInitializer.getTeamMembersSortedArray(eventname);
+        }
+
+        @NonNull
+        @Override
+        public MyEventDetailsTeamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.event_details_team_members, parent, false);
+
+            return new MyEventDetailsTeamHolder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyEventDetailsTeamHolder holder, int pos) {
+            CognitiaTeamMember member = members[pos];
+
+            holder.memberName.setText(members[pos].getName());
+            holder.memberPost.setText(members[pos].getPost());
+            Glide.with(context)
+                    .load(member.getImageId())
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(holder.memberImage);
+        }
+
+        @Override
+        public int getItemCount() {
+            return members.length;
+        }
+    }
+
+    /**
+     * Converting dp to pixel
+     */
+    private int dpToPx(int dp) {
+        Resources r = context.getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 }

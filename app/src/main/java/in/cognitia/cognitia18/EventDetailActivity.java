@@ -27,6 +27,7 @@ public class EventDetailActivity extends AppCompatActivity {
     public static final String AIM = "aim";
     public static final String OBJECTIVE = "objective";
     public static final String RULES = "rules";
+    public static final String ROBOT_SPECS = "robotSpecs";
 
     private ImageView imageView;
     private Bundle eventBundle;
@@ -63,7 +64,10 @@ public class EventDetailActivity extends AppCompatActivity {
         setAccentColors();
 
         viewPager = findViewById(R.id.event_viewpager);
-        adapter = new CognitiaEventPagerAdapter(this, eventBundle);
+        if (eventBundle.getString(ROBOT_SPECS) != null)
+            adapter = new CognitiaEventPagerAdapter(this, eventBundle, CognitiaEventPagerAdapter.EVENT_TECHNICAL);
+        else
+            adapter = new CognitiaEventPagerAdapter(this, eventBundle, CognitiaEventPagerAdapter.EVENT_NON_TECHNICAL);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.event_tabs);
