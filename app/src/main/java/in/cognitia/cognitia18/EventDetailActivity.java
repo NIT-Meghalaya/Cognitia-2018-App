@@ -28,6 +28,7 @@ public class EventDetailActivity extends AppCompatActivity {
     public static final String OBJECTIVE = "objective";
     public static final String RULES = "rules";
     public static final String ROBOT_SPECS = "robotSpecs";
+    public static final String PARENT = "parent";
 
     private ImageView imageView;
     private Bundle eventBundle;
@@ -56,7 +57,6 @@ public class EventDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(eventName);
 
-        //imageResId = eventBundle.getInt(IMAGE_ID, 0);
         imageResId = intent.getIntExtra(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
         Glide.with(this).load(imageResId).into(imageView);

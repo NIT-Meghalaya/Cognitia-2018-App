@@ -12,7 +12,7 @@ public class CognitiaEvent extends EventCategory{
     private String rules;
     private String robotSpecs;
     private String teamGuidelines;
-    private String coordinators;
+    private String parent = null;
 
 
     public static String DESCRIPTION = "Description";
@@ -20,6 +20,7 @@ public class CognitiaEvent extends EventCategory{
     public static String ROBOT_SPECIFICATIONS = "Robot Specifications";
     public static String RULES = "Rules";
     public static String TEAM = "Team";
+    public static String PARENT = "Parent";
 
 
     //Defined so that data from Firebase can be serialized into a CognitiaEvent class
@@ -87,11 +88,11 @@ public class CognitiaEvent extends EventCategory{
         return teamGuidelines;
     }
 
-    public void setCoordinators(String coordinators) {
-        this.coordinators = coordinators;
+    public void setParent(String parent) {
+        this.parent = parent;
     }
 
-    public String getCoordinators() {
-        return coordinators;
+    public String getParent() {
+        return parent;
     }
 }

@@ -172,8 +172,12 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
         public CognitiaEventDetailsTeamAdapter(Bundle cognitiaEventBundle) {
             eventBundle = cognitiaEventBundle;
 
-            String eventname = eventBundle.getString(EventDetailActivity.EVENT_NAME);
-            members = TeamMembersArrayInitializer.getTeamMembersSortedArray(eventname);
+            String eventName;
+            if (eventBundle.getString(EventDetailActivity.PARENT) == null)
+                eventName = eventBundle.getString(EventDetailActivity.EVENT_NAME);
+            else
+                eventName = eventBundle.getString(EventDetailActivity.PARENT);
+            members = TeamMembersArrayInitializer.getTeamMembersSortedArray(eventName);
         }
 
         @NonNull

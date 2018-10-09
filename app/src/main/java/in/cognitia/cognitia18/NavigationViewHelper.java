@@ -66,21 +66,52 @@ public class NavigationViewHelper {
                         break;
                     case R.id.events_technical:
                         actionBar.setTitle(TECHNICAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
                         recyclerViewArray[0].setVisibility(View.VISIBLE);
-                        recyclerViewArray[1].setVisibility(View.GONE);
-                        recyclerViewArray[2].setVisibility(View.GONE);
                         break;
-                    case R.id.events_departmental:
-                        actionBar.setTitle(DEPARTMENTAL);
-                        recyclerViewArray[0].setVisibility(View.GONE);
+                    case R.id.events_ce_departmental:
+                        actionBar.setTitle(CE_DEPARTMENTAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
                         recyclerViewArray[1].setVisibility(View.VISIBLE);
-                        recyclerViewArray[2].setVisibility(View.GONE);
+                        break;
+                    case R.id.events_cse_departmental:
+                        actionBar.setTitle(CSE_DEPARTMENTAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
+                        recyclerViewArray[2].setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.events_eee_departmental:
+                        actionBar.setTitle(EEE_DEPARTMENTAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
+                        recyclerViewArray[3].setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.events_ece_departmental:
+                        actionBar.setTitle(ECE_DEPARTMENTAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
+                        recyclerViewArray[4].setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.events_me_departmental:
+                        actionBar.setTitle(ME_DEPARTMENTAL);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
+                        recyclerViewArray[5].setVisibility(View.VISIBLE);
                         break;
                     case R.id.events_others:
                         actionBar.setTitle(OTHERS);
-                        recyclerViewArray[0].setVisibility(View.GONE);
-                        recyclerViewArray[1].setVisibility(View.GONE);
-                        recyclerViewArray[2].setVisibility(View.VISIBLE);
+                        for (RecyclerView rv : recyclerViewArray) {
+                            rv.setVisibility(View.GONE);
+                        }
+                        recyclerViewArray[6].setVisibility(View.VISIBLE);
                         break;
                     case team_departmental:
                         teamName = DEPARTMENTAL;

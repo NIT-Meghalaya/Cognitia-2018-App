@@ -12,8 +12,20 @@
                         android:id="@+id/events_technical"
                         android:title="@string/team_technical"/>
                     <item
-                        android:id="@+id/events_departmental"
-                        android:title="@string/team_departmental" />
+                        android:id="@+id/events_ce_departmental"
+                        android:title="@string/team_civil_departmental" />
+                    <item
+                        android:id="@+id/events_cse_departmental"
+                        android:title="@string/team_cse_departmental" />
+                    <item
+                        android:id="@+id/events_eee_departmental"
+                        android:title="@string/team_ee_departmental" />
+                    <item
+                        android:id="@+id/events_ece_departmental"
+                        android:title="@string/team_ece_departmental" />
+                    <item
+                        android:id="@+id/events_me_departmental"
+                        android:title="@string/team_me_departmental" />
                     <item
                         android:id="@+id/events_others"
                         android:title="@string/event_others" />

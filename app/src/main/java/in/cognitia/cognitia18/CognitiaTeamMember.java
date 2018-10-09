@@ -38,6 +38,12 @@ public class CognitiaTeamMember implements Serializable {
     public static String LINE_FOLLOWER_ROBOT;
     public static String PRISON_BREAKOUT;
 
+    public static String CE_DEPARTMENTAL;
+    public static String CSE_DEPARTMENTAL;
+    public static String EEE_DEPARTMENTAL;
+    public static String ECE_DEPARTMENTAL;
+    public static String ME_DEPARTMENTAL;
+
     static String POST_COORDINATOR;
     static String POST_COCOORDINATOR;
     static String POST_HEAD;
@@ -128,6 +134,12 @@ public class CognitiaTeamMember implements Serializable {
         ROBODICTION = context.getResources().getString(R.string.team_robodiction);
         RACE_AGAINST_TIME = context.getResources().getString(R.string.team_race_against_time);
         GOAL_AGAINST_TIME = context.getResources().getString(R.string.team_goal_against_time);
+
+        CE_DEPARTMENTAL = context.getResources().getString(R.string.team_civil_departmental);
+        CSE_DEPARTMENTAL = context.getResources().getString(R.string.team_cse_departmental);
+        EEE_DEPARTMENTAL = context.getResources().getString(R.string.team_ee_departmental);
+        ECE_DEPARTMENTAL = context.getResources().getString(R.string.team_ece_departmental);
+        ME_DEPARTMENTAL = context.getResources().getString(R.string.team_me_departmental);
 
         POST_COORDINATOR = context.getResources().getString(R.string.post_coordinator);
         POST_COCOORDINATOR = context.getResources().getString(R.string.post_co_coordinator);

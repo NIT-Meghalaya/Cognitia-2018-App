@@ -22,8 +22,6 @@ import com.google.firebase.database.Query;
 import in.cognitia.cognitia18.Util.EventsImagesAssociator;
 import in.cognitia.cognitia18.EventsCategoryRecyclerViewAdapter.GridSpacingItemDecoration;
 
-import static in.cognitia.cognitia18.CognitiaTeamMember.TECHNICAL;
-
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
@@ -34,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
 
     //Different names for adapters is required, otherwise there is a problem in fetching data
-    private EventsCategoryRecyclerViewAdapter adapterTechnical, adapterDepartmental, adapterOthers;
+    private EventsCategoryRecyclerViewAdapter adapterTechnical, adapterOthers;
+    private EventsCategoryRecyclerViewAdapter adapterCEDepartmental, adapterCSEDepartmental;
+    private EventsCategoryRecyclerViewAdapter adapterEEDepartmental, adapterECEDepartmental, adapterMEDepartmental;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +78,25 @@ public class MainActivity extends AppCompatActivity {
         adapterTechnical = new EventsCategoryRecyclerViewAdapter(getTechnicalEventsData(), this);
         setUpRecyclerView(technicalEventsRV, adapterTechnical);
 
-        RecyclerView departmentalEventsRV = findViewById(R.id.event_departmental_rv);
-        adapterDepartmental = new EventsCategoryRecyclerViewAdapter(getDepartmentalEventsData(), this);
-        setUpRecyclerView(departmentalEventsRV, adapterDepartmental);
+        RecyclerView CEDepartmentalEventsRV = findViewById(R.id.event_ce_departmental_rv);
+        adapterCEDepartmental = new EventsCategoryRecyclerViewAdapter(getCEDepartmentalEventsData(), this);
+        setUpRecyclerView(CEDepartmentalEventsRV, adapterCEDepartmental);
+
+        RecyclerView CSEDepartmentalEventsRV = findViewById(R.id.event_cse_departmental_rv);
+        adapterCSEDepartmental = new EventsCategoryRecyclerViewAdapter(getCSEDepartmentalEventsData(), this);
+        setUpRecyclerView(CSEDepartmentalEventsRV, adapterCSEDepartmental);
+
+        RecyclerView EEDepartmentalEventsRV = findViewById(R.id.event_eee_departmental_rv);
+        adapterEEDepartmental = new EventsCategoryRecyclerViewAdapter(getEEEDepartmentalEventsData(), this);
+        setUpRecyclerView(EEDepartmentalEventsRV, adapterEEDepartmental);
+
+        RecyclerView ECEDepartmentalEventsRV = findViewById(R.id.event_ece_departmental_rv);
+        adapterECEDepartmental = new EventsCategoryRecyclerViewAdapter(getECEDepartmentalEventsData(), this);
+        setUpRecyclerView(ECEDepartmentalEventsRV, adapterECEDepartmental);
+
+        RecyclerView MEDepartmentalEventsRV = findViewById(R.id.event_me_departmental_rv);
+        adapterMEDepartmental = new EventsCategoryRecyclerViewAdapter(getMEDepartmentalEventsData(), this);
+        setUpRecyclerView(MEDepartmentalEventsRV, adapterMEDepartmental);
 
         RecyclerView otherEventsRV = findViewById(R.id.event_others_rv);
         adapterOthers = new EventsCategoryRecyclerViewAdapter(getOtherEventsData(), this);
@@ -89,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.event_drawer_layout);
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
-                this, navigationView, drawerLayout, actionBar, technicalEventsRV, departmentalEventsRV, otherEventsRV);
+                this, navigationView, drawerLayout, actionBar, technicalEventsRV, CEDepartmentalEventsRV,
+                CSEDepartmentalEventsRV, EEDepartmentalEventsRV, ECEDepartmentalEventsRV, MEDepartmentalEventsRV, otherEventsRV);
     }
 
     @Override
@@ -115,7 +132,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapterTechnical.startListening();
-        adapterDepartmental.startListening();
+        adapterCEDepartmental.startListening();
+        adapterCSEDepartmental.startListening();
+        adapterEEDepartmental.startListening();
+        adapterECEDepartmental.startListening();
+        adapterMEDepartmental.startListening();
         adapterOthers.startListening();
     }
 
@@ -123,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapterTechnical.stopListening();
-        adapterDepartmental.stopListening();
+        adapterCEDepartmental.stopListening();
+        adapterCSEDepartmental.stopListening();
+        adapterEEDepartmental.stopListening();
+        adapterECEDepartmental.stopListening();
+        adapterMEDepartmental.stopListening();
         adapterOthers.stopListening();
     }
 
@@ -143,13 +168,49 @@ public class MainActivity extends AppCompatActivity {
                         build();
     }
 
-    private FirebaseRecyclerOptions<CognitiaEvent> getDepartmentalEventsData() {
-        Query query = database.getReference().child("events").child("departmental");
+    private FirebaseRecyclerOptions<CognitiaEvent> getCEDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("civil");
         query.keepSynced(true);
 
         return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
                         setQuery(query, CognitiaEvent.class).
                         build();
+    }
+
+    private FirebaseRecyclerOptions<CognitiaEvent> getCSEDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("cse");
+        query.keepSynced(true);
+
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                setQuery(query, CognitiaEvent.class).
+                build();
+    }
+
+    private FirebaseRecyclerOptions<CognitiaEvent> getEEEDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("eee");
+        query.keepSynced(true);
+
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                setQuery(query, CognitiaEvent.class).
+                build();
+    }
+
+    private FirebaseRecyclerOptions<CognitiaEvent> getECEDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("ece");
+        query.keepSynced(true);
+
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                setQuery(query, CognitiaEvent.class).
+                build();
+    }
+
+    private FirebaseRecyclerOptions<CognitiaEvent> getMEDepartmentalEventsData() {
+        Query query = database.getReference().child("events").child("me");
+        query.keepSynced(true);
+
+        return new FirebaseRecyclerOptions.Builder<CognitiaEvent>().
+                setQuery(query, CognitiaEvent.class).
+                build();
     }
 
     private FirebaseRecyclerOptions<CognitiaEvent> getOtherEventsData() {

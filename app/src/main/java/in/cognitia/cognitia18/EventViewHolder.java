@@ -46,6 +46,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
                 eventBundle.putString(EventDetailActivity.OBJECTIVE, event.getShortDescription());
                 eventBundle.putString(EventDetailActivity.RULES, event.getRules());
                 eventBundle.putString(EventDetailActivity.AIM, event.getAim());
+                eventBundle.putString(EventDetailActivity.PARENT, event.getParent());
                 if (event.getRobotSpecs() != null)
                     eventBundle.putString(EventDetailActivity.ROBOT_SPECS, event.getRobotSpecs());
                 eventBundle.putInt(EventDetailActivity.IMAGE_ID, getDrawableId(image));
