@@ -2,12 +2,15 @@ package in.cognitia.cognitia18;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -138,7 +141,7 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
                     break;
                 case 1:
                     holder.heading.setText(CognitiaEvent.RULES);
-                    holder.body.setText(eventBundle.getString(EventDetailActivity.RULES));
+                    holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.RULES)));
                     break;
             }
         }
@@ -213,5 +216,14 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
     private int dpToPx(int dp) {
         Resources r = context.getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    @SuppressWarnings("deprecation")
+    public static Spanned fromHtml(String source) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            return Html.fromHtml(source);
+        }
     }
 }
