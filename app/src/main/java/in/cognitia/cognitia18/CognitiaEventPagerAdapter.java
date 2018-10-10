@@ -137,12 +137,17 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
             switch (position) {
                 case 0:
                     holder.heading.setText(CognitiaEvent.DESCRIPTION);
-                    holder.body.setText(eventBundle.getString(EventDetailActivity.DESCRIPTION));
+                    holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.DESCRIPTION)));
                     break;
                 case 1:
                     holder.heading.setText(CognitiaEvent.RULES);
                     holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.RULES)));
                     break;
+                case 2:
+                    if (lastCount == EVENT_TECHNICAL) {
+                        holder.heading.setText(CognitiaEvent.ROBOT_SPECIFICATIONS);
+                        holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.ROBOT_SPECS)));
+                    }
             }
         }
 
