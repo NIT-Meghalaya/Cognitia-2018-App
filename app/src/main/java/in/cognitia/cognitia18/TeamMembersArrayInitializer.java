@@ -430,6 +430,70 @@ public class TeamMembersArrayInitializer {
         addMember(leon, secretary_and_members, general_secretary, drawable.leon, email_leon);
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
 
+        /*
+        co_coordinators
+        */
+
+        addMember(rafad, team_event_management, post_co_coordinator, drawable.rafad, email_rafad);
+        addMember(saurabh_singh, team_event_management, post_co_coordinator, drawable.sourabh_singh, email_saurabh_singh);
+        addMember(koustubh_kishore, team_event_management, post_co_coordinator, drawable.koustubh_kishore, email_koustubh_kishore);
+        addMember(allu, team_cse_departmental, post_co_coordinator, drawable.allu, email_allu);
+        addMember(chandan, team_cse_departmental, post_co_coordinator, drawable.chandan, email_chandan);
+        addMember(shashank, team_civil_departmental, post_co_coordinator, drawable.shashank, email_shashank);
+        addMember(sudarsan, team_civil_departmental, post_co_coordinator, drawable.sudarsan, email_sudarsan);
+        addMember(sweeta, team_civil_departmental, post_co_coordinator, drawable.sweeta, email_sweeta);
+        addMember(rohit_raj, team_ece_departmental, post_co_coordinator, drawable.rohit_raj, email_rohit_raj);
+        addMember(sourav_paul, team_ece_departmental, post_co_coordinator, drawable.sourav_paul, email_sourav_paul);
+        addMember(wanchi, team_ece_departmental, post_co_coordinator, drawable.wanchi, email_wanchi);
+        addMember(naman, team_ee_departmental, post_co_coordinator, drawable.naman, email_naman);
+        addMember(nirosha, team_ee_departmental, post_co_coordinator, drawable.nirosha, email_nirosha);
+        addMember(rishabh, team_ee_departmental, post_co_coordinator, drawable.rishabh, email_rishabh);
+        addMember(kapil, team_me_departmental, post_co_coordinator, drawable.kapil, email_kapil);
+        addMember(shivam_sharma, team_me_departmental, post_co_coordinator, drawable.shivam_sharma, email_shivam_sharma);
+        addMember(vivek, team_me_departmental, post_co_coordinator, drawable.vivek, email_vivek);
+        addMember(sushant, team_me_departmental, post_co_coordinator, drawable.sushant, email_sushant);
+        addMember(divyesh, team_race_against_time, post_co_coordinator, drawable.divyesh, email_divyesh);
+        addMember(sidharth, team_race_against_time, post_co_coordinator, drawable.sidharth, email_sidharth);
+        addMember(sakshay, team_goal_against_time, post_co_coordinator, drawable.sakshay, email_sakshay);
+        addMember(heplang, team_goal_against_time, post_co_coordinator, drawable.heplang, email_heplang);
+        addMember(sai_lohit, team_robodiction, post_co_coordinator, drawable.lohit, email_sai_lohit);
+        addMember(mummidi, team_robodiction, post_co_coordinator, drawable.mummidi_bharadwaj, email_mummidi);
+        addMember(emmanuel, team_robodiction, post_co_coordinator, drawable.emmanuel, email_emmanuel);
+        addMember(wanchi, team_prison_breakout, post_co_coordinator, drawable.wanchi, email_wanchi);
+        addMember(ujjwal, team_line_follower_robot, post_co_coordinator, drawable.ujjwal, email_ujjwal);
+        addMember(kishan_lal, team_line_follower_robot, post_co_coordinator, drawable.kishan_lal, email_kishan_lal);
+        addMember(shubham_chang, team_robo_rumble, post_co_coordinator, drawable.shubham_chang, email_shubham_chang);
+        addMember(saurav_dayal, team_robo_rumble, post_co_coordinator, drawable.saurav_dayal, email_saurav_dayal);
+        addMember(astha, team_robo_bridge, post_co_coordinator, drawable.astha_awasthi, email_astha);
+        addMember(mithun, team_robo_bridge, post_co_coordinator, drawable.mithun_kumar, email_mithun);
+        addMember(jeush, team_gaming, post_co_coordinator, drawable.jeush, email_jeush);
+        addMember(imdad, team_arppegio_and_shimmer, post_co_coordinator, drawable.imdadul, email_imdad);
+        addMember(hemant_sabbavarapu, team_arppegio_and_shimmer, post_co_coordinator, drawable.hemanth_kumar, email_hemant_sabbavarapu);
+        addMember(anamika, team_arppegio_and_shimmer, post_co_coordinator, drawable.anamika, email_anamika);
+        addMember(hanna, team_publicity, post_co_coordinator, drawable.hanna, email_hanna);
+        addMember(barishisha, team_publicity, post_co_coordinator, drawable.barishisha, email_barishisha);
+        addMember(leonard, team_publicity, post_co_coordinator, drawable.leonard, email_leonard);
+        addMember(lakyntiew, team_publicity, post_co_coordinator, drawable.lakyntiew, email_lakyntiew);
+        addMember(eugynea, team_publicity, post_co_coordinator, drawable.eugynea, email_eugynea);
+        addMember(josekielnezer, team_publicity, post_co_coordinator, drawable.josekielnezer, email_josekielnezer);
+        addMember(chinmoy, team_designing, post_co_coordinator, drawable.chinmoy_deka, email_chinmoy);
+        addMember(sagar_das, team_designing, post_co_coordinator, drawable.sagar_das, email_sagar_das);
+        addMember(sanapala_rajesh, team_designing, post_co_coordinator, drawable.sanapala_rajesh, email_sanapala_rajesh);
+        addMember(shubangi, team_designing, post_co_coordinator, drawable.shubangi_barua, email_shubangi);
+        addMember(devian, team_web_development, post_co_coordinator, drawable.devian, email_devian);
+        addMember(prince, team_web_development, post_co_coordinator, drawable.prince, email_prince);
+        addMember(akash, team_app_development, post_co_coordinator, drawable.akash, email_akash);
+        addMember(mrityunjay, team_app_development, post_co_coordinator, drawable.mritunjay, email_mrityunjay);
+        addMember(michelle, team_hospitality, post_co_coordinator, drawable.michelle, email_michelle);
+        addMember(winnie, team_hospitality, post_co_coordinator, drawable.winnie, email_winnie);
+        addMember(tapsri, team_hospitality, post_co_coordinator, drawable.tapsri, email_tapsri);
+        addMember(priyanchi, team_hospitality, post_co_coordinator, drawable.priyanchi, email_priyanchi);
+        addMember(ilasukri, team_hospitality, post_co_coordinator, drawable.ilasukri, email_ilasukri);
+        addMember(jaswant, team_stage_management_and_printing, post_co_coordinator, drawable.jaswant, email_jaswant);
+        addMember(pardip, team_stage_management_and_printing, post_co_coordinator, drawable.pardip, email_pardip);
+        addMember(serene, team_stage_management_and_printing, post_co_coordinator, drawable.serene, email_serene);
+        addMember(arwatki,team_stage_management_and_printing,post_co_coordinator,drawable.arwatki, email_arwatki);
+        addMember(pynkitbor, team_general_quiz_debate, post_co_coordinator, drawable.pynkitbor, email_pynkitbor);
         createTeamsArrayLists();
         addTeamCategoriesArraysToMap();
 
