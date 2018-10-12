@@ -53,6 +53,10 @@
         </android.support.design.widget.AppBarLayout>
 
         <!--Different recycler views for different option categories-->
+        <!--Setting up visibility as invisible enables showing up events from
+            different categories in one click-->
+        <!--Visibility gone won't work initially-->
+
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_ce_departmental_rv">
         </android.support.v7.widget.RecyclerView>
 
@@ -72,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_cse_departmental_rv">
         </android.support.v7.widget.RecyclerView>
 
@@ -80,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_eee_departmental_rv">
         </android.support.v7.widget.RecyclerView>
 
@@ -88,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_ece_departmental_rv">
         </android.support.v7.widget.RecyclerView>
 
@@ -96,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_me_departmental_rv">
         </android.support.v7.widget.RecyclerView>
 
@@ -104,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/event_others_rv">
         </android.support.v7.widget.RecyclerView>
 
