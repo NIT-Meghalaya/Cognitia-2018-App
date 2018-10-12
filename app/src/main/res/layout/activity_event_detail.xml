@@ -19,6 +19,7 @@
             android:layout_height="256dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="@color/colorPrimary"
+            app:expandedTitleMarginBottom="50dp"
             android:id="@+id/collapsing_toolbar">
 
             <ImageView
@@ -37,7 +38,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 android:layout_gravity="top"
-            android:layout_marginBottom="48dp"
+                android:layout_marginBottom="40dp"
                 android:id="@+id/toolbar">
             </android.support.v7.widget.Toolbar>
 

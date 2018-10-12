@@ -16,8 +16,8 @@ public class CognitiaEvent extends EventCategory{
 
 
     public static String DESCRIPTION = "Description";
-    public static String SPECIFICATIONS = "Specifications";
     public static String ROBOT_SPECIFICATIONS = "Robot Specifications";
+    public static String ROBOT_SPECS = "Robot Specs";
     public static String RULES = "Rules";
     public static String TEAM = "Team";
     public static String PARENT = "Parent";

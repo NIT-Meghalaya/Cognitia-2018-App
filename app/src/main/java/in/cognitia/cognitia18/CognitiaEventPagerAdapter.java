@@ -90,7 +90,7 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
                 return CognitiaEvent.RULES;
             case 2:
                 if (lastCount == EVENT_TECHNICAL) {
-                    return CognitiaEvent.ROBOT_SPECIFICATIONS;
+                    return CognitiaEvent.ROBOT_SPECS;
                 } else
                     return CognitiaEvent.TEAM;
             case 3:
