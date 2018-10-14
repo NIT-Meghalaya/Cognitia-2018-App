@@ -51,6 +51,9 @@
                             android:id="@+id/team_shimmer"
                             android:title="@string/team_arppegio_and_shimmer" />
                         <item
+                            android:id="@+id/team_sponsorship"
+                            android:title="@string/team_sponsorship" />
+                        <item
                             android:id="@+id/team_stage_management"
                             android:title="@string/team_stage_management_and_printing" />
                         <item

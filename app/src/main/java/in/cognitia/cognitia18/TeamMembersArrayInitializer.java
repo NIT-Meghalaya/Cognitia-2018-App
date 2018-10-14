@@ -38,6 +38,7 @@ public class TeamMembersArrayInitializer {
     private static HashMap<String , CognitiaTeamMember> teamMembers_technical = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_web_development = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_app_development = new HashMap<>();
+    private static HashMap<String , CognitiaTeamMember> teamMembers_sponsorship = new HashMap<>();
 
     private static HashMap<String , CognitiaTeamMember> teamMembers_line_follower_robot = new HashMap<>();
     private static HashMap<String , CognitiaTeamMember> teamMembers_goal_against_time = new HashMap<>();
@@ -71,6 +72,7 @@ public class TeamMembersArrayInitializer {
     private static ArrayList<CognitiaTeamMember> arrayList_technical = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_web_development = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_app_development = new ArrayList<>();
+    private static ArrayList<CognitiaTeamMember> arrayList_sponsorship = new ArrayList<>();
 
     private static ArrayList<CognitiaTeamMember> arrayList_line_follower_robot = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_goal_against_time = new ArrayList<>();
@@ -152,6 +154,7 @@ public class TeamMembersArrayInitializer {
         arrayList_technical = mapToArrayList(teamMembers_technical);
         arrayList_web_development = mapToArrayList(teamMembers_web_development);
         arrayList_app_development = mapToArrayList(teamMembers_app_development);
+        arrayList_sponsorship = mapToArrayList(teamMembers_sponsorship);
 
         arrayList_line_follower_robot = mapToArrayList(teamMembers_line_follower_robot);
         arrayList_goal_against_time = mapToArrayList(teamMembers_goal_against_time);
@@ -185,6 +188,7 @@ public class TeamMembersArrayInitializer {
         teamMembersByCategories.put(CognitiaTeamMember.TECHNICAL, arrayList_technical);
         teamMembersByCategories.put(CognitiaTeamMember.WEB_DEVELOPMENT, arrayList_web_development);
         teamMembersByCategories.put(CognitiaTeamMember.APP_DEVELOPMENT, arrayList_app_development);
+        teamMembersByCategories.put(CognitiaTeamMember.SPONSORSHIP, arrayList_sponsorship);
 
         teamMembersByCategories.put(LINE_FOLLOWER_ROBOT, arrayList_line_follower_robot);
         teamMembersByCategories.put(RACE_AGAINST_TIME, arrayList_race_against_time);
@@ -294,6 +298,9 @@ public class TeamMembersArrayInitializer {
                 break;
             case team_app_development:
                 teamMembers_app_development.put(member.getName(), member);
+                break;
+            case team_sponsorship:
+                teamMembers_sponsorship.put(member.getName(), member);
                 break;
         }
     }
@@ -429,6 +436,18 @@ public class TeamMembersArrayInitializer {
         addMember(shemphang, secretary_and_members, general_secretary, drawable.shemphang, email_shemphang);
         addMember(leon, secretary_and_members, general_secretary, drawable.leon, email_leon);
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
+
+        addMember(sarthak, team_sponsorship, post_head, drawable.sarthak, email_sarthak);
+        addMember(shakti, team_sponsorship, post_coordinator, drawable.shakti, email_shakti);
+        addMember(priyesh, team_sponsorship, post_co_coordinator, drawable.priyesh, email_priyesh);
+        addMember(chirag, team_sponsorship, post_co_coordinator, drawable.chirag, email_chirag);
+        addMember(himanshu, team_sponsorship, post_co_coordinator, drawable.himanshu, email_himanshu);
+
+        addMember(pratik, team_e_cell, post_head, drawable.pratik, email_pratik);
+        addMember(gaurav, team_e_cell, post_coordinator, drawable.gaurav, email_gaurav);
+        addMember(beauty, team_e_cell, post_coordinator, drawable.beauty, email_beauty);
+        addMember(amandeep, team_e_cell, post_co_coordinator, drawable.amandeep, email_amandeep);
+        addMember(ngamla, team_e_cell, post_co_coordinator, drawable.ngamla, email_ngamla);
 
         /*
         co_coordinators

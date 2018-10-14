@@ -79,6 +79,7 @@
     <string name="team_stage_management_and_printing">Stage Management and Printing</string>
     <string name="team_general_quiz_debate">General Quiz and Debate</string>
     <string name="team_fun_events">Fun Events</string>
+    <string name="team_sponsorship">Sponsorship</string>
 
     <string name="karan">S S Sri Karan</string>
     <string name="email_karan">sskaran27@gmail.com</string>
@@ -558,6 +559,36 @@
     <string name="email_leon">b16cs004@nitm.ac.in</string>
 
     <string name="khrawboklang">Khrawboklang Kharsyiemiong</string>
-    <string name="email_khrawboklang">klangkharsyiemiong@gmail.com</string>	
+    <string name="email_khrawboklang">klangkharsyiemiong@gmail.com</string>
+
+    <string name="shakti">Shakti mayank Singh</string>
+    <string name="email_shakti">b16ee012@nitm.ac.in</string>
+
+    <string name="chirag">Chirag Roy</string>
+    <string name="email_chirag">imchiragroy1281998@gmail.com</string>
+
+    <string name="priyesh">Priyesh Singh</string>
+    <string name="email_priyesh">y212esh@gmail.com</string>
+
+    <string name="himanshu">Himanshu Raj</string>
+    <string name="email_himanshu">himanshu.raj.26399@gmail.com</string>
+
+    <string name="sarthak">Sarthak Tiwari</string>
+    <string name="email_sarthak">sarthaknitm@gmail.com</string>
+
+    <string name="gaurav">Gaurav Singh</string>
+    <string name="email_gaurav">gauravs21k@gmail.com</string>
+
+    <string name="beauty">Beauty Gupta</string>
+    <string name="email_beauty">butyg333@gmail.com</string>
+
+    <string name="pratik">Pratik Gautam</string>
+    <string name="email_pratik">pratikgautam18@gmail.com</string>
+
+    <string name="amandeep">Amandeep Sinha</string>
+    <string name="email_amandeep">amandeepsinha745@gmail.com</string>
+
+    <string name="ngamla">Ngamla Rangmei</string>
+    <string name="email_ngamla">ngamlanitm@gmail.com</string>
 
 </resources>

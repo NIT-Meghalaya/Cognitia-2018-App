@@ -161,6 +161,9 @@ public class NavigationViewHelper {
                     case team_app_development:
                         teamName = APP_DEVELOPMENT;
                         break;
+                    case team_sponsorship:
+                        teamName = SPONSORSHIP;
+                        break;
                 }
 
                 navigationView.setCheckedItem(item.getItemId());

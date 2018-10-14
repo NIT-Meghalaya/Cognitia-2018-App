@@ -29,6 +29,7 @@ public class CognitiaTeamMember implements Serializable {
     public static String APP_DEVELOPMENT;
     public static String WEB_DEVELOPMENT;
     public static String OTHERS;
+    public static String SPONSORSHIP;
 
     public static String RACE_AGAINST_TIME;
     public static String GOAL_AGAINST_TIME;
@@ -126,6 +127,7 @@ public class CognitiaTeamMember implements Serializable {
         WEB_DEVELOPMENT = context.getResources().getString(R.string.team_web_development);
         APP_DEVELOPMENT = context.getResources().getString(R.string.team_app_development);
         OTHERS = context.getResources().getString(R.string.event_others);
+        SPONSORSHIP = context.getResources().getString(R.string.team_sponsorship);
 
         PRISON_BREAKOUT = context.getResources().getString(R.string.team_prison_breakout);
         LINE_FOLLOWER_ROBOT = context.getResources().getString(R.string.team_line_follower_robot);
