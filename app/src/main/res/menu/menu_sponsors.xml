@@ -20,7 +20,7 @@
             android:id="@+id/nav_sponsorship"
             android:title="@string/sponsor_us">
             <menu>
-                <group android:checkableBehavior="single" >
+                <group android:checkableBehavior="none" >
                     <item
                         android:id="@+id/sponsors"
                         android:title="@string/sponsors"

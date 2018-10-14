@@ -11,22 +11,28 @@
                 <group android:checkableBehavior="single" >
                     <item
                         android:id="@+id/events_technical"
-                        android:title="@string/team_technical"/>
+                        android:title="@string/team_technical"
+                        android:icon="@drawable/ic_technical"/>
                     <item
                         android:id="@+id/events_ce_departmental"
-                        android:title="@string/team_civil_departmental" />
+                        android:title="@string/team_civil_departmental"
+                        android:icon="@drawable/ic_civil"/>
                     <item
                         android:id="@+id/events_cse_departmental"
-                        android:title="@string/team_cse_departmental" />
+                        android:title="@string/team_cse_departmental"
+                        android:icon="@drawable/ic_cse"/>
                     <item
                         android:id="@+id/events_eee_departmental"
-                        android:title="@string/team_ee_departmental" />
+                        android:title="@string/team_ee_departmental"
+                        android:icon="@drawable/ic_eee"/>
                     <item
                         android:id="@+id/events_ece_departmental"
-                        android:title="@string/team_ece_departmental" />
+                        android:title="@string/team_ece_departmental"
+                        android:icon="@drawable/ic_ece"/>
                     <item
                         android:id="@+id/events_me_departmental"
-                        android:title="@string/team_me_departmental" />
+                        android:title="@string/team_me_departmental"
+                        android:icon="@drawable/ic_me"/>
                     <item
                         android:id="@+id/events_others"
                         android:title="@string/event_others" />
@@ -47,7 +53,7 @@
             android:id="@+id/nav_sponsorship"
             android:title="@string/sponsor_us">
             <menu>
-                <group android:checkableBehavior="single" >
+                <group android:checkableBehavior="none" >
                     <item
                         android:id="@+id/sponsors"
                         android:title="@string/sponsors"
@@ -69,7 +75,7 @@
         <menu>
             <item
                 android:id="@+id/nav_feedback"
-                android:icon="@drawable/ic_feedback"
+                android:icon="@drawable/feedback"
                 android:title="@string/nav_feedback" />
         </menu>
     </item>

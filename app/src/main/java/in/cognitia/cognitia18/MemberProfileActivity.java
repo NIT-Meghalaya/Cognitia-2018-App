@@ -47,15 +47,16 @@ public class MemberProfileActivity extends AppCompatActivity {
         team.setText(member.getTeam());
 
         email = findViewById(R.id.member_email);
-        email.setText("Email: " + member.getEmail());
-        email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", member.getEmail(), null));
-                startActivity(Intent.createChooser(intent, "Send an email to " + member.getName() + " ..."));
-            }
-        });
+        if (!member.getTeam().equals(CognitiaTeamMember.SPONSORS)) {
+            email.setText("Email: " + member.getEmail());
+            email.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + member.getEmail()));
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     //Gives a feel of going back to the previous activity on clicking at empty space

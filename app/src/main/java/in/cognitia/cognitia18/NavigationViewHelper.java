@@ -2,6 +2,7 @@ package in.cognitia.cognitia18;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -169,12 +170,21 @@ public class NavigationViewHelper {
                         teamName = SPONSORSHIP;
                         break;
                     case sponsors:
-                        if (activity != TEAM_GALLERY_ACTIVITY) {
+                        if ((activity != SPONSORS_GALLERY)) {
                             intent = new Intent(context, TeamGalleryActivity.class);
                             intent.putExtra(SPONSORS_INTENT, SPONSORS_GALLERY);
                             context.startActivity(intent);
                         }
                         break;
+                    case sponsorship_email:
+                        String emailId = context.getResources().getString(R.string.sponsorship_email);
+                        intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + emailId));
+                        context.startActivity(intent);
+                        break;
+                    case sponsorship_phone:
+                        String phone = context.getResources().getString(R.string.sponsorship_phone);
+                        intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                        context.startActivity(intent);
                 }
 
                 navigationView.setCheckedItem(item.getItemId());
