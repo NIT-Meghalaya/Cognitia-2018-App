@@ -41,6 +41,26 @@
             android:title="@string/nav_team" />
     </group>
 
+    <group>
+        <item
+            android:id="@+id/nav_sponsorship"
+            android:title="@string/events">
+            <menu>
+                <group android:checkableBehavior="single" >
+                    <item
+                        android:id="@+id/sponsors"
+                        android:title="@string/sponsors" />
+                    <item
+                        android:id="@+id/sponsorship_email"
+                        android:title="@string/sponsorship_email" />
+                    <item
+                        android:id="@+id/sponsorship_phone"
+                        android:title="@string/sponsorship_phone" />
+                </group>
+            </menu>
+        </item>
+    </group>
+
     <item android:title="@string/nav_connect" >
         <menu>
             <item

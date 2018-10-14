@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:title="@string/events"
+            android:id="@+id/nav_events"/>
+    </group>
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/team"
+            android:title="@string/nav_team" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_sponsorship"
+            android:title="@string/sponsor_us">
+            <menu>
+                <group android:checkableBehavior="single" >
+                    <item
+                        android:id="@+id/sponsors"
+                        android:title="@string/sponsors"
+                        android:checked="true"/>
+                    <item
+                        android:id="@+id/sponsorship_email"
+                        android:title="@string/sponsorship_email"
+                        android:icon="@drawable/email"/>
+                    <item
+                        android:id="@+id/sponsorship_phone"
+                        android:title="@string/sponsorship_phone"
+                        android:icon="@drawable/mobile"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="@string/nav_connect" >
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/feedback"
+                android:title="@string/nav_feedback" />
+        </menu>
+    </item>
+</menu>

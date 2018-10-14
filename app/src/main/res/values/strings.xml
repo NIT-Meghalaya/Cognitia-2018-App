@@ -35,6 +35,14 @@
     <string name="nav_team">Our team</string>
     <string name="nav_feedback">Feedback</string>
 
+    <string name="sponsors">Sponsors</string>
+    <string name="sponsorship_email">b16ee012@nitm.ac.in</string>
+    <string name="sponsorship_phone">+919485145900</string>
+
+    <string name="sponsor_us">Sponsor Us</string>
+
+    <string name="empty_string"> </string>
+
     <string name="image_tag">Image tag</string>
     <string name="event_image_trans">Event image transition</string>
     <string name="event_name_trans">Event name transition</string>
@@ -150,7 +158,7 @@
     <string name="rajoo">Rajoo Kumar Gautam</string>
     <string name="email_rajoo">rajoogautam10@gmail.com</string>
 
-	<string name="rohit_raj">Rohit Raj</string>
+    <string name="rohit_raj">Rohit Raj</string>
     <string name="email_rohit_raj">rohitraja1510@gmail.com</string>
 
     <string name="sourav_paul">Sourav Paul</string>
@@ -291,7 +299,7 @@
     <string name="abhay">Abhay Shekhar Yadav</string>
     <string name="email_abhay">abhayshekhar.jh@gmail.com</string>
 
-	<string name="kishan_chaurasia">Kishan Chaurasia</string>
+    <string name="kishan_chaurasia">Kishan Chaurasia</string>
     <string name="email_kishan_chaurasia">kishancool9596@gmail.com</string>
 
     <string name="shubham_chang">Shubham Chang</string>
@@ -590,5 +598,9 @@
 
     <string name="ngamla">Ngamla Rangmei</string>
     <string name="email_ngamla">ngamlanitm@gmail.com</string>
+
+    <string name="kfc">KFC</string>
+    <string name="dominos">Domino\'s Pizza</string>
+    <string name="mcab">The Meghalaya Cooperative Apex Bank Limited</string>
 
 </resources>

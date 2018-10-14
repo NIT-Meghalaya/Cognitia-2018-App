@@ -1,5 +1,6 @@
 package in.cognitia.cognitia18;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -36,13 +37,26 @@ public class TeamGalleryActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.rv_team_images);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new TeamGalleryRecyclerViewAdapter.GridSpacingItemDecoration());
 
-        TeamGalleryRecyclerViewAdapter adapter = new TeamGalleryRecyclerViewAdapter(
-                TeamMembersArrayInitializer.getTeamMembers(CognitiaTeamMember.TECHNICAL), this);
-        recyclerView.setAdapter(adapter);
+        int activityId = NavigationViewHelper.TEAM_GALLERY_ACTIVITY;
 
-        NavigationViewHelper navViewHelper = new NavigationViewHelper(NavigationViewHelper.TEAM_GALLERY_ACTIVITY,
+        if (getIntent().getExtras().getInt(NavigationViewHelper.SPONSORS_INTENT) == NavigationViewHelper.SPONSORS_GALLERY) {
+            TeamGalleryRecyclerViewAdapter adapter = new TeamGalleryRecyclerViewAdapter(
+                    TeamMembersArrayInitializer.getTeamMembers(CognitiaTeamMember.SPONSORS), this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+            //Required so as to open team gallery from sponsors view
+            activityId = NavigationViewHelper.SPONSORS_GALLERY;
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.menu_sponsors);
+        } else {
+            TeamGalleryRecyclerViewAdapter adapter = new TeamGalleryRecyclerViewAdapter(
+                    TeamMembersArrayInitializer.getTeamMembers(CognitiaTeamMember.TECHNICAL), this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.addItemDecoration(new TeamGalleryRecyclerViewAdapter.GridSpacingItemDecoration());
+        }
+
+        NavigationViewHelper navViewHelper = new NavigationViewHelper(activityId,
                 this, navigationView, drawerLayout, actionBar, recyclerView);
     }
 

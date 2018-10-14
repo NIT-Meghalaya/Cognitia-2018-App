@@ -23,6 +23,8 @@ public class NavigationViewHelper {
     //These will used to prevent launching the same activity
     public static final int MAIN_ACTIVITY = 1;
     public static final int TEAM_GALLERY_ACTIVITY = 2;
+    public static final int SPONSORS_GALLERY = 3;
+    public static final String SPONSORS_INTENT = "Sponsors";
 
     private Context context;
     private NavigationView navigationView;
@@ -60,8 +62,10 @@ public class NavigationViewHelper {
                         context.startActivity(intent);
                         break;
                     case R.id.nav_team:
-                        if (activity != TEAM_GALLERY_ACTIVITY)
+                        if (activity != TEAM_GALLERY_ACTIVITY) {
                             intent = new Intent(context, TeamGalleryActivity.class);
+                            intent.putExtra(SPONSORS_INTENT, 0);
+                        }
                         context.startActivity(intent);
                         break;
                     case R.id.events_technical:
@@ -163,6 +167,13 @@ public class NavigationViewHelper {
                         break;
                     case team_sponsorship:
                         teamName = SPONSORSHIP;
+                        break;
+                    case sponsors:
+                        if (activity != TEAM_GALLERY_ACTIVITY) {
+                            intent = new Intent(context, TeamGalleryActivity.class);
+                            intent.putExtra(SPONSORS_INTENT, SPONSORS_GALLERY);
+                            context.startActivity(intent);
+                        }
                         break;
                 }
 

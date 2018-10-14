@@ -59,7 +59,7 @@
             android:textSize="20sp"
             android:fontFamily="@font/worksans_reg"
             android:paddingStart="@dimen/fab_margin"
-
+            android:textStyle="bold"
             android:id="@+id/member_post"/>
 
         <TextView

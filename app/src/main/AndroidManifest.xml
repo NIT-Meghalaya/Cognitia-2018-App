@@ -38,7 +38,7 @@
             android:name=".MemberProfileActivity"
             android:excludeFromRecents="true"
             android:taskAffinity=""
-            android:theme="@style/AppTheme.MemberProfile"/>
+            android:theme="@style/AppTheme.MemberProfile" />
     </application>
 
 </manifest>

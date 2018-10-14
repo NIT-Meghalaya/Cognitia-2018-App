@@ -49,6 +49,8 @@ public class CognitiaTeamMember implements Serializable {
     static String POST_COCOORDINATOR;
     static String POST_HEAD;
 
+    public static String SPONSORS;
+
      private String name;
      private String team;
      private String post;
@@ -146,5 +148,7 @@ public class CognitiaTeamMember implements Serializable {
         POST_COORDINATOR = context.getResources().getString(R.string.post_coordinator);
         POST_COCOORDINATOR = context.getResources().getString(R.string.post_co_coordinator);
         POST_HEAD = context.getResources().getString(R.string.post_head);
+
+        SPONSORS = context.getResources().getString(R.string.sponsors);
     }
 }

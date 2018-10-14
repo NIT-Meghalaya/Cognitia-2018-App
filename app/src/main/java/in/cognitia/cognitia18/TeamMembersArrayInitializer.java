@@ -54,6 +54,8 @@ public class TeamMembersArrayInitializer {
     private static HashMap<String, CognitiaTeamMember> teamMembers_ece_departmental = new HashMap<>();
     private static HashMap<String, CognitiaTeamMember> teamMembers_me_departmental = new HashMap<>();
 
+    private static HashMap<String , CognitiaTeamMember> sponsorsMap = new HashMap<>();
+
     //An array of teamMembers is needed to show the images in random order
 
     private static ArrayList<CognitiaTeamMember> arrayList_departmental = new ArrayList<>();
@@ -87,6 +89,8 @@ public class TeamMembersArrayInitializer {
     private static ArrayList<CognitiaTeamMember> arrayList_eee_departmental = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_ece_departmental = new ArrayList<>();
     private static ArrayList<CognitiaTeamMember> arrayList_me_departmental = new ArrayList<>();
+
+    private static ArrayList<CognitiaTeamMember> arrayList_sponsors = new ArrayList<>();
 
 
     static ArrayList<CognitiaTeamMember> getTeamMembers(String teamName) {
@@ -169,6 +173,8 @@ public class TeamMembersArrayInitializer {
         arrayList_eee_departmental = mapToArrayList(teamMembers_eee_departmental);
         arrayList_ece_departmental = mapToArrayList(teamMembers_ece_departmental);
         arrayList_me_departmental = mapToArrayList(teamMembers_me_departmental);
+
+        arrayList_sponsors = mapToArrayList(sponsorsMap);
     }
 
     private static void addTeamCategoriesArraysToMap() {
@@ -203,6 +209,8 @@ public class TeamMembersArrayInitializer {
         teamMembersByCategories.put(EEE_DEPARTMENTAL, arrayList_eee_departmental);
         teamMembersByCategories.put(ECE_DEPARTMENTAL, arrayList_ece_departmental);
         teamMembersByCategories.put(ME_DEPARTMENTAL, arrayList_me_departmental);
+
+        teamMembersByCategories.put(SPONSORS, arrayList_sponsors);
     }
 
     private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
@@ -301,6 +309,9 @@ public class TeamMembersArrayInitializer {
                 break;
             case team_sponsorship:
                 teamMembers_sponsorship.put(member.getName(), member);
+                break;
+            case sponsors:
+                sponsorsMap.put(member.getName(), member);
                 break;
         }
     }
@@ -448,6 +459,10 @@ public class TeamMembersArrayInitializer {
         addMember(beauty, team_e_cell, post_coordinator, drawable.beauty, email_beauty);
         addMember(amandeep, team_e_cell, post_co_coordinator, drawable.amandeep, email_amandeep);
         addMember(ngamla, team_e_cell, post_co_coordinator, drawable.ngamla, email_ngamla);
+
+        addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
+        addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
+        addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
 
         /*
         co_coordinators
