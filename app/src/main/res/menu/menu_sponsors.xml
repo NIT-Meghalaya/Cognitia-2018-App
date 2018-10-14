@@ -4,7 +4,8 @@
     <group android:checkableBehavior="single" >
         <item
             android:title="@string/events"
-            android:id="@+id/nav_events"/>
+            android:id="@+id/nav_events"
+            android:icon="@drawable/events"/>
     </group>
 
     <group android:checkableBehavior="single" >
@@ -23,7 +24,8 @@
                     <item
                         android:id="@+id/sponsors"
                         android:title="@string/sponsors"
-                        android:checked="true"/>
+                        android:checked="true"
+                        android:icon="@drawable/sponsors"/>
                     <item
                         android:id="@+id/sponsorship_email"
                         android:title="@string/sponsorship_email"

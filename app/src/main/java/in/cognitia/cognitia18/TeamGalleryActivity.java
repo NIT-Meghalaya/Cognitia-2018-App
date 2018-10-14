@@ -33,6 +33,7 @@ public class TeamGalleryActivity extends AppCompatActivity {
 
         NavigationView navigationView = findViewById(R.id.team_nav_view);
         navigationView.setCheckedItem(R.id.team_technical);
+        navigationView.setItemIconTintList(null);
 
         RecyclerView recyclerView = findViewById(R.id.rv_team_images);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));

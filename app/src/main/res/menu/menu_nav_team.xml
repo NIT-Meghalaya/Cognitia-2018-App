@@ -4,13 +4,14 @@
     <group android:checkableBehavior="single" >
         <item
             android:title="@string/events"
-            android:id="@+id/nav_events"/>
+            android:id="@+id/nav_events"
+            android:icon="@drawable/events"/>
     </group>
 
     <group>
         <item
             android:id="@+id/nav_team"
-            android:icon="@drawable/ic_team"
+            android:icon="@drawable/team"
             android:title="@string/nav_team" >
             <menu>
                 <group android:checkableBehavior="single" >
@@ -74,7 +75,7 @@
         <menu>
             <item
                 android:id="@+id/nav_feedback"
-                android:icon="@drawable/ic_feedback"
+                android:icon="@drawable/feedback"
                 android:title="@string/nav_feedback" />
         </menu>
     </item>

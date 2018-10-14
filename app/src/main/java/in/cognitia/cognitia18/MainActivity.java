@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         NavigationView navigationView = findViewById(R.id.event_nav_view);
-        navigationView.setCheckedItem(R.id.nav_events);
+        navigationView.setCheckedItem(R.id.events_technical);
+        navigationView.setItemIconTintList(null);
 
         //The recycler views are displayed and hidden on the basis of the option selected
         RecyclerView technicalEventsRV = findViewById(R.id.event_technical_rv);
