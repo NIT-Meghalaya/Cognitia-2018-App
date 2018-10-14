@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -16,12 +17,12 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
 
 /**
  * Created by devansh on 18/9/18.
@@ -48,17 +49,37 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.content_event_detail, container, false);
 
+        TextView heading = layout.findViewById(R.id.heading);
+        TextView body = layout.findViewById(R.id.body);
+
         RecyclerView recyclerView = layout.findViewById(R.id.cognitia_event_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
 
-        Log.v("Position", position + "");
         if ((lastCount == EVENT_TECHNICAL && position == EVENT_TECHNICAL - 1) ||
                 (lastCount == EVENT_NON_TECHNICAL && position == EVENT_NON_TECHNICAL - 1)) {
+
+            NestedScrollView scrollView = layout.findViewById(R.id.event_description_nested_scroll_view);
+            scrollView.setVisibility(View.GONE);
+
             recyclerView.setAdapter(new CognitiaEventDetailsTeamAdapter(eventBundle));
             recyclerView.addItemDecoration(new EventsCategoryRecyclerViewAdapter.GridSpacingItemDecoration(1, dpToPx(20), true));
-            Log.v("Ppsition", position + "");
-        } else
-            recyclerView.setAdapter(new CognitiaEventDetailsAdapter(eventBundle, position));
+        } else {
+            switch (position) {
+                case 0:
+                    heading.setText(CognitiaEvent.DESCRIPTION);
+                    body.setText(fromHtml(eventBundle.getString(EventDetailActivity.DESCRIPTION)));
+                    break;
+                case 1:
+                    heading.setText(CognitiaEvent.RULES);
+                    body.setText(fromHtml(eventBundle.getString(EventDetailActivity.RULES)));
+                    break;
+                case 2:
+                    if (lastCount == EVENT_TECHNICAL) {
+                        heading.setText(CognitiaEvent.ROBOT_SPECIFICATIONS);
+                        body.setText(fromHtml(eventBundle.getString(EventDetailActivity.ROBOT_SPECS)));
+                    }
+            }
+        }
 
         container.addView(layout);
 
@@ -97,64 +118,6 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
                 return CognitiaEvent.TEAM;
         }
         return super.getPageTitle(position);
-    }
-
-
-    //RecyclerView adapter
-    private class CognitiaEventDetailsAdapter extends RecyclerView.Adapter<
-            CognitiaEventDetailsAdapter.MyEventDetailsHolder> {
-
-        private Bundle eventBundle;
-        private int position;
-
-        public class MyEventDetailsHolder extends RecyclerView.ViewHolder {
-
-            public TextView heading, body;
-
-            public MyEventDetailsHolder(View view) {
-                super(view);
-                heading = (TextView) view.findViewById(R.id.heading);
-                body = (TextView) view.findViewById(R.id.body);
-            }
-        }
-
-        public CognitiaEventDetailsAdapter(Bundle cognitiaEventBundle, int position) {
-            eventBundle = cognitiaEventBundle;
-            this.position = position;
-        }
-
-        @NonNull
-        @Override
-        public MyEventDetailsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.event_description, parent, false);
-
-            return new MyEventDetailsHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull MyEventDetailsHolder holder, int pos) {
-            switch (position) {
-                case 0:
-                    holder.heading.setText(CognitiaEvent.DESCRIPTION);
-                    holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.DESCRIPTION)));
-                    break;
-                case 1:
-                    holder.heading.setText(CognitiaEvent.RULES);
-                    holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.RULES)));
-                    break;
-                case 2:
-                    if (lastCount == EVENT_TECHNICAL) {
-                        holder.heading.setText(CognitiaEvent.ROBOT_SPECIFICATIONS);
-                        holder.body.setText(fromHtml(eventBundle.getString(EventDetailActivity.ROBOT_SPECS)));
-                    }
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return 1;
-        }
     }
 
 
