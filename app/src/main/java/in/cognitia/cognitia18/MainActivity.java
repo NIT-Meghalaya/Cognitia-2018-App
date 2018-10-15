@@ -16,6 +16,7 @@ import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
+
 
         //Context is needed to convert from resource id to string
         CognitiaTeamMember.context = this;
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         adapterOthers = new EventsCategoryRecyclerViewAdapter(getGamingEventsData(), this);
         setUpRecyclerView(gamingEventsRV, adapterOthers);
 
+        ImageView imageView = findViewById(R.id.event_image);
 
         drawerLayout = findViewById(R.id.event_drawer_layout);
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,

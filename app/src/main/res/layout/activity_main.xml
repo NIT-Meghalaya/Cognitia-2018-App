@@ -44,7 +44,6 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
                     android:layout_gravity="top"
-                    app:title="@string/app_name"
                     android:id="@+id/event_toolbar">
                 </android.support.v7.widget.Toolbar>
 

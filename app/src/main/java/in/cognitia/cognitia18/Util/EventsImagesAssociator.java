@@ -86,6 +86,10 @@ public class EventsImagesAssociator {
         imageMap.put("Inertia", drawable.inertia);
         imageMap.put("Load Upholder", drawable.load_upholder);
 
+        imageMap.put("Counter Strike: Global Offensive", drawable.csgo);
+        imageMap.put("DOTA 2", drawable.dota);
+        imageMap.put("FIFA 18", drawable.fifa);
+        imageMap.put("Need For Speed: Most Wanted", drawable.nfsmw);
     }
 
 

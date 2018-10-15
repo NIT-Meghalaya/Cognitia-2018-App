@@ -1,5 +1,6 @@
 package in.cognitia.cognitia18;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import static in.cognitia.cognitia18.R.id.*;
 import static in.cognitia.cognitia18.CognitiaTeamMember.*;
@@ -33,6 +35,7 @@ public class NavigationViewHelper {
     private int activity;
     private RecyclerView[] recyclerViewArray;
     private ActionBar actionBar;
+    private ImageView imageView;
 
     NavigationViewHelper(int activityId, Context context, NavigationView navigationView, DrawerLayout drawerLayout,
                          ActionBar actionBar, RecyclerView... rv) {
@@ -44,6 +47,8 @@ public class NavigationViewHelper {
         if (rv.length > 0) {
             recyclerViewArray = rv;
         }
+
+        imageView = (ImageView) ((Activity) context).findViewById(R.id.event_image);
 
         selectNavigationOptions();
     }
@@ -78,6 +83,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[0].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.robotics);
                         break;
                     case R.id.events_departmental:
                         navigationView.getMenu().clear();
@@ -90,6 +96,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[1].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.civil);
                         break;
                     case R.id.events_cse_departmental:
                         actionBar.setTitle(CSE_DEPARTMENTAL);
@@ -97,13 +104,14 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[2].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.cse);
                         break;
                     case R.id.events_eee_departmental:
-                        actionBar.setTitle(EEE_DEPARTMENTAL);
                         for (RecyclerView rv : recyclerViewArray) {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[3].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.electrical);
                         break;
                     case R.id.events_ece_departmental:
                         actionBar.setTitle(ECE_DEPARTMENTAL);
@@ -111,6 +119,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[4].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.ece);
                         break;
                     case R.id.events_me_departmental:
                         actionBar.setTitle(ME_DEPARTMENTAL);
@@ -118,6 +127,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[5].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.mechanical);
                         break;
                     case R.id.events_others:
                         actionBar.setTitle(GAMING);
@@ -130,6 +140,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[6].setVisibility(View.VISIBLE);
+                        imageView.setImageResource(R.drawable.gaming);
                         break;
                     case team_departmental:
                         teamName = DEPARTMENTAL;
