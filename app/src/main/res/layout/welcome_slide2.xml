@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_screen1">
+    android:background="@drawable/welcome_bg_2">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,11 +16,11 @@
             android:id="@+id/animation_view"
             android:layout_width="380dp"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"
             android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
             app:lottie_autoPlay="true"
             app:lottie_fileName="robotics.json"
-            app:lottie_loop="true"/>
+            app:lottie_loop="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,16 +42,14 @@
             android:textSize="@dimen/slide_desc" />
 
 
-
     </LinearLayout>
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_alignParentBottom="true"
         android:id="@+id/splashImageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/scrolldown"
-        />
+        android:src="@drawable/scrolldown" />
 </RelativeLayout>
