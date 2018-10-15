@@ -39,9 +39,11 @@ public class WelcomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         //Check for first time launch
         preferenceManager = new PreferenceManager(this);
-        Log.v("launch WelcomeActivity", WelcomeActivity.class.getSimpleName());
+
         if (!preferenceManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
