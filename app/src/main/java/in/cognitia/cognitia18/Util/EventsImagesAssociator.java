@@ -68,10 +68,10 @@ public class EventsImagesAssociator {
         imageMap.put("Autocad Drafting", drawable.autocad_drafting);
         imageMap.put("Bascule Bridge", drawable.bascule_bridge);
         imageMap.put("Cantilever Design", drawable.cantilever_design);
-
+        imageMap.put("Quiz",drawable.quiz);
         imageMap.put("Beat the Q", drawable.beat_the_q);
         imageMap.put("Bicode", drawable.bicode);
-        imageMap.put("Crack it", drawable.crack_it);
+        imageMap.put("Crack It", drawable.crack_it);
         imageMap.put("Megabyte", drawable.megabyte);
 
         imageMap.put("Electromania", drawable.electromania);
@@ -87,7 +87,7 @@ public class EventsImagesAssociator {
         imageMap.put("Load Upholder", drawable.load_upholder);
 
         imageMap.put("Counter Strike: Global Offensive", drawable.csgo);
-        imageMap.put("DOTA 2", drawable.dota);
+        imageMap.put("Dota 2", drawable.dota);
         imageMap.put("FIFA 18", drawable.fifa);
         imageMap.put("Need For Speed: Most Wanted", drawable.nfsmw);
     }
