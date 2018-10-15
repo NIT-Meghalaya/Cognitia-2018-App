@@ -42,6 +42,10 @@
     <item android:title="@string/nav_connect" >
         <menu>
             <item
+                android:id="@+id/link_website"
+                android:title="@string/website"
+                android:icon="@drawable/website"/>
+            <item
                 android:id="@+id/link_facebook"
                 android:title="@string/facebook"
                 android:icon="@drawable/facebook" />

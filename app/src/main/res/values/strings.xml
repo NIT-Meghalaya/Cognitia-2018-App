@@ -31,6 +31,9 @@
     <string name="card_title">Card title</string>
     <string name="card_content">Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </string>
 
+    <string name="website">Website</string>
+    <string name="link_website">http://cognitia.nitmeghalaya.in/</string>
+
     <string name="facebook">Facebook</string>
     <string name="link_facebook">https://www.facebook.com/NITMcognitia/</string>
 

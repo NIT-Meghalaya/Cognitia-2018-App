@@ -225,6 +225,11 @@ public class NavigationViewHelper {
                         intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlYT));
                         context.startActivity(intent);
                         break;
+                    case link_website:
+                        String website = context.getResources().getString(R.string.link_website);
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                        context.startActivity(intent);
+                        break;
                 }
 
                 navigationView.setCheckedItem(item.getItemId());
