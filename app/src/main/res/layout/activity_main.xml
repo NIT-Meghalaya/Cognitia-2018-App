@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:visibility="invisible"
-            android:id="@+id/event_others_rv">
+            android:id="@+id/event_gaming">
         </android.support.v7.widget.RecyclerView>
 
 

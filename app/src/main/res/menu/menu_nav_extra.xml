@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <group android:id="@+id/events_group" >
+    <group android:id="@+id/team_group">
         <item
-            android:title="@string/events"
-            android:id="@+id/nav_events"
-            android:icon="@drawable/events"/>
-    </group>
-
-    <group android:id="@+id/team_group" >
-        <item
-            android:id="@+id/nav_team"
-            android:icon="@drawable/team"
-            android:title="@string/nav_team" />
+            android:title="@string/nav_team">
+            <menu>
+                <item
+                    android:title="@string/nav_team"
+                    android:id="@+id/nav_team"
+                    android:icon="@drawable/team" />
+            </menu>
+        </item>
     </group>
 
     <group>
@@ -24,7 +22,6 @@
                     <item
                         android:id="@+id/sponsors"
                         android:title="@string/sponsors"
-                        android:checked="true"
                         android:icon="@drawable/sponsors"/>
                     <item
                         android:id="@+id/sponsorship_email"

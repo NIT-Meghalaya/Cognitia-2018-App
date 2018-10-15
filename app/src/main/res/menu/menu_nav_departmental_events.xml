@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/technical_events_group">
+        <item
+            android:id="@+id/events_technical"
+            android:title="@string/team_technical"
+            android:icon="@drawable/ic_technical"/>
+    </group>
+
+    <group>
+        <item
+            android:title="@string/departmental">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/events_ce_departmental"
+                        android:title="@string/team_civil_departmental"
+                        android:icon="@drawable/ic_civil"/>
+                    <item
+                        android:id="@+id/events_cse_departmental"
+                        android:title="@string/team_cse_departmental"
+                        android:icon="@drawable/ic_cse"/>
+                    <item
+                        android:id="@+id/events_eee_departmental"
+                        android:title="@string/team_ee_departmental"
+                        android:icon="@drawable/ic_eee"/>
+                    <item
+                        android:id="@+id/events_ece_departmental"
+                        android:title="@string/team_ece_departmental"
+                        android:icon="@drawable/ic_ece"/>
+                    <item
+                        android:id="@+id/events_me_departmental"
+                        android:title="@string/team_me_departmental"
+                        android:icon="@drawable/ic_me"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/other_events_group">
+        <item
+            android:id="@+id/events_others"
+            android:title="@string/event_others"
+            android:icon="@drawable/ic_gaming"/>
+    </group>
+
+    <group android:id="@+id/empty"/>
+</menu>

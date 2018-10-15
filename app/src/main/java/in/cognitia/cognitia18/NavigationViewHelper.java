@@ -71,11 +71,19 @@ public class NavigationViewHelper {
                         break;
                     case R.id.events_technical:
                         actionBar.setTitle(TECHNICAL);
+                        navigationView.getMenu().clear();
+                        navigationView.inflateMenu(R.menu.menu_nav);
+                        navigationView.inflateMenu(R.menu.menu_nav_extra);
                         for (RecyclerView rv : recyclerViewArray) {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[0].setVisibility(View.VISIBLE);
                         break;
+                    case R.id.events_departmental:
+                        navigationView.getMenu().clear();
+                        navigationView.inflateMenu(R.menu.menu_nav_departmental_events);
+                        navigationView.inflateMenu(R.menu.menu_nav_extra);
+                        navigationView.setCheckedItem(R.id.events_ce_departmental);
                     case R.id.events_ce_departmental:
                         actionBar.setTitle(CE_DEPARTMENTAL);
                         for (RecyclerView rv : recyclerViewArray) {
@@ -112,7 +120,12 @@ public class NavigationViewHelper {
                         recyclerViewArray[5].setVisibility(View.VISIBLE);
                         break;
                     case R.id.events_others:
-                        actionBar.setTitle(OTHERS);
+                        actionBar.setTitle(GAMING);
+                        navigationView.getMenu().clear();
+                        navigationView.inflateMenu(R.menu.menu_nav_other_events);
+                        navigationView.inflateMenu(R.menu.menu_nav_extra);
+                        navigationView.setCheckedItem(R.id.events_gaming);
+                    case R.id.events_gaming:
                         for (RecyclerView rv : recyclerViewArray) {
                             rv.setVisibility(View.GONE);
                         }
@@ -185,6 +198,22 @@ public class NavigationViewHelper {
                         String phone = context.getResources().getString(R.string.sponsorship_phone);
                         intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                         context.startActivity(intent);
+                        break;
+                    case link_facebook:
+                        String urlFB = context.getResources().getString(R.string.link_facebook);
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlFB));
+                        context.startActivity(intent);
+                        break;
+                    case link_instagram:
+                        String urlInsta = context.getResources().getString(R.string.link_instagram);
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlInsta));
+                        context.startActivity(intent);
+                        break;
+                    case link_youtube:
+                        String urlYT = context.getResources().getString(R.string.link_youtube);
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlYT));
+                        context.startActivity(intent);
+                        break;
                 }
 
                 navigationView.setCheckedItem(item.getItemId());

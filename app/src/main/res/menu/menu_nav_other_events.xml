@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/technical_events_group">
+        <item
+            android:id="@+id/events_technical"
+            android:title="@string/team_technical"
+            android:icon="@drawable/ic_technical"/>
+    </group>
+
+    <group android:id="@+id/departmental_events_group">
+        <item
+            android:id="@+id/events_departmental"
+            android:title="@string/departmental"
+            android:icon="@drawable/ic_cse"/>
+    </group>
+
+    <group>
+        <item
+            android:title="@string/others">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/events_gaming"
+                        android:title="@string/team_gaming"
+                        android:icon="@drawable/ic_gaming"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>

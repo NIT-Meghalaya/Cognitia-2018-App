@@ -31,6 +31,17 @@
     <string name="card_title">Card title</string>
     <string name="card_content">Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </string>
 
+    <string name="facebook">Facebook</string>
+    <string name="link_facebook">https://www.facebook.com/NITMcognitia/</string>
+
+    <string name="instagram">Instagram</string>
+    <string name="link_instagram">https://www.instagram.com/cognitia_2016/</string>
+
+    <string name="youtube">YouTube</string>
+    <string name="link_youtube">https://www.youtube.com/playlist?list=PLBNpblWmiOZqXx2Vsn_qJW6v1FZqxVD9N</string>
+
+    <string name="twitter">Twitter</string>
+
     <string name="nav_connect">Connect with us</string>
     <string name="nav_team">Our team</string>
     <string name="nav_feedback">Feedback</string>

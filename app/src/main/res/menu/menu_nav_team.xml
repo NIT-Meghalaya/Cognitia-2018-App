@@ -74,6 +74,23 @@
     <item android:title="@string/nav_connect" >
         <menu>
             <item
+                android:id="@+id/link_facebook"
+                android:title="@string/facebook"
+                android:icon="@drawable/facebook" />
+            <item
+                android:id="@+id/instagram"
+                android:title="@string/instagram"
+                android:icon="@drawable/instagram" />
+            <item
+                android:id="@+id/twitter"
+                android:title="@string/twitter"
+                android:icon="@drawable/twitter"
+                android:visible="false"/>
+            <item
+                android:id="@+id/youtube"
+                android:title="@string/youtube"
+                android:icon="@drawable/youtube" />
+            <item
                 android:id="@+id/nav_feedback"
                 android:icon="@drawable/feedback"
                 android:title="@string/nav_feedback" />

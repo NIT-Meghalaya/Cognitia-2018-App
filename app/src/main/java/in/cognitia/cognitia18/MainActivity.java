@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.event_nav_view);
         navigationView.setCheckedItem(R.id.events_technical);
         navigationView.setItemIconTintList(null);
+        navigationView.inflateMenu(R.menu.menu_nav_extra);
 
         //The recycler views are displayed and hidden on the basis of the option selected
         RecyclerView technicalEventsRV = findViewById(R.id.event_technical_rv);
@@ -101,15 +102,15 @@ public class MainActivity extends AppCompatActivity {
         adapterMEDepartmental = new EventsCategoryRecyclerViewAdapter(getMEDepartmentalEventsData(), this);
         setUpRecyclerView(MEDepartmentalEventsRV, adapterMEDepartmental);
 
-        RecyclerView otherEventsRV = findViewById(R.id.event_others_rv);
-        adapterOthers = new EventsCategoryRecyclerViewAdapter(getOtherEventsData(), this);
-        setUpRecyclerView(otherEventsRV, adapterOthers);
+        RecyclerView gamingEventsRV = findViewById(R.id.event_gaming);
+        adapterOthers = new EventsCategoryRecyclerViewAdapter(getGamingEventsData(), this);
+        setUpRecyclerView(gamingEventsRV, adapterOthers);
 
 
         drawerLayout = findViewById(R.id.event_drawer_layout);
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
                 this, navigationView, drawerLayout, actionBar, technicalEventsRV, CEDepartmentalEventsRV,
-                CSEDepartmentalEventsRV, EEDepartmentalEventsRV, ECEDepartmentalEventsRV, MEDepartmentalEventsRV, otherEventsRV);
+                CSEDepartmentalEventsRV, EEDepartmentalEventsRV, ECEDepartmentalEventsRV, MEDepartmentalEventsRV, gamingEventsRV);
     }
 
     @Override
@@ -219,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 build();
     }
 
-    private FirebaseRecyclerOptions<CognitiaEvent> getOtherEventsData() {
+    private FirebaseRecyclerOptions<CognitiaEvent> getGamingEventsData() {
         Query query = database.getReference().child("events").child("others");
         query.keepSynced(true);
 
