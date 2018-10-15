@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_screen1">
+    android:background="@color/bg_screen3">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -12,20 +11,10 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view"
-            android:layout_width="380dp"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:layout_centerInParent="true"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="robotics.json"
-            app:lottie_loop="true"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/slide_1_title"
+            android:text="@string/slide_3_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
@@ -36,15 +25,12 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="@string/slide_1_desc"
+            android:text="@string/slide_3_desc"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
-
-
     </LinearLayout>
-
     <pl.droidsonroids.gif.GifImageView
         android:layout_alignParentBottom="true"
         android:id="@+id/splashImageView"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_screen2">
+    android:background="@color/bg_screen1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,13 +19,13 @@
             android:scaleType="centerCrop"
             android:layout_centerInParent="true"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="departmental.json"
+            app:lottie_fileName="robotics.json"
             app:lottie_loop="true"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/slide_2_title"
+            android:text="@string/slide_1_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
@@ -36,12 +36,15 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="@string/slide_2_desc"
+            android:text="@string/slide_1_desc"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
+
+
     </LinearLayout>
+
     <pl.droidsonroids.gif.GifImageView
         android:layout_alignParentBottom="true"
         android:id="@+id/splashImageView"
@@ -51,5 +54,4 @@
         android:layout_centerVertical="true"
         android:src="@drawable/scrolldown"
         />
-
 </RelativeLayout>

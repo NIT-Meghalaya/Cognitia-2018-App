@@ -42,16 +42,18 @@
             android:textSize="@dimen/slide_desc" />
 
     </LinearLayout>
+
     <TextView
-        android:layout_alignParentBottom="true"
         android:id="@+id/enterAppButton"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:textColor="@android:color/white"
-        android:textAllCaps="true"
-        android:textSize="@dimen/slide_desc"
+        android:paddingTop="10dp"
         android:text="Enter"
-        />
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
 </RelativeLayout>
