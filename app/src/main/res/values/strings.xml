@@ -7,6 +7,8 @@
 
     <string name="empty_view_title_text">Geting the stuff ready !</string>
 
+    <string name="cognitia_emoji">🇨 🇴 🇬 🇳 🇮 🇹 🇮 🇦</string>
+    <string name="cognitia_emoji_1">🇨 🅾️🇬 🇳 🇮 🇹 🇮 🅰️</string>
 
     <string name="slide_1_title">TECHNICAL EVENTS</string>
     <string name="slide_1_desc">We have many great technical events like GAT, RAT, LFR, RoboRumble and many more that will surely ignite the engineer in you! Take out those Arduinos! Get building ! Compete with your friends and find out if your robot is the last one standing! </string>
