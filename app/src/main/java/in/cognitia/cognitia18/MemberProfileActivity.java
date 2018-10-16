@@ -26,6 +26,7 @@ public class MemberProfileActivity extends AppCompatActivity {
     TextView team;
     TextView email;
     CrescentoImageView imageView;
+    View blankView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,14 @@ public class MemberProfileActivity extends AppCompatActivity {
                 }
             });
         }
+
+        blankView = findViewById(R.id.blank_view);
+        blankView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     //Gives a feel of going back to the previous activity on clicking at empty space
