@@ -30,4 +30,11 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="TitleBarTextAppearance" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

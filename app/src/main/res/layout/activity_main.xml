@@ -44,7 +44,7 @@
                     android:layout_height="?android:attr/actionBarSize"
                     app:layout_collapseMode="pin"
                     android:layout_gravity="top"
-                    android:fontFamily="@font/worksans_semibold"
+                    app:titleTextAppearance="@style/TitleBarTextAppearance"
                     android:id="@+id/event_toolbar">
                 </android.support.v7.widget.Toolbar>
 
