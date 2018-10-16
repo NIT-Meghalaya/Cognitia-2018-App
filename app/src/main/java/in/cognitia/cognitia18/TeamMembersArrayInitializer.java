@@ -112,8 +112,16 @@ public class TeamMembersArrayInitializer {
             if (member.getTeam().equals(teamName)) {
                 if (member.getPost().equals(CognitiaTeamMember.POST_HEAD)) {
                     members[beg++] = member;
-                } else {
+                } else if (member.getPost().equals(CognitiaTeamMember.POST_COCOORDINATOR)){
                     members[end--] = member;
+                }
+            }
+        }
+
+        for (CognitiaTeamMember member : membersList) {
+            if (member.getTeam().equals(teamName)) {
+                if (member.getPost().equals(CognitiaTeamMember.POST_COORDINATOR)) {
+                    members[beg++] = member;
                 }
             }
         }
