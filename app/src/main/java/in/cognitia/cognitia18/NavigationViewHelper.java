@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import static in.cognitia.cognitia18.R.id.*;
 import static in.cognitia.cognitia18.CognitiaTeamMember.*;
 
@@ -83,7 +85,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[0].setVisibility(View.VISIBLE);
-                        imageView.setImageResource(R.drawable.robotics);
+                        Glide.with(context).load(R.drawable.robotics).into(imageView);
                         break;
                     case R.id.events_departmental:
                         navigationView.getMenu().clear();
@@ -96,7 +98,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[1].setVisibility(View.VISIBLE);
-                        imageView.setImageResource(R.drawable.civil);
+                        Glide.with(context).load(R.drawable.civil).into(imageView);
                         break;
                     case R.id.events_cse_departmental:
                         actionBar.setTitle(CSE_DEPARTMENTAL);
@@ -104,6 +106,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[2].setVisibility(View.VISIBLE);
+                        Glide.with(context).load(R.drawable.cse).into(imageView);
                         imageView.setImageResource(R.drawable.cse);
                         break;
                     case R.id.events_eee_departmental:
@@ -111,7 +114,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[3].setVisibility(View.VISIBLE);
-                        imageView.setImageResource(R.drawable.electrical);
+                        Glide.with(context).load(R.drawable.electrical).into(imageView);
                         break;
                     case R.id.events_ece_departmental:
                         actionBar.setTitle(ECE_DEPARTMENTAL);
@@ -119,7 +122,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[4].setVisibility(View.VISIBLE);
-                        imageView.setImageResource(R.drawable.ece);
+                        Glide.with(context).load(R.drawable.ece).into(imageView);
                         break;
                     case R.id.events_me_departmental:
                         actionBar.setTitle(ME_DEPARTMENTAL);
@@ -127,7 +130,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[5].setVisibility(View.VISIBLE);
-                        imageView.setImageResource(R.drawable.mechanical);
+                        Glide.with(context).load(R.drawable.mechanical).into(imageView);
                         break;
                     case R.id.events_others:
                         actionBar.setTitle(GAMING);
@@ -140,6 +143,7 @@ public class NavigationViewHelper {
                             rv.setVisibility(View.GONE);
                         }
                         recyclerViewArray[6].setVisibility(View.VISIBLE);
+                        Glide.with(context).load(R.drawable.gaming).into(imageView);
                         imageView.setImageResource(R.drawable.gaming);
                         break;
                     case team_departmental:
