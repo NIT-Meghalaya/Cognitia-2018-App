@@ -29,7 +29,8 @@
             android:text="@string/slide_3_title"
             android:textColor="@android:color/white"
             android:textSize="60sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/worksans_semibold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +41,8 @@
             android:text="@string/slide_3_desc"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_desc" />
+            android:textSize="@dimen/slide_desc"
+            android:fontFamily="@font/worksans"/>
 
     </LinearLayout>
 

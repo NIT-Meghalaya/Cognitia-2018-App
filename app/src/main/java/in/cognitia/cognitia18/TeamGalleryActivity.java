@@ -30,7 +30,6 @@ public class TeamGalleryActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_nav_menu);
-        actionBar.setTitle(CognitiaTeamMember.TECHNICAL);
 
         drawerLayout = findViewById(R.id.team_drawer_layout);
 
@@ -49,6 +48,7 @@ public class TeamGalleryActivity extends AppCompatActivity {
                     TeamMembersArrayInitializer.getTeamMembers(CognitiaTeamMember.SPONSORS), this);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+            actionBar.setTitle(CognitiaTeamMember.SPONSORS);
             //Required so as to open team gallery from sponsors view
             activityId = NavigationViewHelper.SPONSORS_GALLERY;
             navigationView.getMenu().clear();
@@ -58,6 +58,7 @@ public class TeamGalleryActivity extends AppCompatActivity {
                     TeamMembersArrayInitializer.getTeamMembers(CognitiaTeamMember.TECHNICAL), this);
             recyclerView.setAdapter(adapter);
             recyclerView.addItemDecoration(new TeamGalleryRecyclerViewAdapter.GridSpacingItemDecoration());
+            actionBar.setTitle(CognitiaTeamMember.TECHNICAL);
         }
 
         NavigationViewHelper navViewHelper = new NavigationViewHelper(activityId,

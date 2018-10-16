@@ -39,6 +39,7 @@
                 app:layout_collapseMode="pin"
                 android:layout_gravity="top"
                 android:layout_marginBottom="40dp"
+                android:fontFamily="@font/worksans"
                 android:id="@+id/toolbar">
             </android.support.v7.widget.Toolbar>
 
@@ -50,6 +51,7 @@
                 android:layout_gravity="bottom"
                 app:tabIndicatorColor="@android:color/white"
                 app:tabSelectedTextColor="@android:color/white"
+                android:fontFamily="@font/worksans"
                 app:tabTextColor="@android:color/white"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
