@@ -72,12 +72,13 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
             intent.putExtras(eventBundle);
 
-            //Implementing multiple transitions
+            /*//Implementing multiple transitions
             Pair<View, String> p1 = Pair.create((View)image, mContext.getString(R.string.event_image_trans));
 
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation((Activity) mContext, p1);
-            view.getContext().startActivity(intent, options.toBundle());
+            view.getContext().startActivity(intent, options.toBundle());*/
+            view.getContext().startActivity(intent);
         }
     }
 

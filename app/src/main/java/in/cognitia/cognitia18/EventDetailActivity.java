@@ -77,7 +77,7 @@ public class EventDetailActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
@@ -86,7 +86,7 @@ public class EventDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     //Using palette API to extract colors from the image
     private void setAccentColors() {
