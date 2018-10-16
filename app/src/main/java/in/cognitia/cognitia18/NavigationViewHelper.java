@@ -234,6 +234,11 @@ public class NavigationViewHelper {
                         intent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
                         context.startActivity(intent);
                         break;
+                    case nav_feedback:
+                        String feedbackEmail = context.getResources().getString(R.string.email_devansh);
+                        intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + feedbackEmail));
+                        context.startActivity(intent);
+                        break;
                 }
 
                 navigationView.setCheckedItem(item.getItemId());
