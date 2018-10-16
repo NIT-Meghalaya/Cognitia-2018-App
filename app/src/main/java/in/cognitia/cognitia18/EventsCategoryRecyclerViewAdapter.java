@@ -65,7 +65,7 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
         eventMap.put(event.getName(), event);
 
         holder.name.setText(event.getName());
-        holder.description.setText(event.getDescription());
+        holder.description.setText(event.getAbout());
 
         int imageResId = EventsImagesAssociator.getEventImageId(event.getName());
         //Loading event image using Glide library

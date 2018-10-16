@@ -1,21 +1,14 @@
 package in.cognitia.cognitia18;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 
 /**
@@ -64,7 +57,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             eventBundle.putString(EventDetailActivity.DESCRIPTION, event.getDescription());
             eventBundle.putString(EventDetailActivity.OBJECTIVE, event.getShortDescription());
             eventBundle.putString(EventDetailActivity.RULES, event.getRules());
-            eventBundle.putString(EventDetailActivity.AIM, event.getAim());
+            eventBundle.putString(EventDetailActivity.AIM, event.getAbout());
             eventBundle.putString(EventDetailActivity.PARENT, event.getParent());
             if (event.getRobotSpecs() != null)
                 eventBundle.putString(EventDetailActivity.ROBOT_SPECS, event.getRobotSpecs());
