@@ -106,6 +106,12 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
                         resources.getString(R.string.explore_tap_target)));
             }
 
+            @Override
+            public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                super.onTargetDismissed(view, userInitiated);
+                TapTargetView.showFor((Activity) context, TapTarget.forView(((Activity) context).findViewById(R.id.explore_button),
+                        resources.getString(R.string.explore_tap_target)));
+            }
         });
 
     }
