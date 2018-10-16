@@ -501,7 +501,6 @@ public class TeamMembersArrayInitializer {
         addMember(sai_lohit, team_robodiction, post_co_coordinator, drawable.lohit, email_sai_lohit);
         addMember(mummidi, team_robodiction, post_co_coordinator, drawable.mummidi_bharadwaj, email_mummidi);
         addMember(emmanuel, team_robodiction, post_co_coordinator, drawable.emmanuel, email_emmanuel);
-        addMember(wanchi, team_prison_breakout, post_co_coordinator, drawable.wanchi, email_wanchi);
         addMember(ujjwal, team_line_follower_robot, post_co_coordinator, drawable.ujjwal, email_ujjwal);
         addMember(kishan_lal, team_line_follower_robot, post_co_coordinator, drawable.kishan_lal, email_kishan_lal);
         addMember(shubham_chang, team_robo_rumble, post_co_coordinator, drawable.shubham_chang, email_shubham_chang);
