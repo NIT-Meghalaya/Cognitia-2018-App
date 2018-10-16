@@ -65,4 +65,11 @@
                 android:title="@string/nav_feedback" />
         </menu>
     </item>
+
+    <group android:id="@+id/github_easter_egg">
+        <item
+            android:id="@+id/link_github"
+            android:title=""
+            android:icon="@drawable/ic_github"/>
+    </group>
 </menu>

@@ -51,6 +51,9 @@
     <string name="youtube">YouTube</string>
     <string name="link_youtube">https://www.youtube.com/playlist?list=PLBNpblWmiOZqXx2Vsn_qJW6v1FZqxVD9N</string>
 
+    <string name="github">Repo</string>
+    <string name="link_github">https://github.com/Devansh-Maurya/Cognitia-2018-App</string>
+
     <string name="twitter">Twitter</string>
 
     <string name="nav_connect">Connect with us</string>

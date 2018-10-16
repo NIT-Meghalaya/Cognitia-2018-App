@@ -239,6 +239,12 @@ public class NavigationViewHelper {
                         intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + feedbackEmail));
                         context.startActivity(intent);
                         break;
+                    case link_github:
+                        String repoLink = context.getResources().getString(R.string.link_github);
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(repoLink));
+                        context.startActivity(intent);
+                        break;
+
                 }
 
                 navigationView.setCheckedItem(item.getItemId());

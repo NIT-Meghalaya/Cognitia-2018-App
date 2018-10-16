@@ -90,7 +90,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             CognitiaEvent event = EventsCategoryRecyclerViewAdapter.getEventsMap().get(name.getText());
 
             String text = "Check out _" + event.getName() + "_ and other awesome events.\n\n" +
-                    "*NIT Meghalaya* welcomes you to its annual technical festival:\n" +
+                    "*NIT Meghalaya* welcomes you to its annual technical festival:\n\n" +
                     mContext.getResources().getString(R.string.cognitia_emoji);
             String appLink  = "\n\nInstall the official app now:\n" +
                     "https://play.google.com/store/apps/details?id=in.cognitia.cognitia18";
