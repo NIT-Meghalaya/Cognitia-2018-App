@@ -165,7 +165,6 @@ public class WelcomeActivity extends Activity {
     }
 
     private void launchHomeScreen() {
-        preferenceManager.setIsFirstTimeLaunch(false);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
         finish();
     }
@@ -228,7 +227,7 @@ public class WelcomeActivity extends Activity {
                 enterAppButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        preferenceManager.setIsFirstTimeLaunch(false);
+                        //preferenceManager.setIsFirstTimeLaunch(false);
                         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
                     }
                 });

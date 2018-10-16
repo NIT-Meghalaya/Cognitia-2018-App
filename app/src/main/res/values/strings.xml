@@ -5,10 +5,13 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="empty_view_title_text">Geting the stuff ready !</string>
+    <string name="empty_view_title_text">Getting the stuff ready !</string>
 
     <string name="cognitia_emoji">🇨 🇴 🇬 🇳 🇮 🇹 🇮 🇦</string>
-    <string name="cognitia_emoji_1">🇨 🅾️🇬 🇳 🇮 🇹 🇮 🅰️</string>
+
+    <string name="nav_tap_target">Your gateway to the whole app\nIt'll help you navigate through</string>
+    <string name="share_tap_target">Liked an event!\nThen spread the word !</string>
+    <string name="explore_tap_target">Interested in an event?\nExplore everything about it</string>
 
     <string name="slide_1_title">TECHNICAL EVENTS</string>
     <string name="slide_1_desc">We have many great technical events like GAT, RAT, LFR, RoboRumble and many more that will surely ignite the engineer in you! Take out those Arduinos! Get building ! Compete with your friends and find out if your robot is the last one standing! </string>

@@ -17,9 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
@@ -29,9 +30,11 @@ import in.cognitia.cognitia18.EventsCategoryRecyclerViewAdapter.GridSpacingItemD
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
 
     //This will help to prevent the call to setPersistenceEnabled more than once
     private static boolean initialCall = true;
+    private PreferenceManager preferenceManager;
 
     private FirebaseDatabase database;
 
@@ -46,16 +49,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (initialCall) {
+            initialCall = false;
             //setPersistenceEnabled() needs to be called before any other use of DB
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            initialCall = false;
         }
 
         database = FirebaseDatabase.getInstance();
 
+        //Hides the status bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Toolbar toolbar = findViewById(R.id.event_toolbar);
+        toolbar = findViewById(R.id.event_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -81,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setCheckedItem(R.id.events_technical);
         navigationView.setItemIconTintList(null);
         navigationView.inflateMenu(R.menu.menu_nav_extra);
+
+        preferenceManager = new PreferenceManager(this);
+
+        /*if (preferenceManager.isFirstTimeLaunch()) {
+            createTapTargetSequence();
+        }*/
 
         //The recycler views are displayed and hidden on the basis of the option selected
         RecyclerView technicalEventsRV = findViewById(R.id.event_technical_rv);
@@ -110,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView gamingEventsRV = findViewById(R.id.event_gaming);
         adapterOthers = new EventsCategoryRecyclerViewAdapter(getGamingEventsData(), this);
         setUpRecyclerView(gamingEventsRV, adapterOthers);
-
-        ImageView imageView = findViewById(R.id.event_image);
 
         drawerLayout = findViewById(R.id.event_drawer_layout);
         NavigationViewHelper navHelper = new NavigationViewHelper(NavigationViewHelper.MAIN_ACTIVITY,
@@ -241,5 +249,15 @@ public class MainActivity extends AppCompatActivity {
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    private void createTapTargetSequence() {
+        //preferenceManager.setIsFirstTimeLaunch(false);
+        TapTargetSequence sequence = new TapTargetSequence(this)
+            .targets(
+                    // This tap target will target the back button, we just need to pass its containing toolbar
+                    TapTarget.forToolbarNavigationIcon(toolbar, "This is the back button").id(1)
+            );
+        sequence.start();
     }
 }

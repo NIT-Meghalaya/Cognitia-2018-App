@@ -1,11 +1,12 @@
 package in.cognitia.cognitia18;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,9 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.getkeepsafe.taptargetview.TapTargetView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,10 +31,32 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
 
     private Context context;
     private static Map<String, CognitiaEvent> eventMap = new HashMap<>();
+    private PreferenceManager preferenceManager;
+    private Resources resources;
+
+    //Two, one for nav tap target, and other for buttons
+    private static boolean initialCall1 = true;
+    private static boolean initialCall2 = true;
 
     EventsCategoryRecyclerViewAdapter(FirebaseRecyclerOptions<CognitiaEvent> options, Context context) {
         super(options);
         this.context = context;
+
+        resources = context.getResources();
+
+        if (initialCall1) {
+            initialCall1 = false;
+            preferenceManager = new PreferenceManager(context);
+            if (preferenceManager.isFirstTimeLaunch()) {
+                TapTargetSequence sequence = new TapTargetSequence((Activity)context)
+                        .targets(
+                                // This tap target will target the back button, we just need to pass its containing toolbar
+                                TapTarget.forToolbarNavigationIcon((Toolbar) ((Activity) context).findViewById(R.id.event_toolbar),
+                                        resources.getString(R.string.nav_tap_target)).id(1)
+                        );
+                sequence.start();
+            }
+        }
     }
 
     @Override
@@ -46,6 +72,12 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
         Glide.with(context).load(imageResId).into(holder.image);
         //Doing this to get the id of the drawable later
         holder.image.setTag(R.string.image_tag, imageResId);
+
+        if (event.getName().equals(CognitiaTeamMember.GOAL_AGAINST_TIME) && initialCall2) {
+            initialCall2 = false;
+            if (preferenceManager.isFirstTimeLaunch())
+            createTapTargetSequence();
+        }
     }
 
     @NonNull
@@ -59,6 +91,23 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
 
     public static Map<String, CognitiaEvent> getEventsMap() {
         return eventMap;
+    }
+
+
+    private void createTapTargetSequence() {
+        preferenceManager.setIsFirstTimeLaunch(false);
+
+        TapTargetView.showFor((Activity) context, TapTarget.forView(((Activity) context).findViewById(R.id.share_button),
+                resources.getString(R.string.share_tap_target)), new TapTargetView.Listener() {
+            @Override
+            public void onTargetClick(TapTargetView view) {
+                super.onTargetClick(view);
+                TapTargetView.showFor((Activity) context, TapTarget.forView(((Activity) context).findViewById(R.id.explore_button),
+                        resources.getString(R.string.explore_tap_target)));
+            }
+
+        });
+
     }
 
     /**
