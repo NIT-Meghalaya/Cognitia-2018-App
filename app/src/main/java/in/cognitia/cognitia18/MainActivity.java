@@ -176,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         //Adding a snap effect, that keeps a particular item to centre
-        SnapHelper snapHelper = new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(recyclerView);
+        //SnapHelper snapHelper = new LinearSnapHelper();
+        //snapHelper.attachToRecyclerView(recyclerView);
     }
 
     private FirebaseRecyclerOptions<CognitiaEvent> getTechnicalEventsData() {
