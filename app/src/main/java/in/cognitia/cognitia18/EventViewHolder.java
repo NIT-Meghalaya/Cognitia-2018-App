@@ -33,9 +33,13 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         shareButton = view.findViewById(R.id.share_button);
         exploreButton = view.findViewById(R.id.explore_button);
 
-        exploreButton.setOnClickListener(new CardOnClickListener());
         shareButton.setOnClickListener(new ShareOnClickListener());
 
+        CardOnClickListener cardOnClickListener = new CardOnClickListener();
+        exploreButton.setOnClickListener(cardOnClickListener);
+        name.setOnClickListener(cardOnClickListener);
+        description.setOnClickListener(cardOnClickListener);
+        image.setOnClickListener(cardOnClickListener);
     }
 
     //Adding this because it is not possible to get image ID from an ImageView
