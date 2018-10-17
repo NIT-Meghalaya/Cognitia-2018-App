@@ -7,7 +7,7 @@ android {
         applicationId "in.cognitia.cognitia18"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 3
+        versionCode 4
         versionName "cog1.4nitia"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
