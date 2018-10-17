@@ -228,7 +228,10 @@ public class WelcomeActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         //preferenceManager.setIsFirstTimeLaunch(false);
-                        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
+                        finish();
                     }
                 });
             }
