@@ -18,6 +18,8 @@ import static in.cognitia.cognitia18.CognitiaTeamMember.*;
 
 public class TeamMembersArrayInitializer {
 
+    private static ArrayList<CognitiaTeamMember> allTeamMembers = new ArrayList<>();
+
     //HashMap is needed to get the object corresponding to a particular name
 
     private static HashMap<String, ArrayList<CognitiaTeamMember>> teamMembersByCategories = new HashMap<>();
@@ -142,8 +144,17 @@ public class TeamMembersArrayInitializer {
         return arrayList;
     }
 
-    static CognitiaTeamMember getMemberByName(String name, HashMap<String, CognitiaTeamMember> teamMembers) {
-        return teamMembers.get(name);
+    static ArrayList<CognitiaTeamMember> getMembersByName(String inputName) {
+
+        ArrayList<CognitiaTeamMember> searchedMembers = new ArrayList<>();
+
+        for (CognitiaTeamMember member : allTeamMembers) {
+            if (member.getName().toLowerCase().equals(inputName.toLowerCase())) {
+                searchedMembers.add(member);
+            }
+        }
+
+        return searchedMembers;
     }
 
     private static void createTeamsArrayLists() {
@@ -223,6 +234,8 @@ public class TeamMembersArrayInitializer {
 
     private static void addMember(int nameId, int teamId, int postId, int imageId, int emailIdRes) {
         CognitiaTeamMember member = new CognitiaTeamMember(nameId, teamId, postId, imageId, emailIdRes);
+
+        allTeamMembers.add(member);
 
         switch (teamId) {
             case team_civil_departmental:
@@ -468,7 +481,7 @@ public class TeamMembersArrayInitializer {
         addMember(amandeep, team_e_cell, post_co_coordinator, drawable.amandeep, email_amandeep);
         addMember(ngamla, team_e_cell, post_co_coordinator, drawable.ngamla, email_ngamla);
 
-        addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
+        //addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
         addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
         addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
 

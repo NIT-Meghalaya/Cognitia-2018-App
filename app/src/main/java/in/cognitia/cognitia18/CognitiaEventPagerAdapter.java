@@ -12,16 +12,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 
 /**
@@ -61,7 +56,7 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
             NestedScrollView scrollView = layout.findViewById(R.id.event_description_nested_scroll_view);
             scrollView.setVisibility(View.GONE);
 
-            recyclerView.setAdapter(new CognitiaEventDetailsTeamAdapter(eventBundle));
+            recyclerView.setAdapter(new CognitiaEventDetailsTeamAdapter(context, eventBundle));
             recyclerView.addItemDecoration(new EventsCategoryRecyclerViewAdapter.GridSpacingItemDecoration(1, dpToPx(20), true));
         } else {
             switch (position) {
@@ -118,64 +113,6 @@ public class CognitiaEventPagerAdapter extends PagerAdapter {
                 return CognitiaEvent.TEAM;
         }
         return super.getPageTitle(position);
-    }
-
-
-    private class CognitiaEventDetailsTeamAdapter extends RecyclerView.Adapter<
-            CognitiaEventDetailsTeamAdapter.MyEventDetailsTeamHolder> {
-
-        private Bundle eventBundle;
-        private CognitiaTeamMember[] members;
-
-        class MyEventDetailsTeamHolder extends RecyclerView.ViewHolder {
-
-            TextView memberName, memberPost;
-            ImageView memberImage;
-
-            MyEventDetailsTeamHolder(View view) {
-                super(view);
-                memberName = view.findViewById(R.id.member_name);
-                memberPost = view.findViewById(R.id.member_post);
-                memberImage = view.findViewById(R.id.member_image);
-            }
-        }
-
-        public CognitiaEventDetailsTeamAdapter(Bundle cognitiaEventBundle) {
-            eventBundle = cognitiaEventBundle;
-
-            String eventName;
-            if (eventBundle.getString(EventDetailActivity.PARENT) == null)
-                eventName = eventBundle.getString(EventDetailActivity.EVENT_NAME);
-            else
-                eventName = eventBundle.getString(EventDetailActivity.PARENT);
-            members = TeamMembersArrayInitializer.getTeamMembersSortedArray(eventName);
-        }
-
-        @NonNull
-        @Override
-        public MyEventDetailsTeamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.event_details_team_members, parent, false);
-
-            return new MyEventDetailsTeamHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull MyEventDetailsTeamHolder holder, int pos) {
-            CognitiaTeamMember member = members[pos];
-
-            holder.memberName.setText(members[pos].getName());
-            holder.memberPost.setText(members[pos].getPost());
-            Glide.with(context)
-                    .load(member.getImageId())
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(holder.memberImage);
-        }
-
-        @Override
-        public int getItemCount() {
-            return members.length;
-        }
     }
 
     /**
