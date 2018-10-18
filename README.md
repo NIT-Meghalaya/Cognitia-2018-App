@@ -1,2 +1,1 @@
-# Cognitia-2018-App
-The official Android app for Cognitia 2018, the Annual Technical Fest of  NIT Meghalaya
+## The site for the official app of Cognitia 2018
