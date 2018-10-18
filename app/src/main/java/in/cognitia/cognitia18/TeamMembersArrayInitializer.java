@@ -481,7 +481,7 @@ public class TeamMembersArrayInitializer {
         addMember(amandeep, team_e_cell, post_co_coordinator, drawable.amandeep, email_amandeep);
         addMember(ngamla, team_e_cell, post_co_coordinator, drawable.ngamla, email_ngamla);
 
-        addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
+        //addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
         addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
         addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
 
