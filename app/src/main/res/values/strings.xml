@@ -5,6 +5,8 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
+    <string name="search_hint">Search members…</string>
+
     <string name="empty_view_title_text">Getting the stuff ready !</string>
 
     <string name="cognitia_emoji">🇨 🇴 🇬 🇳 🇮 🇹 🇮 🇦</string>
