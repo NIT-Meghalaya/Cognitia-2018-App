@@ -394,7 +394,8 @@ public class TeamMembersArrayInitializer {
 
         addMember(skhemboklang, team_robo_rumble, post_head, drawable.skhemboklang, email_skhemboklang);
         addMember(dennybert, team_robo_rumble, post_head, drawable.dennybert, email_dennybert);
-        addMember(abhay, team_robo_rumble, post_coordinator, drawable.abhay, email_abhay);
+        //addMember(abhay, team_robo_rumble, post_coordinator, drawable.abhay, email_abhay);
+        addMember(nitesh_kumar, team_robo_rumble, post_coordinator, drawable.nitesh_kumar, email_nitesh_kumar);
         addMember(kishan_chaurasia, team_robo_rumble, post_coordinator, drawable.kishan_chaurasia, email_kishan_chaurasia);
 
         addMember(ranjan_kumar, team_robo_bridge, post_head, drawable.ranjan_kumar, email_ranjan_kumar);
@@ -469,6 +470,7 @@ public class TeamMembersArrayInitializer {
         addMember(leon, secretary_and_members, general_secretary, drawable.leon, email_leon);
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
 
+        addMember(asutosh_b,team_sponsorship,post_coordinator,drawable.asutosh,asutosh_b);
         addMember(sarthak, team_sponsorship, post_head, drawable.sarthak, email_sarthak);
         addMember(shakti, team_sponsorship, post_coordinator, drawable.shakti, email_shakti);
         addMember(priyesh, team_sponsorship, post_co_coordinator, drawable.priyesh, email_priyesh);
