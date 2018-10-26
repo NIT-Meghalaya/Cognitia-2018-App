@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import androidx.palette.graphics.Palette;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -35,6 +37,7 @@ public class EventDetailActivity extends AppCompatActivity {
     private int imageResId;
     private CognitiaEventPagerAdapter adapter;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,14 @@ public class EventDetailActivity extends AppCompatActivity {
         imageResId = intent.getIntExtra(IMAGE_ID, 0);
         imageView = findViewById(R.id.description_image);
         Glide.with(this).load(imageResId).into(imageView);
+
+        fab = findViewById(R.id.event_detail_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         setAccentColors();
 
@@ -99,6 +110,7 @@ public class EventDetailActivity extends AppCompatActivity {
                     int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimary);
                     collapsingToolbarLayout.setContentScrimColor(vibrantColor);
                     collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
+                    fab.setBackgroundColor(vibrantColor);
                 }
             });
 

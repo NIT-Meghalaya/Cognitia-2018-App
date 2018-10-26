@@ -63,6 +63,16 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/facebook"
+        app:fabSize="normal"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_behavior="in.cognitia.cognitia18.Util.ScrollAwareFABBehavior"
+        android:id="@+id/event_detail_fab"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
