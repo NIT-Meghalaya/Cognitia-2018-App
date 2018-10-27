@@ -5,6 +5,9 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
+    <string name="form_short_url">https://goo.gl/forms/0V7HGQ8Gw3mDDvrk2</string>
+    <string name="form_long_url">https://docs.google.com/forms/d/e/1FAIpQLSf7u_2Wwqfh0FNQLBF9A5QM2WSNYfJ6QZ8Jmw-4zpCWq_9LFQ/viewform</string>
+
     <string name="search_hint">Search members…</string>
 
     <string name="empty_view_title_text">Getting the stuff ready !</string>
@@ -150,7 +153,7 @@
     <string name="email_ketan">ketananand897@gmail.com</string>
 
     <string name="ashutosh">Ashutosh Kumar</string>
-    <string name="email_ashutosh">ashutosh2700@gmail.com</string>
+    <string name="email_ashutosh">ashutosh2700c@gmail.com</string>
 
     <string name="alphin">Alphin Roy</string>
     <string name="email_alphin">alphinroy88@gmail.com</string>

@@ -81,7 +81,6 @@ public class EventsCategoryRecyclerViewAdapter extends FirebaseRecyclerAdapter<C
     }
 
     @NonNull
-    @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview, parent, false);

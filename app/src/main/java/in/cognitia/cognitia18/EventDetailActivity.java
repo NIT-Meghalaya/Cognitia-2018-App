@@ -1,6 +1,7 @@
 package in.cognitia.cognitia18;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -10,6 +11,8 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.palette.graphics.Palette;
 import androidx.appcompat.widget.Toolbar;
@@ -54,7 +57,7 @@ public class EventDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         eventBundle = intent.getExtras();
 
         CharSequence eventName = eventBundle.getString(EVENT_NAME);
@@ -66,12 +69,21 @@ public class EventDetailActivity extends AppCompatActivity {
         Glide.with(this).load(imageResId).into(imageView);
 
         fab = findViewById(R.id.event_detail_fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        if (eventBundle.getString(PARENT) != null &&
+                eventBundle.getString(PARENT).equals(getResources().getString(R.string.departmental))) {
+                ((View) fab).setVisibility(View.GONE);
+        } else {
+            ((View) fab).setVisibility(View.VISIBLE);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                /*Intent fabIntent = new Intent(EventDetailActivity.this, FormViewActivity.class);
+                startActivity(fabIntent);*/
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.form_long_url)));
+                    startActivity(intent);
+                }
+            });
+        }
 
         setAccentColors();
 
@@ -110,7 +122,7 @@ public class EventDetailActivity extends AppCompatActivity {
                     int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimary);
                     collapsingToolbarLayout.setContentScrimColor(vibrantColor);
                     collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
-                    fab.setBackgroundColor(vibrantColor);
+                    fab.setBackgroundTintList(ColorStateList.valueOf(vibrantDarkColor));
                 }
             });
 
