@@ -69,21 +69,13 @@ public class EventDetailActivity extends AppCompatActivity {
         Glide.with(this).load(imageResId).into(imageView);
 
         fab = findViewById(R.id.event_detail_fab);
-        if (eventBundle.getString(PARENT) != null &&
-                eventBundle.getString(PARENT).equals(getResources().getString(R.string.departmental))) {
-                ((View) fab).setVisibility(View.GONE);
-        } else {
-            ((View) fab).setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                /*Intent fabIntent = new Intent(EventDetailActivity.this, FormViewActivity.class);
-                startActivity(fabIntent);*/
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.form_long_url)));
-                    startActivity(intent);
-                }
-            });
-        }
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.form_long_url)));
+                startActivity(intent);
+            }
+        });
 
         setAccentColors();
 
