@@ -7,6 +7,7 @@ import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,9 +80,13 @@ public class TeamGalleryRecyclerViewAdapter extends RecyclerView.Adapter<
 
     private void generateRandomPositions() {
         Random random = new Random(); //Returns an integer between 0 to arrayLength - 1
+        boolean matchFound = false;   //Used to make match between two persons
+        String ashutosh = context.getResources().getString(R.string.ashutosh);
+        String allu = context.getResources().getString(R.string.allu);
 
         int maxSize = teamMembers.size();
         int position;
+
         for (int i = 0; i < maxSize; i++) {
             //Check that a unique number is obtained every time
             do {
@@ -89,6 +94,41 @@ public class TeamGalleryRecyclerViewAdapter extends RecyclerView.Adapter<
             } while (randomPositionChecker[position]);
             randomPositionChecker[position] = true;
             randomPositions[i] = position;
+
+            //Match making logic
+            if (!matchFound && teamMembers.get(position).getName().equals(ashutosh)) {
+                for (int j = 0; j < maxSize; j++) {
+                    if (teamMembers.get(j).getName().equals(allu)) {
+                        randomPositionChecker[j] = true;
+                        // If first person is at an even position,
+                        // keep the second person to its previous position
+                        if (i%2 != 0) {
+                            int temp = randomPositions[i-1];
+                            randomPositions[i-1] = j;
+                            randomPositions[++i] = temp;
+                        } else
+                            //If first person is at odd position, place second person after it
+                            randomPositions[++i] = j;
+                        matchFound = true;
+                    }
+                }
+            } else if (!matchFound && teamMembers.get(position).getName().equals(allu)) {
+                for (int j = 0; j < maxSize; j++) {
+                    if (teamMembers.get(j).getName().equals(ashutosh)) {
+                        randomPositionChecker[j] = true;
+                        //If first person is at an even position,
+                        // keep the second person to its previous position
+                        if (i%2 != 0) {
+                            int temp = randomPositions[i-1];
+                            randomPositions[i-1] = j;
+                            randomPositions[++i] = temp;
+                        } else
+                            //If first person is at odd position, place second person after it
+                            randomPositions[++i] = j;
+                        matchFound = true;
+                    }
+                }
+            }
         }
     }
 

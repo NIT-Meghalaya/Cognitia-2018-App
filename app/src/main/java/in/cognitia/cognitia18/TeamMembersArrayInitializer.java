@@ -346,8 +346,8 @@ public class TeamMembersArrayInitializer {
         addMember(rafad, team_event_management, post_co_coordinator, drawable.rafad, email_rafad);
 
         addMember(shivam_prasad, team_cse_departmental, post_head, drawable.shivam_prasad, email_shivam_prasad);
-        addMember(ketan, team_cse_departmental, post_head, drawable.ketan_anand, email_laribok);
-        addMember(ashutosh, team_cse_departmental, post_coordinator, drawable.ashutosh, email_ketan);
+        addMember(ketan, team_cse_departmental, post_head, drawable.ketan_anand, email_ketan);
+        addMember(ashutosh, team_cse_departmental, post_coordinator, drawable.ashutosh, email_ashutosh);
         addMember(alphin, team_cse_departmental, post_coordinator, drawable.alphin, email_alphin);
 
         addMember(shivam_kumar, team_civil_departmental, post_head, drawable.shivam_kumar, email_shivam_kumar);
