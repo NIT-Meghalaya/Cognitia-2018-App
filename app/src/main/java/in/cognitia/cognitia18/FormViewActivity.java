@@ -51,11 +51,6 @@ public class FormViewActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
-        }
-
-        @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             String formLongUrl = getResources().getString(R.string.form_long_url);
             String formShortUrl = getResources().getString(R.string.form_short_url);
