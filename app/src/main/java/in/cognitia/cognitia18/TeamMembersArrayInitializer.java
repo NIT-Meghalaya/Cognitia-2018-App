@@ -488,6 +488,7 @@ public class TeamMembersArrayInitializer {
         addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
         addMember(smart_comp,sponsors,empty_string,drawable.ms_smart_computer,empty_string);
         addMember(chicken_wagon,sponsors,empty_string,drawable.the_chicken_wagon,empty_string);
+        addMember(srd_food_court,sponsors,empty_string,drawable.srd_food_court,empty_string);
         /*
         co_coordinators
         */
