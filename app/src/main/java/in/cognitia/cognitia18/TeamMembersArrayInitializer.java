@@ -484,7 +484,8 @@ public class TeamMembersArrayInitializer {
         addMember(ngamla, team_e_cell, post_co_coordinator, drawable.ngamla, email_ngamla);
 
         //addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
-        addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
+        //addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
+        addMember(pizza_hut, sponsors, empty_string, drawable.pizza_hut, empty_string);
         addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
         addMember(smart_comp,sponsors,smart_comp_contact,drawable.ms_smart_computer,empty_string);
         addMember(chicken_wagon,sponsors,empty_string,drawable.the_chicken_wagon,empty_string);
