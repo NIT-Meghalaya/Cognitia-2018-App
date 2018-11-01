@@ -46,6 +46,18 @@
                     android:layout_gravity="top"
                     app:titleTextAppearance="@style/TitleBarTextAppearance"
                     android:id="@+id/event_toolbar">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Schedule"
+                        android:textColor="@android:color/white"
+                        android:layout_gravity="end"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/worksans_semibold"
+                        android:id="@+id/schedule_button"/>
                 </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>

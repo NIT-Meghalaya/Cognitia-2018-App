@@ -1,6 +1,10 @@
 package in.cognitia.cognitia18;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import com.google.android.material.navigation.NavigationView;
@@ -12,9 +16,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -89,6 +97,16 @@ public class MainActivity extends AppCompatActivity {
         /*if (preferenceManager.isFirstTimeLaunch()) {
             createTapTargetSequence();
         }*/
+
+        Button scheduleButton = findViewById(R.id.schedule_button);
+        scheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("Started", "Download started");
+                startDownload();
+                Log.v("Stopped", "Download stopped");
+            }
+        });
 
         //The recycler views are displayed and hidden on the basis of the option selected
         RecyclerView technicalEventsRV = findViewById(R.id.event_technical_rv);
@@ -166,6 +184,18 @@ public class MainActivity extends AppCompatActivity {
         adapterECEDepartmental.stopListening();
         adapterMEDepartmental.stopListening();
         adapterOthers.stopListening();
+    }
+
+    /**
+    * Start Download
+    */
+    public void startDownload() {
+        DownloadManager mManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        DownloadManager.Request mRqRequest = new DownloadManager.Request(
+                Uri.parse("http://cognitia.nitmeghalaya.in/img/SCHEDULE.pdf"));
+        mRqRequest.setDescription("Schedule");
+//  mRqRequest.setDestinationUri(Uri.parse("give your local path"));
+        long idDownLoad=mManager.enqueue(mRqRequest);
     }
 
     private void setUpRecyclerView(RecyclerView recyclerView, EventsCategoryRecyclerViewAdapter adapter) {
