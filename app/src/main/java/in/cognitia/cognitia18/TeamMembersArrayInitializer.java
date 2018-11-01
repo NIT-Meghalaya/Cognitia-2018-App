@@ -470,7 +470,7 @@ public class TeamMembersArrayInitializer {
         addMember(leon, secretary_and_members, general_secretary, drawable.leon, email_leon);
         addMember(khrawboklang, secretary_and_members, general_secretary_member, drawable.khrawboklang, email_khrawboklang);
 
-        addMember(asutosh_b,team_sponsorship,post_coordinator,drawable.asutosh,asutosh_b);
+        addMember(asutosh_b,team_sponsorship,post_coordinator,drawable.asutosh,email_asutosh_b);
         addMember(sarthak, team_sponsorship, post_head, drawable.sarthak, email_sarthak);
         addMember(shakti, team_sponsorship, post_coordinator, drawable.shakti, email_shakti);
         addMember(priyesh, team_sponsorship, post_co_coordinator, drawable.priyesh, email_priyesh);
@@ -486,9 +486,9 @@ public class TeamMembersArrayInitializer {
         //addMember(kfc, sponsors, empty_string, drawable.kfc, empty_string);
         addMember(dominos, sponsors, empty_string, drawable.dominos, empty_string);
         addMember(mcab, sponsors, empty_string, drawable.mcab, empty_string);
-        addMember(smart_comp,sponsors,empty_string,drawable.ms_smart_computer,empty_string);
+        addMember(smart_comp,sponsors,smart_comp_contact,drawable.ms_smart_computer,empty_string);
         addMember(chicken_wagon,sponsors,empty_string,drawable.the_chicken_wagon,empty_string);
-        addMember(srd_food_court,sponsors,empty_string,drawable.srd_food_court,empty_string);
+        //addMember(srd_food_court,sponsors,empty_string,drawable.srd_food_court,empty_string);
         /*
         co_coordinators
         */
