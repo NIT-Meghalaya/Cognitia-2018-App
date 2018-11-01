@@ -2,17 +2,11 @@ package in.cognitia.cognitia18;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.res.Resources;
-import android.net.Uri;
-import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ActionMenuView;
 
 public class FormViewActivity extends AppCompatActivity {
 
@@ -29,7 +23,7 @@ public class FormViewActivity extends AppCompatActivity {
         webView.getSettings().setUseWideViewPort(true);
         webView.setWebViewClient(new MyWebViewClient(this));
         webView.requestFocus(View.FOCUS_DOWN);
-        webView.loadUrl(getResources().getString(R.string.form_long_url));
+        webView.loadUrl(getResources().getString(R.string.form_long_robotics));
     }
 
     @Override
@@ -52,8 +46,8 @@ public class FormViewActivity extends AppCompatActivity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            String formLongUrl = getResources().getString(R.string.form_long_url);
-            String formShortUrl = getResources().getString(R.string.form_short_url);
+            String formLongUrl = getResources().getString(R.string.form_long_robotics);
+            String formShortUrl = getResources().getString(R.string.form_short_robotics);
 
             view.loadUrl(url);
 

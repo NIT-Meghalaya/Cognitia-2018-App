@@ -104,9 +104,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v("Started", "Download started");
-                Toast.makeText(MainActivity.this, "Downloading schedule", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Downloading...", Toast.LENGTH_SHORT).show();
                 startDownload();
-                Toast.makeText(MainActivity.this, "Download complete!", Toast.LENGTH_SHORT).show();
                 Log.v("Stopped", "Download stopped");
             }
         });

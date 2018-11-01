@@ -2,6 +2,7 @@ package in.cognitia.cognitia18;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -22,6 +23,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+
+import static in.cognitia.cognitia18.CognitiaTeamMember.*;
 
 public class EventDetailActivity extends AppCompatActivity {
 
@@ -60,7 +63,7 @@ public class EventDetailActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         eventBundle = intent.getExtras();
 
-        CharSequence eventName = eventBundle.getString(EVENT_NAME);
+        final CharSequence eventName = eventBundle.getString(EVENT_NAME);
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(eventName);
 
@@ -72,7 +75,28 @@ public class EventDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.form_long_url)));
+
+                String parent = eventBundle.getString(PARENT);
+
+                Resources res = getResources();
+                String formUrl = res.getString(R.string.form_long_robotics);
+
+                if (parent != null) {
+                    if (parent.equals(CE_DEPARTMENTAL))
+                        formUrl = res.getString(R.string.form_ce);
+                    else if (parent.equals(CSE_DEPARTMENTAL))
+                        formUrl = res.getString(R.string.form_cse);
+                    else if (parent.equals(EEE_DEPARTMENTAL))
+                        formUrl = res.getString(R.string.form_eee);
+                    else if (parent.equals(ECE_DEPARTMENTAL))
+                        formUrl = res.getString(R.string.form_ece);
+                    else if (parent.equals(ME_DEPARTMENTAL))
+                        formUrl = res.getString(R.string.form_me);
+                    else if (parent.equals(GAMING))
+                        formUrl = res.getString(R.string.form_gaming);
+                }
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(formUrl));
                 startActivity(intent);
             }
         });
@@ -114,7 +138,7 @@ public class EventDetailActivity extends AppCompatActivity {
                     int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimary);
                     collapsingToolbarLayout.setContentScrimColor(vibrantColor);
                     collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
-                    fab.setBackgroundTintList(ColorStateList.valueOf(vibrantDarkColor));
+                    fab.setBackgroundTintList(ColorStateList.valueOf(vibrantColor));
                 }
             });
 

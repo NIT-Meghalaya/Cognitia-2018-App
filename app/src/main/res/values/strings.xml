@@ -5,9 +5,14 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="form_short_url">https://goo.gl/forms/0V7HGQ8Gw3mDDvrk2</string>
-    <string name="form_long_url">https://docs.google.com/forms/d/e/1FAIpQLSf7u_2Wwqfh0FNQLBF9A5QM2WSNYfJ6QZ8Jmw-4zpCWq_9LFQ/viewform</string>
-
+    <string name="form_short_robotics">https://goo.gl/forms/0V7HGQ8Gw3mDDvrk2</string>
+    <string name="form_long_robotics">https://docs.google.com/forms/d/e/1FAIpQLSf7u_2Wwqfh0FNQLBF9A5QM2WSNYfJ6QZ8Jmw-4zpCWq_9LFQ/viewform</string>
+    <string name="form_ce">https://goo.gl/forms/Hrp9bbeJQxaUvPrK2?fbclid=IwAR1c2Y-6eAYmkEJ5cfB2-1CXx6RRnwf_JOP1cnwPgDYodPWwV_WG5IGD2Dg</string>
+    <string name="form_cse"><![CDATA[https://docs.google.com/forms/d/e/1FAIpQLSe-nR8FBUfnKiB5JSQI0l31pIkNNXDnvspdtx25DdQo4oaXJw/viewform?vc=0&c=0&w=1&usp=mail_form_link&fbclid=IwAR3QyW2xd1v8tR_uX4DbcrddecBq8wnLteVmvd8UuY6D—JqtkxkkUYRmu4]]></string>
+    <string name="form_eee">https://docs.google.com/forms/d/e/1FAIpQLSf-_8O1sDZYTMRKHXPtgOynx6__rdfrpk_UVBXkfoqXN_tWIg/viewform?c=0&amp;w=1&amp;fbclid=IwAR1I03hQg6xpXCG_4zFz6CaiD9WeAErDMiZAkvlSDv1AATY-6AesCPubIgo</string>
+    <string name="form_ece">https://docs.google.com/forms/d/e/1FAIpQLSdgiD1yujxUa-fdtVkps1gNCVMjgtdb0WFw-SY_V3S57n0bUw/viewform?fbclid=IwAR2fTmb7Crkz3NwP53T9M3om5Js3SONUdL-PAZx9naQD_U4xYv4ApzarZwM</string>
+    <string name="form_me">https://docs.google.com/forms/d/e/1FAIpQLSdrQ_6XSL1RYUS_VgP3YvpWG39xHrG9mnFg-6yBQAaJZLOEVA/viewform?usp=fb_send_fb&amp;fbclid=IwAR1EV8O3Qtu6rKywsTeVtG-fLL0lu6YwuL6QG2d9_M_Qj5WHslSRhGzPm0c</string>
+    <string name="form_gaming">https://docs.google.com/forms/d/e/1FAIpQLSec8qbXlwykqU_VQur2DZLWSAw4n8iFjWZdccmaf6mmpvyYvg/viewform?usp=sf_link&amp;fbclid=IwAR0Fhyap0r1VROJ4eI4RJH1TcWNJBcrB-HiLJrTdUU9K5m3CJ0K-DDhPVE8</string>
     <string name="search_hint">Search members…</string>
 
     <string name="empty_view_title_text">Getting the stuff ready !</string>
