@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -103,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v("Started", "Download started");
+                Toast.makeText(MainActivity.this, "Downloading schedule", Toast.LENGTH_SHORT).show();
                 startDownload();
+                Toast.makeText(MainActivity.this, "Download complete!", Toast.LENGTH_SHORT).show();
                 Log.v("Stopped", "Download stopped");
             }
         });
