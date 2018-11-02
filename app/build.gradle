@@ -8,8 +8,8 @@ android {
         applicationId "in.cognitia.cognitia18"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 9
-        versionName "18.9"
+        versionCode 10
+        versionName "18.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
