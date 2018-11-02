@@ -1,13 +1,20 @@
 package in.cognitia.cognitia18;
 
+import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBar;
@@ -104,8 +111,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v("Started", "Download started");
-                Toast.makeText(MainActivity.this, "Downloading...", Toast.LENGTH_SHORT).show();
-                startDownload();
+                checkPermissions();
+                if (checkPermissions()) {
+                    Toast.makeText(MainActivity.this, "Downloading...", Toast.LENGTH_SHORT).show();
+                    startDownload();
+                }
                 Log.v("Stopped", "Download stopped");
             }
         });
@@ -188,6 +198,16 @@ public class MainActivity extends AppCompatActivity {
         adapterOthers.stopListening();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.v("Permission granted", " ");
+            }
+        }
+    }
+
     /**
     * Start Download
     */
@@ -196,8 +216,19 @@ public class MainActivity extends AppCompatActivity {
         DownloadManager.Request mRqRequest = new DownloadManager.Request(
                 Uri.parse("http://cognitia.nitmeghalaya.in/img/SCHEDULE.pdf"));
         mRqRequest.setDescription("Schedule");
-//  mRqRequest.setDestinationUri(Uri.parse("give your local path"));
+        mRqRequest.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Cognitia 2018 Schedule.pdf");
         long idDownLoad=mManager.enqueue(mRqRequest);
+    }
+
+    private boolean checkPermissions () {
+        int result;
+        String[] writePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        result = ContextCompat.checkSelfPermission(MainActivity.this, writePermission[0]);
+        if (result != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, writePermission, 100);
+            return false;
+        }
+        return true;
     }
 
     private void setUpRecyclerView(RecyclerView recyclerView, EventsCategoryRecyclerViewAdapter adapter) {
