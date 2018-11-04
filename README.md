@@ -1,5 +1,4 @@
-![Alt](/app/src/main/ic_launcher-web.png "Cognitia 2018 App")
-# Cognitia 2018
+# Cognitia 2018 ![Alt](https://github.com/Devansh-Maurya/Cognitia-2018-App/blob/master/app/src/main/ic_launcher-web.png "Cognitia 2018 App")
 
 **Cognitia** is the annual technical festival of **National Institute of Technology , Meghalaya**.
 Cognitia literally meaning the **'I think therefore I am'** is a celebration of the creative spirit and youthful energy inherent in the college students.
@@ -14,7 +13,6 @@ This is the repository for the **official app of Cognitia 2018**
 [![Alt](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/Devansh-Maurya/Cognitia-2018-App/blob/master/LICENSE "License")
 [![Alt](https://img.shields.io/badge/rating-4.96%2F5%20(51)-ff69b4.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
 [![Alt](https://img.shields.io/badge/App%20size-10.5%20MB-orange.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
-
 
 ## Features
 The app includes the following features:
