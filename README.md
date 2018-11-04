@@ -5,6 +5,16 @@ Cognitia literally meaning the **'I think therefore I am'** is a celebration of 
 
 This is the repository for the **official app of Cognitia 2018**
 
+[![Alt](https://img.shields.io/badge/downloads-200%2B-green.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
+[![Alt](https://img.shields.io/badge/Android-5.0%2B-red.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
+[![Alt](https://img.shields.io/badge/Cognitia-2018-brightgreen.svg)](http://cognitia.nitmeghalaya.in/ "Cognitia 2018")
+[![Alt](https://img.shields.io/badge/NIT-Meghalaya-blue.svg)](http://2018nitm.nitmeghalaya.in/ "NIT Meghalaya")
+[![Alt](https://img.shields.io/badge/using-AndroidX-brightgreen.svg)](#)
+[![Alt](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/Devansh-Maurya/Cognitia-2018-App/blob/master/LICENSE "License")
+[![Alt](https://img.shields.io/badge/rating-4.96%2F5%20(51)-ff69b4.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
+[![Alt](https://img.shields.io/badge/App%20size-10.5%20MB-orange.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
+
+
 ## Features
 The app includes the following features:
 
@@ -23,6 +33,7 @@ The app includes the following features:
  The app makes use of the following technologies:
  
  * App makes use of the new and improved `AndroidX` libraries in place of the `Support Libraries`
+ * Uses `Android App Bundles` that helps in reducing APK size on Play Store by dynamically generating APKs as per the device
  * Firebase Realtime Database
  * Firebase UI (Uses Firebase Recycler Adapter)
  * Glide (for loading images)
