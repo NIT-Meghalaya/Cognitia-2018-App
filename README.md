@@ -1,4 +1,5 @@
-# Cognitia 2018 ![Alt](/app/src/main/ic_launcher-web.png "Cognitia 2018 App")
+![Alt](/app/src/main/ic_launcher-web.png "Cognitia 2018 App")
+# Cognitia 2018
 
 **Cognitia** is the annual technical festival of **National Institute of Technology , Meghalaya**.
 Cognitia literally meaning the **'I think therefore I am'** is a celebration of the creative spirit and youthful energy inherent in the college students.
@@ -29,7 +30,7 @@ The app includes the following features:
 * A navigation drawer that facilitates navigating through the app.
 * Links to other social media accounts of Cognitia
  
- ## Development
+## Development
  The app makes use of the following technologies:
  
  * App makes use of the new and improved `AndroidX` libraries in place of the `Support Libraries`
@@ -41,7 +42,7 @@ The app includes the following features:
  * Lottie (for displaying animations in intro slider)
  * And many others..., some of which are mentioned below.
  
- ## Thanks
+## Thanks
  
  A big thanks goes to the developers of the following libraries. The app wouldn't have been possible:
  
