@@ -5,6 +5,8 @@ Cognitia literally meaning the **'I think therefore I am'** is a celebration of 
 
 This is the repository for the **official app of Cognitia 2018**
 
+[**Download :** ](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
+
 [![Alt](https://img.shields.io/badge/downloads-200%2B-green.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
 [![Alt](https://img.shields.io/badge/Android-5.0%2B-red.svg)](https://play.google.com/store/apps/details?id=in.cognitia.cognitia18 "Cognitia 2018 | App on Play Store")
 [![Alt](https://img.shields.io/badge/Cognitia-2018-brightgreen.svg)](http://cognitia.nitmeghalaya.in/ "Cognitia 2018")
