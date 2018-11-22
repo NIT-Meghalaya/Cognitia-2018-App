@@ -1,4 +1,6 @@
-# Cognitia 2018 ![Alt](https://github.com/Devansh-Maurya/Cognitia-2018-App/blob/master/app/src/main/ic_launcher-web.png "Cognitia 2018 App")
+![Alt](logo.png "Cognitia 2018 App")
+
+ <h1 align=center>Cognitia 2018</h1>
 
 **Cognitia** is the annual technical festival of **National Institute of Technology , Meghalaya**.
 Cognitia literally meaning the **'I think therefore I am'** is a celebration of the creative spirit and youthful energy inherent in the college students.
